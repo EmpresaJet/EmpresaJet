@@ -51,12 +51,19 @@ header{
     position: relative;
     transition: 0.3s;
 }
-.menu-lista li:hover{
+
+.menu-lista li a{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.menu-lista li a:hover{
     color: yellow;
     transition: 0.3s;
 }
 /*hover para aparecer a linha do link*/
-.menu-lista li:after{
+.menu-lista li a:after{
     content: "";
     position: absolute;
     background-color: yellow;
@@ -66,19 +73,19 @@ header{
     bottom: -6px;
     transition: 0.3s;
 }
-.menu-lista li:hover:after{
+.menu-lista li a:hover:after{
     width: 100%;
 }   
 /*final do hover para aparecer a linha do link*/
 
 /*hover no ícone svg integrado com o Perfil*/
 .menu-lista .icon{
-    height: 25px;
+    height: 23px;
     margin-left: 1vh;
     fill: white;
     transition: 0.3s;
 }
-.menu-lista li:hover svg{
+.menu-lista li a:hover svg{
     color: yellow;
     fill: yellow;
     transition: 0.3s;
