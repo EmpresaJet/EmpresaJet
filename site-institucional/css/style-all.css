@@ -102,6 +102,9 @@ a{
 }
 
 /* RODAPÉ (FOOTER)*/
+footer{
+    margin-top: 30vh;
+}
 .caixa-total{ /* div que cobre tudo */
     background-color: #00194C;
 }
