@@ -1,0 +1,83 @@
+
+/* SECTION 1*/
+.container1{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 75vh;
+}
+.div-titulo h1{ /* TITULO NOSSOS SERVIÇOS*/
+    font-size: 70px;
+    border-bottom: 3px solid #00194C;
+    margin-left: 25vh;
+    font-weight: 800;
+}
+.div-faixa{ /* FAIXA GRUDADA NA DIREITA */
+    background-color: #EAB200;
+    height: 100%;
+    width: 50px;
+}
+.div-img{ /* DIV DA IMAGEM */
+    background-image: url(../assets/Imagem_Nossos_Servicos_Azul.jpg);
+    height: 484px;
+    width: 658px;
+    border-radius: 65px;
+    background-size: cover;
+}
+/* FINAL SECTION 1*/
+
+/* SECTION 2*/
+.container2{
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+}
+.faixa-amarela{ /* FAIXA GRUDADA NA ESQUERDA */
+    background-color: #EAB200;
+    height: 100%;
+    width: 50px;
+}
+.div-azul{ /* CAIXA AZUL QUE CONTÉM AS OUTRAS DIVS */
+    background-color: #00194C;
+    height: 445px;
+    width: 1160px;
+    border-radius: 35px;
+}
+.paragrafo{ /* PRIMEIRA DIV DA CAIXA AZUL */
+    margin: 5vh;
+    margin-right: 5vh;
+    color: white;
+    font-weight: 600;
+    font-size: 25px;
+}
+.contato{ /* SEGUNDA DIV DA CAIXA AZUL */
+    margin: 5vh;
+    margin-right: 8vh;
+    color: white;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+.icones-contato{
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+.telefone-contato{
+    display: flex;
+    align-items: center;
+    gap: 2vh;
+}
+.email-contato{
+    display: flex;
+    align-items: center;
+    gap: 2vh;
+}
+.icones-img{
+    height: 50px;
+}
+/* FIM DA SECTION 2 */ 

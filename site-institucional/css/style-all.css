@@ -19,6 +19,9 @@ header{
     margin-right: 5vh;
     padding: 1vh 0;
 }
+a{
+    text-decoration: none;
+}
 .logotipo{
     display: flex;
     justify-content: center;
