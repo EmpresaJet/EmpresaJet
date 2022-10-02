@@ -57,14 +57,14 @@ a{
     align-items: center;
 }
 .menu-lista li a:hover{
-    color: yellow;
+    color: #EAB200;
     transition: 0.3s;
 }
 /*hover para aparecer a linha do link*/
 .menu-lista li a:after{
     content: "";
     position: absolute;
-    background-color: yellow;
+    background-color: #EAB200;
     height: 2px;
     width: 0;
     left: 0px;
@@ -84,8 +84,8 @@ a{
     transition: 0.3s;
 }
 .menu-lista li a:hover svg{
-    color: yellow;
-    fill: yellow;
+    color: #EAB200;
+    fill: #EAB200;
     transition: 0.3s;
 }
 /*final do hover no ícone svg integrado com o perfil*/

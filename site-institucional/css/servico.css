@@ -13,7 +13,7 @@
 .faixa-esquerda{ /* div filho do container 1 */
     height: 120%;
     width: 2vw;
-    background-color: orange;
+    background-color: #EAB200;
     margin-top: 55vh;
 }
 .nossa_missao{  /* div filho do container 1 */
@@ -35,7 +35,7 @@
 .faixa-direita{ /* div filho do container 1 */
     height: 120%;
     width: 2vw;
-    background-color: orange;
+    background-color: #EAB200;
     margin-bottom: 10vh;
 }
 .titulo-nossos-servicos{
