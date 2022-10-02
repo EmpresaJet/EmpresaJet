@@ -33,11 +33,6 @@ a{
     font-size: 5vh;
     transition: 0.3s;
 }
-.logotipo h1:hover{
-    color: yellow;
-    transition: 0.3s;
-    text-shadow: 5px 5px 5px black;
-}
 .menu-lista{
     display: flex;
     align-items: center;
@@ -83,7 +78,7 @@ a{
 
 /*hover no ícone svg integrado com o Perfil*/
 .menu-lista .icon{
-    height: 23px;
+    height: 2.45vh;
     margin-left: 1vh;
     fill: white;
     transition: 0.3s;
@@ -95,16 +90,7 @@ a{
 }
 /*final do hover no ícone svg integrado com o perfil*/
 /*FINAL DO MENU (HEADER)*/
-
-/* div pra deixar o footer em baixo "gambiarra" */
-.container-main{
-    height: 71vh;
-}
-
 /* RODAPÉ (FOOTER)*/
-footer{
-    margin-top: 30vh;
-}
 .caixa-total{ /* div que cobre tudo */
     background-color: #00194C;
 }
