@@ -11,13 +11,11 @@
 
 body {
   font-family: "Manrope", sans-serif;
-  background-image: url(../assets/login/bgLogin.png);
+  background-image: url(../assets/cadastro/bgCadastro.png);
   background-size: cover;
 }
 /* Arrumando a pág / separando a pagina background e container */
 section {
-  background-image: url(../assets/bgCadastroFull.svg);
-  background-size: cover;
   width: 100%;
   height: 100vh;
 }
@@ -39,7 +37,7 @@ section .btnBack:hover {
 /* Containers / caixa geral*/
 section .contentBox {
   display: flex;
-  justify-content: left;
+  justify-content: right;
   align-items: center;
   width: 100%;
   height: 100%;
@@ -47,7 +45,7 @@ section .contentBox {
 
 section .contentBox .formBox {
   position: relative;
-  left: 15%;
+  right: 20%;
   display: inherit;
   flex-direction: column;
   justify-content: center;
@@ -60,7 +58,7 @@ section .contentBox .formBox h2 {
   font-weight: 600;
   font-size: 3em;
   text-transform: uppercase;
-  border-bottom: 4px solid var(--bgBlue);
+  border-bottom: 4px solid var(--yellowBorder);
   display: inline-block;
   letter-spacing: 1px;
   margin-top: 80px;
@@ -77,7 +75,7 @@ section .contentBox .formBox .subtitle {
 /* Estilização dos inputs */
 section .contentBox .formBox .border {
   display: flex;
-  border-bottom: 1px solid var(--bgBlue);
+  border-bottom: 1px solid var(--yellowBorder);
   margin-top: 35px;
   padding: 5px;
 }
@@ -109,43 +107,29 @@ section .contentBox .formBox .inputBox img {
 }
 /* Botão para Enviar Formulário  */
 section .contentBox .formBox .inputBox input[type="submit"] {
-  background: var(--bgBlue);
-  color: #fff;
+  background: var(--yellowBorder);
+  color: #000;
   outline: none;
   border-radius: 25px;
   cursor: pointer;
   transition: 0.25s;
-  font-weight: 600;
-  margin: 50px;
   border: none;
   width: 140px;
+  margin: 25px;
 }
 
 section .contentBox .formBox .inputBox input[type="submit"]:hover {
-  background: var(--yellowBorder);
-  color: #000;
-}
-/*Lembrar senha*/
-section .contentBox .formBox .remember{
-  margin-top: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  transition: .2s;
-  padding: 20px;
-}
-section .contentBox .formBox .remember span{
-  font-size: 18px;
-  letter-spacing: 3px;
+  background: var(--bgBlue);
+  color: #fff;
 }
 
 /* Já tem cadastro, texto para ir até a tela de login */
-section .contentBox .formBox .inputBox .cadastrar {
-  color: #99968c;
+section .contentBox .formBox .inputBox .cadastrado {
+  color: #3c3c3c;
   margin-top: 55px;
 }
 
 section .contentBox .formBox span a {
-  color: var(--bgBlue);
+  color: var(--yellowBorder);
   text-decoration: none;
 }

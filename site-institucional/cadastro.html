@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmpresaJet</title>
+    <link rel="stylesheet" href="css/cadastro.css" />
+  </head>
+  <body>
+    <section>
+      <div class="contentBox">
+        <div class="btnBack">
+          <img src="assets/arrowBack.svg" alt="" onclick="voltarPagina()" />
+        </div>
+        <div class="formBox">
+          <div class="header">
+            <h2>Cadastro</h2>
+            <p class="subtitle">Informe os dados cadastrais do cliente</p>
+          </div>
+          <form action="">
+            <!-- <span>Usuário</span> -->
+            <div class="inputBox border">
+              <img src="assets/cadastro/personCadastro.svg" alt="" />
+              <input type="text" name="" placeholder="Usuário" />
+            </div>
+            <!-- <span>Senha</span> -->
+            <div class="inputBox border">
+              <img src="assets/cadastro/keyCadastro.svg" alt="" />
+              <input
+                type="password"
+                name=""
+                id="inputSenha"
+                placeholder="Senha"
+              />
+              <img
+                id="btnVisibility"
+                class="visibility"
+                onclick="mostrarSenha()"
+                src="assets/cadastro/visibility.svg"
+                alt=""
+              />
+              <!-- <input type="checkbox" name="" id="inputSenha"> -->
+            </div>
+            <!-- <span>Nome completo</span> -->
+            <div class="inputBox border">
+              <img src="assets/cadastro/badgeCadastro.svg" alt="" />
+              <input type="text" name="" placeholder="Nome Completo" />
+            </div>
+            <!-- <span>E-mail</span> -->
+            <div class="inputBox border">
+              <img src="assets/cadastro/emailCadastro.svg" alt="" />
+              <input type="text" name="" placeholder="E-mail" />
+            </div>
+            <!-- <span>Contato</span> -->
+            <div class="inputBox border">
+              <img src="assets/cadastro/callCadastro.svg" alt="" />
+              <input type="text" name="" placeholder="Contato (Opcional)" />
+            </div>
+            <div class="inputBox">
+              <input type="submit" value="Cadastrar" />
+            </div>
+            <div class="inputBox">
+              <span class="cadastrado"
+                >Já tem uma conta? Efetue login clicando<a href="login.html">
+                  aqui.</a
+                ></span
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+<script src="js/sign.js"></script>

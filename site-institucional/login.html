@@ -10,9 +10,10 @@
   <body>
     <main>
       <section>
-        <div class="imgBox">
-          <img src="assets/login.svg" alt="" />
+        <div class="btnBack">
+          <img src="assets/arrowBack.svg" alt="" onclick="voltarPagina()" />
         </div>
+
         <div class="contentBox">
           <div class="formBox">
             <div class="header">
@@ -20,23 +21,40 @@
               <p class="subtitle">Efetue o login para continuar</p>
             </div>
             <form action="">
-              <div class="inputBox">
-                <span>Usuário</span>
-                <input type="text" name="" />
+              <!-- <span>Usuário</span> -->
+              <div class="inputBox border">
+                <img src="assets/login/personLogin.svg" alt="" />
+                <input type="text" name="" placeholder="Usuário" />
               </div>
-              <div class="inputBox">
-                <span>Senha</span>
-                <input type="password" name="" />
+              <div class="inputBox border">
+                <img src="assets/login/keyLogin.svg" alt="" />
+                <input
+                  type="password"
+                  name=""
+                  id="inputSenha"
+                  placeholder="Senha"
+                />
+                <img
+                  id="btnVisibility"
+                  class="visibility"
+                  onclick="mostrarSenha()"
+                  src="assets/login/visibilityLogin.svg"
+                  alt=""
+                />
               </div>
               <div class="remember">
-                <label for=""> <input type="checkbox" name="" id="" /></label>
-                <p>Lembre-me</p>
-              </div>
-              <div class="inputBox btn">
-                <input type="submit" value="Entrar" />
+                <span>Lembre-me</span>
+                <img id="imgCheck" src="assets/login/unchecked.png" width="25px" onclick="lembrarSenha()" alt="">
               </div>
               <div class="inputBox">
-                <p>Não tem conta? Cadastre-se clicando <a href=""> aqui.</a></p>
+                <input type="submit" value="Entrar" />
+              </div>
+
+              <div class="inputBox">
+                <span class="cadastrar"
+                  >Não tem conta? Cadastre-se clicando
+                  <a href="cadastro.html"> aqui.</a></span
+                >
               </div>
             </form>
           </div>
@@ -45,3 +63,5 @@
     </main>
   </body>
 </html>
+
+<script src="js/sign.js"></script>
