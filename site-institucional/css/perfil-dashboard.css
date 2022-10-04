@@ -1,0 +1,139 @@
+/*Cores de fundo para o dashboard*/
+
+body {
+    background-color: #e5e8eb;
+}
+
+.background-color {
+    background-color: #1a488b;
+    width: 100%;
+    height: 30vh;
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.1), inset 0px 1px 22px 11px rgba(255,255,255,0.05), inset 0px 2px 24px 13px rgba(35,93,231,0.08);
+}
+
+/*Dashboard*/
+
+/*Titulo*/
+h1 {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    color: white;
+    margin-left: 42%;
+    margin-right: 6%;
+    margin-top: 7vh;
+}
+
+/*KPIs*/
+.dashboard-kpis {
+    display: grid;
+    position: absolute;
+    height: 20vh;
+    width: 79%;
+    margin-left: 18%;
+    margin-right: 3%;
+    margin-top: 20vh;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.kpis {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    box-shadow:  5px 6px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+/*Gráficos*/
+.dashboard-graficos {
+    display: grid;
+    position: absolute;
+    justify-content: center;
+    height: 45vh;
+    width: 79%;
+    margin-left: 18%;
+    margin-right: 3%;
+    margin-top: 45vh;
+    grid-template-columns: 1fr 2fr;
+}
+
+.graficos-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    box-shadow:  5px 6px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.graficos-container {
+    display: flex;
+    position: relative;
+    width: 31vh;
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+}
+
+.titulos-graficos {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 4vh;
+    width: 100%;
+    font-size: 20px;
+    margin-top: 2vh;
+    
+}
+
+/*Sessões*/
+.dashboard-sessoes {
+    display: grid;
+    position: absolute;
+    justify-content: center;
+    height: 40vh;
+    width: 79%;
+    margin-left: 18%;
+    margin-right: 3%;
+    margin-top: 95vh;
+    grid-template-columns: 2fr 1fr;
+}
+
+.sessoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    margin-bottom: 6%;
+    box-shadow:  5px 6px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+/*XPTO*/
+.sessao-xpto {
+    height: 27vh;
+}
+
+.sessao-xpto-1 {
+    margin-top: -30vh;
+}
+
+/*Categorias - links para mudar os gráficos da página*/
+.sessao-categorias{
+height: 60vh;
+}
+
+/*Espaço vazio no fim da página*/
+.footer-space {
+    display: flex;
+    padding: 1%;
+    width: 100%;
+    margin-top: 62%;
+}
