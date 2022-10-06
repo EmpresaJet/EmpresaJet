@@ -134,7 +134,15 @@ section .contentBox .formBox span a {
   color: var(--yellowBorder);
   text-decoration: none;
 }
-
+section .contentBox .formBox .spanAviso{
+  width: 200px;
+  position: absolute;
+  right: 20vw;
+  top: 30vh;
+  box-shadow: 5px 6px 2px 1px rgb(0 0 0 / 10%);
+  border-radius: 25px;
+  padding: 15px;
+}
 /* Estilização do Span de error chamado no JavaScript */
 
 section .contentBox .formBox .inputBox 
