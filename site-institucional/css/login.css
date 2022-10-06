@@ -149,3 +149,25 @@ section .contentBox .formBox span a {
   color: var(--bgBlue);
   text-decoration: none;
 }
+/* Estilização do Span de error chamado no JavaScript */
+
+section .contentBox .formBox .inputBox 
+#spanErrorUser,
+#spanErrorPassword,
+#spanErrorName,
+#spanErrorEmail,
+#spanErrorContate {
+  position: absolute;
+  visibility: hidden; 
+  right: -10rem;
+  margin-top: -18px;
+  padding: 20px;
+  box-shadow:  5px 6px 2px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+}
+
+section .contentBox .formBox .inputBox .active {
+  /* display: block; */
+  visibility: visible !important; /* Necessário para aparecer na tela e sobrepor o  a estilização do ID */
+  color: red;
+}

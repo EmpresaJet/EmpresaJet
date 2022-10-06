@@ -24,7 +24,17 @@
               <!-- <span>Usuário</span> -->
               <div class="inputBox border">
                 <img src="assets/login/personLogin.svg" alt="" />
-                <input type="text" name="" placeholder="Usuário" />
+                <input
+                  id="inputUsuario"
+                  type="text"
+                  name=""
+                  placeholder="Usuário"
+                  onblur="validarUsuario()"
+                  required
+                />
+                <span id="spanErrorUser"
+                  >Insira uma senha com caracteres especiais</span
+                >
               </div>
               <div class="inputBox border">
                 <img src="assets/login/keyLogin.svg" alt="" />
@@ -33,6 +43,8 @@
                   name=""
                   id="inputSenha"
                   placeholder="Senha"
+                  onblur="validarSenha()"
+                  required
                 />
                 <img
                   id="btnVisibility"
@@ -41,10 +53,19 @@
                   src="assets/login/visibilityLogin.svg"
                   alt=""
                 />
+                <span id="spanErrorPassword"
+                  >Insira uma senha com caracteres especiais</span
+                >
               </div>
               <div class="remember">
                 <span>Lembre-me</span>
-                <img id="imgCheck" src="assets/login/unchecked.png" width="25px" onclick="lembrarSenha()" alt="">
+                <img
+                  id="imgCheck"
+                  src="assets/login/unchecked.png"
+                  width="25px"
+                  onclick="lembrarSenha()"
+                  alt=""
+                />
               </div>
               <div class="inputBox">
                 <input type="submit" value="Entrar" />
@@ -65,3 +86,4 @@
 </html>
 
 <script src="js/sign.js"></script>
+<script src="js/validacao.js"></script>
