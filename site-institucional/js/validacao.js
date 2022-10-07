@@ -13,43 +13,27 @@ function validarUsuario() {
 
 function validarSenha() {
   var senha = inputSenha.value;
+
   var fortificador = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){8,}$/;
-/*
-  var fortificador_digito = /^(?=.*\d)$/;
-  var fortificador_a_z = /^(?=.*[a-z])$/;
-  var fortificador_A_Z = /^(?=.*[A-Z])$/;
-  var fortificador_caracter_especial = /^(?=.*[$*&@#!])$/;
 
-  if (fortificador_digito.test(senha)) {
-    spanErrorPassword.classList.add("active");
-    spanErrorPassword.innerHTML = "Senha inválida";
-  } else if (fortificador_a_z.test(senha)) {
-    spanErrorPassword.classList.add("active");
-    spanErrorPassword.innerHTML = "Falta Letra Minuscula";
-  } else if (fortificador_A_Z.test(senha)) {
-    spanErrorPassword.classList.add("active");
-    spanErrorPassword.innerHTML = "Falta Letra Maiúscula";
-  } else if (fortificador_caracter_especial.test(senha)) {
-    spanErrorPassword.classList.add("active");
-    spanErrorPassword.innerHTML = "Falta .com";
-  } else {
-    spanErrorPassword.classList.remove("active");
-  }
-*/
-  /* Variável que contém as requisições de senha forte: 
+  /* Como o fortificador funciona:
+  (?=.*\d)              // deve conter ao menos um dígito
+  (?=.*[a-z])           // deve conter ao menos uma letra minúscula
+  (?=.*[A-Z])           // deve conter ao menos uma letra maiúscula
+  (?=.*[$*&@#!])        // deve conter ao menos um caractere especial
+  ([0-9a-zA-Z$*&@#])    //é uma classe de caracteres contendo números, letras e os 
+  caracteres especiais que está sendo considerado. Eles estão dentro de parênteses 
+  para formar um grupo de captura
 
-    https://regex101.com/
-*/
+  (?!\1): é um lookahead negativo, que verifica se algo não existe à frente. No caso, \1 
+  significa " o trecho que foi capturado pelo primeiro grupo de captura".
 
-  /*  
-  (?=.*\d)         // deve conter ao menos um dígito
-  (?=.*[a-z])      // deve conter ao menos uma letra minúscula
-  (?=.*[A-Z])      // deve conter ao menos uma letra maiúscula
-  (?=.*[$*&@#!])    // deve conter ao menos um caractere especial
-   */
-  //Verifica idependentimente as partes que estão com erro
-
-  //(?:([0-9a-zA-Z$*&@#!])(?!\1)){8,}$/;
+  No qual só verifica o que está (ou o que não está) à frente, e em seguida volta para onde estava 
+  e continua avaliando o restante da regex. 
+  
+  Por isso o lookahead negativo não interfere na contagem de 
+  caracteres: ele só vê se o próximo é o mesmo (graças à referência \1), e se não for, volta para onde 
+  estava e continua verificando a regex (no caso, se tem pelo menos 8 caracteres dentre os que foram especificados).
 
   /* Verifica se a senha está com as requisições acima */
   if (!fortificador.test(senha)) {
