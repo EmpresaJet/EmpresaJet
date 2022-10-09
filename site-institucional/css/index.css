@@ -227,12 +227,43 @@ top: -5vh;
 }
 
 .secao-video-prateleira {
-    margin-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 200px;
+}
+
+.secao-video-prateleira p {
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 .prateleira-pasta {
     width: 50%;
     border-radius: 0px 25px 25px 0px;
+    margin-right: 3vw;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0 , 0.6);
+}
+
+.secao-video-prateleira-garrafas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    margin-bottom: 200px;
+}
+
+.secao-video-prateleira-garrafas p {
+    font-size: 1.4rem;
+    margin-left: 1.5vw;
+    font-weight: bold;
+}
+
+.prateleira-garrafas {
+    width: 50%;
+    border-radius: 25px 0px 0px 25px;
+    margin-left: 3vw;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0 , 0.6);
 }
 
 
@@ -277,11 +308,13 @@ top: -5vh;
     border-radius: 10px;
     transform-style: preserve-3d;
     transition: all 2s ease;
+    background-color: #EAB200;
 }
 
 /* PSEUDOCLASSE QUE FAZ O CARD VIRAR */
 .thecard:hover {
     transform: rotateY(180deg);
+    background-color: #000D27;
 }
 
 /* PARTE DA FRENTE DO CARD */
@@ -328,37 +361,22 @@ top: -5vh;
 }
 
 .color {
-    background-color: #F4C11D;
+    background-color: #F4C11D
 }
 
-/*COR DO NOME 1,3,5*/
+/*COR DO NOME */
 .color-nome {
     color: #F4C11D;
 }
 
-/*COR DA BIBLIOGRAFIA 1,3,5*/
+/*COR DA BIBLIOGRAFIA */
 .color-h6 {
     color: #ffffff;
 }
 
-/*BORDA DA IMAGEM 1,3,5*/
+/*BORDA DA IMAGEM */
 .border-image1 {
     border: #F4C11D solid;
-}
-
-/*COR DO NOME 2,4,6*/
-.color-nome-2 {
-    color: #000D27;
-}
-
-/*COR DA BIBLIOGRAFIA 2,4,6*/
-.color-h6-2 {
-    color: #000D27;
-}
-
-/*BORDA DA IMAGEM 2,4,6*/
-.border-image2 {
-    border: 0.5vh #071633 solid;
 }
 
 /*DEFINIÇÕES DA IMAGEM (POSIÇÃO E BOX FLEX)*/
@@ -382,7 +400,7 @@ top: -5vh;
     width: 8vw;
     height: 16vh;
     padding: 0.1vh;
-    background-color: #071633;
+    background-color: #F4C11D;
 }
 
 /*MARGEM DO NOME*/
