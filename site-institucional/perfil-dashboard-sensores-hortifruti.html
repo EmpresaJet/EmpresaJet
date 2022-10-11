@@ -7,74 +7,483 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/perfil-sidebar.css">
-    <link rel="stylesheet" href="css/perfil-dashboard.css">
+    <link rel="stylesheet" href="css/perfil-dashboard-sensores-hortifruti.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
 <body>
 
+    <header>
+
+        <!--Titulo do dashboard-->
+        <section class="dashboard-titulo">
+            <h1 class="titulo-pagina">Estado dos sensores</h1>
+            <h1 class="titulo-mercado">Mercado Amazon Go - Matriz</h1>
+        </section>
+
+    </header>
+
     <main>
 
         <!--Dashboard-->
 
-        <!--Titulo do dashboard-->
+        <!--Titulo setor-->
+        <section class="container-setor">
+            <div class="container-setor-e-titulo">
+                    Setor :
+                <span class="setor-titulo">
+                    Hortifruti
+                </span>
+            </div>
+        </section>
 
-        <div class="dashboard-titulo">
-            <h1>Informações gerais do mercado</h1>
-        </div>
 
         <!--Sessão de KPIs-->
-        <div class="dashboard-kpis">
-            <div class="kpis">
-                KPI1
-            </div>
-            <div class="kpis">
-                KPI2
-            </div>
-            <div class="kpis">
-                KPI3
-            </div>
-            <div class="kpis">
-                KPI4
-            </div>
-        </div>
+        <section class="dashboard-kpis">
 
-        <!--Sessão de Gráficos-->
-        <div class="dashboard-graficos">
-            <div class="graficos-card">
-                <div class="titulos-graficos">
-                    Estado atual das gôndolas (%)
-                </div>
-                <div class="graficos-container">
-                    <canvas class="graficos-canvas" id="pizza_estado_mercado"></canvas>
-                </div>
+            <!--KPI sobre produtos sem estoque algum-->
+            <div class="kpis kpi-estoque-setor-higiene">
+                <p class="kpi-titulo">Sem estoque:</p>
+                <p class="kpi-dado">4 <span class="kpi-dado-palavra-ajuste">produtos</span></p>
             </div>
-            <div class="graficos-card">
-                <div class="titulos-graficos">
-                    Estado atual das gôndolas (%)
-                </div>
-                <div class="graficos-container">
-                    <canvas class="graficos-canvas" id="pizza_estado_mercado"></canvas>
-                </div>
-            </div>
-        </div>
 
-        <!--Sessão de XPTO e Categorias-->
-        <div class="dashboard-sessoes">
-            <div class="sessoes sessao-xpto">
-                XPTO
+            <!--KPI sobre sensores detectando ausência de produtos-->
+            <div class="kpis kpi-ausencia-setor-higiene">
+                <p class="kpi-titulo">Ausência de produtos:</p>
+                <p class="kpi-dado">15 <span class="kpi-dado-palavra-ajuste">sensores</span></p>
+            </div>
+
+            <!--KPI sobre a porcentagem de abastecimento do mercado-->
+            <div class="kpis kpi-abastecimento-setor-higiene">
+                <p class="kpi-titulo">Setor abastecido:</p>
+                <p class="kpi-dado">88%</p>
+            </div>
+
+            <!--Gráfico polar sobre a falta dos produtos nos setores do mercado-->
+            <div class="kpis kpi-grafico-polar">
+                <div class="grafico-kpi-container grafico-container-polar-setores">
+                    <canvas class="graficos-canvas" id="polar_setor_falta_produto"></canvas>
+                </div>
+                <div class="kpi-grafico-titulos-container">
+                    <div class="kpi-grafico-titulo">
+                        Setores com produtos em falta
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--Sessão de Gráficos dos produtos-->
+        <section class="dashboard-graficos">
+            <div class="graficos-card-produtos">
+                <div class="produtos-titulo-e-legenda">
+                    <div class="titulo-produtos">
+                        Produtos
+                    </div>
+                    <div class="estado-produto-legenda">
+                        <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                            alt="Icone de ausência vermelho">
+                        - Ausência de produto
+                        <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                            alt="Icone de presença verde">
+                        - Presença de produto
+                    </div>
+                </div>
+
+                <div class="lista-produtos">
+                    <div class="lista-produtos-nomes">
+                        <ul class="lista-produtos-nome-ul">
+                            <li>
+                                <div class="lista-produtos-nome-li-elementos">
+                                    <div class="lista-produtos-nome-li-titulo">
+                                        Tomate Italiano orgânico Taeq
+                                    </div>
+                                    <div class="lista-produtos-nome-li-binario">
+                                        <ul>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lista-produtos-nome-li-elementos">
+                                    <div class="lista-produtos-nome-li-titulo">
+                                        Batata Baroa orgânica Taeq
+                                    </div>
+                                    <div class="lista-produtos-nome-li-binario">
+                                        <ul>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lista-produtos-nome-li-elementos">
+                                    <div class="lista-produtos-nome-li-titulo">
+                                        Cenoura orgânica Taeq
+                                    </div>
+                                    <div class="lista-produtos-nome-li-binario">
+                                        <ul>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lista-produtos-nome-li-elementos">
+                                    <div class="lista-produtos-nome-li-titulo">
+                                        Cebola Amarela orgânica Taeq
+                                    </div>
+                                    <div class="lista-produtos-nome-li-binario">
+                                        <ul>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lista-produtos-nome-li-elementos">
+                                    <div class="lista-produtos-nome-li-titulo">
+                                        Alho orgânico Taeq
+                                    </div>
+                                    <div class="lista-produtos-nome-li-binario">
+                                        <ul>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lista-produtos-nome-li-elementos">
+                                    <div class="lista-produtos-nome-li-titulo">
+                                        Banana Prata Turma da Mônica
+                                    </div>
+                                    <div class="lista-produtos-nome-li-binario">
+                                        <ul>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lista-produtos-nome-li-elementos">
+                                    <div class="lista-produtos-nome-li-titulo">
+                                        Maçã Fuji Turma da Mônica
+                                    </div>
+                                    <div class="lista-produtos-nome-li-binario">
+                                        <ul>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lista-produtos-nome-li-elementos">
+                                    <div class="lista-produtos-nome-li-titulo">
+                                        Morango orgânico BioVida
+                                    </div>
+                                    <div class="lista-produtos-nome-li-binario">
+                                        <ul>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lista-produtos-nome-li-elementos">
+                                    <div class="lista-produtos-nome-li-titulo">
+                                        Alface Americano La Vita
+                                    </div>
+                                    <div class="lista-produtos-nome-li-binario">
+                                        <ul>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lista-produtos-nome-li-elementos">
+                                    <div class="lista-produtos-nome-li-titulo">
+                                        Salada prática Jacareí
+                                    </div>
+                                    <div class="lista-produtos-nome-li-binario">
+                                        <ul>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
+                                                    alt="Icone de ausência vermelho">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                            <li>
+                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
+                                                    alt="Icone de presença verde">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            
+            <!--Setores do mercado-->
+            <div class="graficos-card">
+                <div class="sessao-setores">
+                    <h2>Setores</h2>
+                </div>
+                <ul class="setores">
+                    <li>
+                        <a href="perfil-dashboard-sensores-frios-congelados.html">
+                            <div class="container-setores">
+                                <div class="titulos-setores">
+                                    Frios e congelados
+                                </div>
+                                <div>
+                                  <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta" alt="Seta lateral indicando um link">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="perfil-dashboard-sensores-cereais-graos.html">
+                            <div class="container-setores">
+                                <div class="titulos-setores">
+                                    Cereais e grãos
+                                </div>
+                                <div>
+                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta" alt="Seta lateral indicando um link">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="perfil-dashboard-sensores-hortifruti.html">
+                            <div class="container-setores">
+                                <div class="titulos-setores">
+                                    Hortifruti
+                                </div>
+                                <div>
+                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta" alt="Seta lateral indicando um link">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="perfil-dashboard-sensores-higiene.html">
+                            <div class="container-setores">
+                                <div class="titulos-setores">
+                                    Higiene
+                                </div>
+                                <div>
+                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta" alt="Seta lateral indicando um link">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="perfil-dashboard-sensores-bebidas-doces.html">
+                            <div class="container-setores">
+                                <div class="titulos-setores">
+                                    Bebidas e doces
+                                </div>
+                                <div>
+                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta" alt="Seta lateral indicando um link">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!--Categorias-->
+        <section class="dashboard-sessoes">
+            <div class="sessao-espaco-para-categorias">
             </div>
             <div class="sessoes sessao-categorias">
-                Categorias
+                <h2>Categorias</h2>
+                <ul class="categorias">
+                    <li><a href="perfil-dashboard-geral.html">
+                            <div class="container-categorias">
+                                <div class="titulos-categorias">
+                                    Informações gerais
+                                </div>
+                                <div>
+                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta" alt="Seta lateral indicando um link">
+                                </div>
+                            </div>
+                        </a></li>
+                    <li><a href="perfil-dashboard-sensores-frios-congelados.html">
+                            <div class="container-categorias">
+                                <div class="titulos-categorias">
+                                    Estado dos sensores
+                                </div>
+                                <div>
+                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta" alt="Seta lateral indicando um link">
+                                </div>
+                            </div>
+                        </a></li>
+                    <li><a href="perfil-dashboard-produtos.html">
+                            <div class="container-categorias">
+                                <div class="titulos-categorias">
+                                    Fluxo dos produtos
+                                </div>
+                                <div>
+                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta" alt="Seta lateral indicando um link">
+                                </div>
+                            </div>
+                        </a></li>
+                </ul>
             </div>
-            <div class="sessoes sessao-xpto sessao-xpto-1">
-                XPTO
-            </div>
-        </div>
+        </section>
 
         <!--Fundo Azul-->
-        <div class="background-color">
+        <section class="background-color">
 
             <!-- SideBar do Perfil-->
             <div class="sidebar">
@@ -176,45 +585,18 @@
                     </ul>
                 </nav>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer>
         <!--Espaço vazio no fim do dashboard-->
-        <div class="footer-space"></div>
+        <section class="footer-space"></section>
+        
     </footer>
 
 </body>
 
-
-<script>
-
-    const data_pizza_estado_mercado = {
-        labels: [
-            'Gôndolas estocadas',
-            'Gôndolas com produtos em falta'
-        ],
-        datasets: [{
-            label: 'Estoque das gôndolas',
-            data: [54, 46],
-            backgroundColor: [
-                'rgb(40, 104, 253)',
-                'rgb(235, 214, 26)',
-            ],
-            hoverOffset: 4
-        }]
-    };
-
-    const config = {
-        type: 'pie',
-        data: data_pizza_estado_mercado,
-    };
-
-    const grafico_estado_mercado = new Chart(
-        document.getElementById('pizza_estado_mercado'),
-        config
-    );
-
-</script>
+<script src="js/perfil-dashboard-sensores.js"></script>
+<script src="js/perfil-dashboard-sensores-higiene.js"></script>
 
 </html>
