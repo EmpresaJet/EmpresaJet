@@ -2,14 +2,14 @@
 const data_polar_setor_falta_produto = {
     labels: [
         'Frios e congelados',
-        'Cereais e grãos',
+        'Mercearia',
         'Hortifruti',
-        'Higiene',
-        'Bebidas e doces'
+        'Cuidados pessoais',
+        'Bebidas'
     ],
     datasets: [{
         label: 'My First Dataset',
-        data: [11, 16, 7, 3, 14],
+        data: [4, 7, 1, 5, 21],
         backgroundColor: [
             'rgb(255, 99, 132)',
             'rgb(75, 192, 192)',
