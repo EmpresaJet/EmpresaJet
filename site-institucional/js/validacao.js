@@ -15,10 +15,10 @@ function validarSenha() {
   var senha = inputSenha.value;
 
   /* Verifica se a senha está com as requisições acima */
-  if (
+  if (!(
     senha.indexOf(senha.toUpperCase()) == -1 &&
     senha.indexOf(senha.toLowerCase()) == -1 &&
-    senha.length >= 8
+    senha.length >= 8)
   ) {
     spanErrorPassword.classList.add("active");
     spanErrorPassword.innerHTML = "Senha inválida";
