@@ -8,10 +8,10 @@ const data_pizza_estado_mercado = {
     ],
     datasets: [{
         label: 'Estoque das gôndolas',
-        data: [54, 46],
+        data: [84, 16],
         backgroundColor: [
-            'rgb(40, 104, 253)',
-            'rgb(235, 214, 26)',
+            'rgb(93, 208, 67)',
+            'rgb(246, 69, 69)',
         ],
         hoverOffset: 4
     }]
@@ -50,35 +50,35 @@ const data_linha_fluxo_setores = {
         label: 'Frios e congelados',
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
-        data: [125, 108, 64, 73, 81, 80, 95, 84, 66, 88, 114, 136],
+        data: [125, 108, 64, 73, 81, 80, 95, 84, 66, 88, 114, 188],
     },
 
 {
-    label: 'Cereais e grãos',
-    backgroundColor: 'rgb(200, 99, 132)',
-    borderColor: 'rgb(200, 99, 132)',
-    data: [125, 33, 22, 129, 22, 56, 84, 29, 40, 90, 123, 32],
+    label: 'Mercearia',
+    backgroundColor: 'rgb(75, 192, 192)',
+    borderColor: 'rgb(75, 192, 192)',
+    data: [125, 33, 22, 129, 22, 56, 84, 29, 40, 90, 123, 230],
 },
 
 {
     label: 'Hortifruti',
-    backgroundColor: 'rgb(99, 255, 132)',
-    borderColor: 'rgb(99, 255, 132)',
-    data: [190, 29, 39, 59, 55, 77, 65, 43, 78, 33, 55, 77],
+    backgroundColor: 'rgb(255, 205, 86)',
+    borderColor: 'rgb(255, 205, 86)',
+    data: [190, 29, 39, 59, 55, 77, 65, 43, 78, 33, 55, 160],
 },
 
 {
-    label: 'Higiene',
-    backgroundColor: 'rgb(132, 99, 255)',
-    borderColor: 'rgb(132, 99, 255)',
-    data: [80, 95, 84, 66, 88, 114, 136, 123, 55, 77, 88, 33],
+    label: 'Cuidados pessoais',
+    backgroundColor: 'rgb(201, 203, 207)',
+    borderColor: 'rgb(201, 203, 207)',
+    data: [80, 95, 84, 66, 88, 114, 136, 123, 55, 77, 88, 122],
 },
 
 {
-    label: 'Bebidas e doces',
-    backgroundColor: 'rgb(99, 132, 255)',
-    borderColor: 'rgb(99, 132, 255)',
-    data: [73, 81, 80, 95, 55, 88, 95, 34, 77, 89, 43, 67, 87],
+    label: 'Bebidas',
+    backgroundColor: 'rgb(54, 162, 235)',
+    borderColor: 'rgb(54, 162, 235)',
+    data: [73, 81, 80, 95, 55, 88, 95, 34, 77, 89, 43, 67, 245],
 }
 ]
 };

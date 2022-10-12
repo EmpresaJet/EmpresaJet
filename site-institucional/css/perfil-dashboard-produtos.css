@@ -15,28 +15,15 @@ body {
 
 /*Titulo*/
 
-.titulo-mercado {
+.dashboard-titulo h1 {
     display: flex;
     position: absolute;
     justify-content: center;
     color: white;
-    margin-left: 65%;
-    margin-right: 6%;
+    margin-left: 48%;
     margin-top: 7vh;
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
-
-.titulo-pagina {
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    color: white;
-    margin-left: 22%;
-    margin-right: 6%;
-    margin-top: 7vh;
-    font-size: 1.8rem;
-}
-
 
 
 /*KPIs*/

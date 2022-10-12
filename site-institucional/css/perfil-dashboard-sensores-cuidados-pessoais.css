@@ -14,26 +14,14 @@ body {
 /*Dashboard*/
 
 /*Titulo*/
-.titulo-mercado {
+.dashboard-titulo h1 {
     display: flex;
     position: absolute;
     justify-content: center;
     color: white;
-    margin-left: 65%;
-    margin-right: 6%;
+    margin-left: 37%;
     margin-top: 7vh;
-    font-size: 1.8rem;
-}
-
-.titulo-pagina {
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    color: white;
-    margin-left: 22%;
-    margin-right: 6%;
-    margin-top: 7vh;
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 .container-setor-e-titulo {
@@ -103,19 +91,19 @@ body {
 
 
 /*Cor de efeito de cada KPI indicando o estado da situação (crítico, alerta, bom ou ótimo)*/
-.kpi-estoque-setor-higiene {
+.kpi-estoque-setor-cuidados-pessoais {
     border: 3px solid #2cc921;
-    box-shadow: 0px 0px 12px 0.6px rgba(12, 192, 0, 0.22);
+    box-shadow: 0px 0px 12px 0.6px rgba(12,192,0,0.22);
 }
 
-.kpi-ausencia-setor-higiene {
-    border: 3px solid #2cc921;
-    box-shadow: 0px 0px 12px 0.6px rgba(12, 192, 0, 0.22);
+.kpi-ausencia-setor-cuidados-pessoais {
+    border: 3px solid rgb(180, 226, 42);
+    box-shadow: 0px 0px 12px 0.6px rgba(180, 226, 42,0.22);
 }
 
-.kpi-abastecimento-setor-higiene {
-    border: 3px solid #2cc921;
-    box-shadow: 0px 0px 12px 0.6px rgba(12, 192, 0, 0.22);
+.kpi-abastecimento-setor-cuidados-pessoais {
+    border: 3px solid rgb(180, 226, 42);
+    box-shadow: 0px 0px 12px 0.6px rgba(180, 226, 42,0.22);
 }
 
 
