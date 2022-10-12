@@ -194,3 +194,12 @@ padding: 10px;
   padding: 12px;
   width: 70%;
 }
+
+.red{
+  box-shadow: 0px 2px #db0f0fb5;
+  border: .01px solid #000;
+}
+.green{
+  box-shadow: 0px 2px #7cdb0fb5;
+  border: .01px solid #000;
+}
