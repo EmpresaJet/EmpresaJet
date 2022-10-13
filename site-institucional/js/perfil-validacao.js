@@ -35,7 +35,17 @@ function validarLogradouro() {
     inputLogradouro.classList.add("green");
   }
 }
-
+// Validando select
+function validarUF() {
+  var uf = inputUF.value;
+  if (uf == "none") {
+    inputUF.classList.add("red");
+    inputUF.classList.remove("green");
+  } else {
+    inputUF.classList.remove("red");
+    inputUF.classList.add("green");
+  }
+}
 //Validando a cidade da empresa
 function validarCidade() {
   var cidade = inputCidade.value;
@@ -66,18 +76,18 @@ function validarCEP() {
 function validarBairro() {
   var bairro = inputBairro.value;
   //Verifica se o bairro da empresa tem mais que 6 caracteres
-  if (bairro.length < 6) {
-    inputCEP.classList.add("red");
-    inputCEP.classList.remove("green");
+  if (bairro.length < 3) {
+    inputBairro.classList.add("red");
+    inputBairro.classList.remove("green");
   } else {
-    inputCEP.classList.remove("red");
-    inputCEP.classList.add("green");
+    inputBairro.classList.remove("red");
+    inputBairro.classList.add("green");
   }
 }
 
 //Validando o Complemento da Empresa
 function validarComplemento() {
-    var complemento = inputBairro.value;
+  var complemento = inputBairro.value;
   //Verifica se o complemento da empresa tem mais que 4 caracteres
   if (complemento.length < 4) {
     inputComplemento.classList.add("red");
@@ -86,7 +96,7 @@ function validarComplemento() {
     inputComplemento.classList.remove("red");
     inputComplemento.classList.add("green");
   }
-} 
+}
 /* Validando os campos do cadastro do funcionario */
 //Validando Nome de usuario
 function validarUsuario() {

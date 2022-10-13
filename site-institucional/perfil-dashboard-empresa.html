@@ -220,12 +220,13 @@
               <div class="cidade">
                 <p>Cidade*</p>
                 <br />
-                <input class="input-empresa" id="inputCidade"  />
+                <input class="input-empresa" id="inputCidade"  onblur="validarCidade()"/>
               </div>
               <div class="estado">
                 <p>UF*</p>
                 <br />
-                <select class="select-estado" id="estado" name="estado">
+                <select class="select-estado" id="inputUF" name="estado" onclick="validarUF()">
+                  <option value="none"></option>
                   <option value="AC">Acre</option>
                   <option value="AL">Alagoas</option>
                   <option value="AP">Amapá</option>
@@ -270,7 +271,7 @@
             </div>
 
             <div class="estilo-box">
-              <p>inputComplemento</p>
+              <p>Complemento</p>
               <input class="input-empresa active" id="inputComplemento" onblur="validarComplemento()"/>
             </div>
           </div>
