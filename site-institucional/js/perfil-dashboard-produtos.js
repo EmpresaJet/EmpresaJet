@@ -3,19 +3,19 @@
 const data_donut_fluxo_categorias = {
     labels: [
           'Frios e congelados',
-          'Cereais e grãos',
+          'Mercearia',
           'Hortifruti',
-          'Higiene',
-          'Bebidas e doces'
+          'Cuidados pessoais',
+          'Bebidas'
       ],
     datasets: [{
       label: 'Giro dos produtos por categoria',
-      data: [88, 68, 98, 20, 45],
+      data: [188, 230, 210, 162, 265],
       backgroundColor: [
         'rgb(255, 99, 132)',
         'rgb(54, 162, 235)',
         'rgb(255, 205, 86)',
-        'blue',
+        'rgb(41, 41, 207)',
         'purple'
       ],
       hoverOffset: 4
@@ -55,7 +55,7 @@ const data_linha_fluxo_produtos = {
         label: 'Quantidade de vezes houve falta de produtos nas gôndolas',
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
-        data: [125, 108, 64, 73, 81, 80, 95, 84, 66, 88, 114,136],
+        data: [4, 4, 4, 4, 5, 6, 6, 6, 8, 11, 0, 1],
     }
 ]
 };
@@ -89,7 +89,7 @@ const data_barra_fluxo_produtos_semana = {
         label: 'Quantidade de vezes houve falta de produtos nas gôndolas',
         backgroundColor: 'rgb(54, 162, 235)',
         borderColor: 'rgb(54, 162, 235)',
-        data: [125, 108, 64, 73, 81, 80, 95, 84, 66, 88, 114,136],
+        data: [18, 23, 2, 4, 6, 13, 13],
     }
 ]
 };
@@ -128,7 +128,7 @@ const data_barra_fluxo_produtos_mes = {
         label: 'Quantidade de vezes houve falta de produtos nas gôndolas',
         backgroundColor: 'rgb(54, 162, 235)',
         borderColor: 'rgb(54, 162, 235)',
-        data: [125, 108, 64, 73, 81, 80, 95, 84, 66, 88, 114,136],
+        data: [57, 78, 140, 84, 66, 103, 138, 70, 57, 91, 105, 211],
     }
 ]
 };

@@ -74,7 +74,6 @@ body {
     display: flex;
     justify-content: center;
     font-size: 1.5rem;
-    margin-left: 1vw;
 }
 
 .kpi-dado {
@@ -85,8 +84,6 @@ body {
     height: 100%;
     align-items: center;
     justify-content: center;
-    margin-left: 1%;
-
 }
 
 

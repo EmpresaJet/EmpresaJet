@@ -48,37 +48,37 @@ const data_linha_fluxo_setores = {
     labels: labels_linha_fluxo_setores,
     datasets: [{
         label: 'Frios e congelados',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: [125, 108, 64, 73, 81, 80, 95, 84, 66, 88, 114, 188],
+        backgroundColor: 'rgb(54, 162, 235)',
+        borderColor: 'rgb(54, 162, 235)',
+        data: [55, 68, 164, 73, 81, 80, 162, 84, 66, 102, 114, 188],
     },
 
 {
     label: 'Mercearia',
-    backgroundColor: 'rgb(75, 192, 192)',
-    borderColor: 'rgb(75, 192, 192)',
-    data: [125, 33, 22, 129, 22, 56, 84, 29, 40, 90, 123, 230],
+    backgroundColor: 'rgb(201, 203, 207)',
+    borderColor: 'rgb(201, 203, 207)',
+    data: [61, 98, 142, 129, 22, 56, 202, 69, 40, 135, 123, 230],
 },
 
 {
     label: 'Hortifruti',
     backgroundColor: 'rgb(255, 205, 86)',
     borderColor: 'rgb(255, 205, 86)',
-    data: [190, 29, 39, 59, 55, 77, 65, 43, 78, 33, 55, 160],
+    data: [62, 76, 119, 59, 55, 77, 144, 43, 68, 82,101, 210],
 },
 
 {
     label: 'Cuidados pessoais',
-    backgroundColor: 'rgb(201, 203, 207)',
-    borderColor: 'rgb(201, 203, 207)',
-    data: [80, 95, 84, 66, 88, 114, 136, 123, 55, 77, 88, 122],
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: [40, 69, 99, 66, 88, 114, 120, 123, 35, 47, 80, 162],
 },
 
 {
     label: 'Bebidas',
-    backgroundColor: 'rgb(54, 162, 235)',
-    borderColor: 'rgb(54, 162, 235)',
-    data: [73, 81, 80, 95, 55, 88, 95, 34, 77, 89, 43, 67, 245],
+    backgroundColor: 'rgb(75, 192, 192)',
+    borderColor: 'rgb(75, 192, 192)',
+    data: [70, 81, 178, 95, 85, 188, 225, 34, 77, 89, 110, 265],
 }
 ]
 };
