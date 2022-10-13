@@ -14,29 +14,12 @@ function validarUsuario() {
 function validarSenha() {
   var senha = inputSenha.value;
 
-  var fortificador = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){8,}$/;
-
-  /* Como o fortificador funciona:
-  (?=.*\d)              // deve conter ao menos um dígito
-  (?=.*[a-z])           // deve conter ao menos uma letra minúscula
-  (?=.*[A-Z])           // deve conter ao menos uma letra maiúscula
-  (?=.*[$*&@#!])        // deve conter ao menos um caractere especial
-  ([0-9a-zA-Z$*&@#])    //é uma classe de caracteres contendo números, letras e os 
-  caracteres especiais que está sendo considerado. Eles estão dentro de parênteses 
-  para formar um grupo de captura
-
-  (?!\1): é um lookahead negativo, que verifica se algo não existe à frente. No caso, \1 
-  significa " o trecho que foi capturado pelo primeiro grupo de captura".
-
-  No qual só verifica o que está (ou o que não está) à frente, e em seguida volta para onde estava 
-  e continua avaliando o restante da regex. 
-  
-  Por isso o lookahead negativo não interfere na contagem de 
-  caracteres: ele só vê se o próximo é o mesmo (graças à referência \1), e se não for, volta para onde 
-  estava e continua verificando a regex (no caso, se tem pelo menos 8 caracteres dentre os que foram especificados).
-
   /* Verifica se a senha está com as requisições acima */
-  if (!fortificador.test(senha)) {
+  if (!(
+    senha.indexOf(senha.toUpperCase()) == -1 &&
+    senha.indexOf(senha.toLowerCase()) == -1 &&
+    senha.length >= 8)
+  ) {
     spanErrorPassword.classList.add("active");
     spanErrorPassword.innerHTML = "Senha inválida";
   } else {
@@ -64,13 +47,11 @@ function validarNome() {
 }
 function validarEmail() {
   var email = inputEmail.value;
-  var validacao = /\S+@\S+\.\S+/;
   /* Qualquer tipo de texto:
   Seguida por um caractere @ (que é obrigatório em e-mails);
-  Seguido por algum outro texto, o domínio/provedor;
   E então temos a presença de um ponto, que também é obrigatório;
   E por fim mais um texto, validando tanto emails .com quanto .com.br, e outros que tenham terminologias diferentes */
-  if (!validacao.test(email)) {
+  if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
     spanErrorEmail.classList.add("active");
     spanErrorEmail.innerHTML = "E-mail Inválido";
   } else {
