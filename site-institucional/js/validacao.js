@@ -13,13 +13,22 @@ function validarUsuario() {
 
 function validarSenha() {
   var senha = inputSenha.value;
+  var fortificador =
+    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])([0-9a-zA-Z$*&@#]){8,}$/;
+  /*
+    
+  (?=.*\d)         // deve conter ao menos um dígito
+  (?=.*[a-z])      // deve conter ao menos uma letra minúscula
+  (?=.*[A-Z])      // deve conter ao menos uma letra maiúscula
+  (?=.*[$*&@#!])    // deve conter ao menos um caractere especial
 
+  ([0-9a-zA-Z$*&@#]): é uma classe de caracteres contendo números, 
+  letras e os caracteres especiais que você está considerando. 
+  Eles estão dentro de parênteses para formar um grupo de captura
+
+*/
   /* Verifica se a senha está com as requisições acima */
-  if (!(
-    senha.indexOf(senha.toUpperCase()) == -1 &&
-    senha.indexOf(senha.toLowerCase()) == -1 &&
-    senha.length >= 8)
-  ) {
+  if (fortificador.test(senha)) {
     spanErrorPassword.classList.add("active");
     spanErrorPassword.innerHTML = "Senha inválida";
   } else {
@@ -47,11 +56,13 @@ function validarNome() {
 }
 function validarEmail() {
   var email = inputEmail.value;
+  var validacao = /\S+@\S+\.\S+/;
   /* Qualquer tipo de texto:
   Seguida por um caractere @ (que é obrigatório em e-mails);
+  Seguido por algum outro texto, o domínio/provedor;
   E então temos a presença de um ponto, que também é obrigatório;
   E por fim mais um texto, validando tanto emails .com quanto .com.br, e outros que tenham terminologias diferentes */
-  if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+  if (!validacao.test(email)){
     spanErrorEmail.classList.add("active");
     spanErrorEmail.innerHTML = "E-mail Inválido";
   } else {
