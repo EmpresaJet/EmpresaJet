@@ -353,9 +353,9 @@ top: -5vh;
 .theback p {
     font-family: 'zilla slab', sans-serif;
     padding: 30px;
-    margin-top: 5vh;
+    margin-top: 1vh;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 1rem;
     text-align: center;
     color: #ffffff;
 }
@@ -397,21 +397,24 @@ top: -5vh;
 /*BORDA DA IMAGEM/LARGURA E ALTURA*/
 .imagem img {
     border-radius: 10.65vh;
-    width: 8vw;
-    height: 16vh;
     padding: 0.1vh;
     background-color: #F4C11D;
 }
 
+.nome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 /*MARGEM DO NOME*/
 .nome h1 {
     font-size: 1.5rem;
-    margin-left: 5vh;
+    text-align: center;
 }
 
 /*E-MAIL DE CADA INTEGRANTE*/
 .nome h5 {
-    margin-left: 5vh;
+    text-align: center;
     font-weight: bold;
     cursor: pointer;
     margin-bottom: 2vh;
@@ -422,7 +425,6 @@ top: -5vh;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin-top: 0.5vh;
     cursor: pointer;
 }
 
