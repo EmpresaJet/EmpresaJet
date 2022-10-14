@@ -38,7 +38,7 @@
                         <h4 class="titulo">Nome de usuário</h4>
                         <h4 class="info">Usuário: <span id="span_user"></span></h4>
                     </div>
-                    <button onclick="alterar_nome()" id="btn_edit_user" class="btn_edit">
+                    <button onclick="alterar_user()" id="btn_edit_user" class="btn_edit">
                          Editar
                     </button>
                 </div>
@@ -51,18 +51,14 @@
                         Editar
                     </button>
                 </div>
-                <div class="info_telefone">
-                    <h4 class="titulo">Telefone</h4>
-                    <div class="div_inserir">
-                        <label for="input_telefone">Adicionar telefone</label>
-                        <input id="input_telefone" name="input_telefone" class="input_telefone" type="text" placeholder="(**) *****-****">
-                        <button onclick="add_telefone()" class="btn_add_tel">Adicionar</button>
+                <div id="div_content_telefone" class="info_email">
+                    <div class="div_content">
+                        <h4 class="titulo">Telefone</h4>
+                        <h4 class="info">telefone: <span id="span_telefone"></span></h4>
                     </div>
-                    <div id="div_telefones" class="div-telefones">
-                        <div class="div-content-telefone">
-                            <h4 id="tel" class="info">11 98589-3186</h4>
-                        </div>
-                    </div>
+                    <button onclick="alterar_telefone()" id="btn_edit_telefone" class="btn_edit">
+                        Editar
+                    </button>
                 </div>
             </div>
             <div class="div_senha_logout">

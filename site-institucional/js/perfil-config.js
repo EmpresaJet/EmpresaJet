@@ -1,13 +1,23 @@
 
-function alterar_nome(){
+function alterar_user(){
     btn_edit_user.remove();
 
     div_user.innerHTML += `
     <div id="div_change_user" class="div_input">
         <label for="change_user"></label>
-        <input class="input_user_pass" id="change_user" type="text">
-        <button onclick="confirmar_user()" class="btn_user_pass">Confirmar</button>
+        <input class="input_user_pass_telefone" id="change_user" type="text">
+        <button onclick="confirmar_user()" class="btn_user_pass_telefone">Confirmar</button>
+        <button onclick="cancelar_user()" class="btn_user_pass_telefone_remove">Cancelar</button>
     </div>
+    `
+}
+function cancelar_user(){
+    div_change_user.remove();
+
+    div_user.innerHTML += `
+    <button onclick="alterar_user()" id="btn_edit_user" class="btn_edit">
+        Editar
+    </button>
     `
 }
 function confirmar_user(){
@@ -17,20 +27,31 @@ function confirmar_user(){
     div_change_user.remove();
 
     div_user.innerHTML += `
-    <button onclick="alterar_nome()" id="btn_edit_user" class="btn_edit">
+    <button onclick="alterar_user()" id="btn_edit_user" class="btn_edit">
         Editar
     </button>
     `
 }
+
 function alterar_senha(){
     btn_edit_pass.remove();
 
     div_content_pass.innerHTML += `
     <div id="div_change_pass" class="div_input">
         <label for="change_pass"></label>
-        <input class="input_user_pass" id="change_pass" type="text">
-        <button onclick="confirmar_senha()" class="btn_user_pass">Confirmar</button>
+        <input class="input_user_pass_telefone" id="change_pass" type="text">
+        <button onclick="confirmar_senha()" class="btn_user_pass_telefone">Confirmar</button>
+        <button onclick="cancelar_senha()" class="btn_user_pass_telefone_remove">Cancelar</button>
     </div>
+    `
+}
+function cancelar_senha(){
+    div_change_pass.remove();
+
+    div_content_pass.innerHTML += `
+    <button onclick="alterar_senha()" id="btn_edit_pass" class="btn_edit">
+        Editar
+    </button>
     `
 }
 function confirmar_senha(){
@@ -45,45 +66,38 @@ function confirmar_senha(){
     </button>
     `
 }
-var cliques = 1; 
-function add_telefone(){
-        var nmr_tel = input_telefone.value;
-        if(cliques == 1){
-            div_telefones.innerHTML += `
-            <div id="id1" class="div-content-telefone">
-                <h4 id="tel" class="info">${nmr_tel}</h4>
-                <img class="icon-close" src="./assets/icones/close.png" alt="" onclick="remover1()">
-            </div>
-        `
-        } else if(cliques == 2){
-            div_telefones.innerHTML += `
-            <div id="id2" class="div-content-telefone">
-                <h4 id="tel" class="info">${nmr_tel}</h4>
-                <img class="icon-close" src="./assets/icones/close.png" alt="" onclick="remover2()">
-            </div>
-            `
-        } else if(cliques == 3){
-            div_telefones.innerHTML += `
-            <div id="id3" class="div-content-telefone">
-                <h4 id="tel" class="info">${nmr_tel}</h4>
-                <img class="icon-close" src="./assets/icones/close.png" alt="" onclick="remover3()">
-            </div>
-            `
-        }
-        cliques += 1;
-     
-        input_telefone.value = null;
-    }
 
-function remover1(){
-    id1.remove();
-    cliques = 1;
+
+function alterar_telefone(){
+    btn_edit_telefone.remove();
+
+    div_content_telefone.innerHTML += `
+    <div id="div_change_telefone" class="div_input">
+        <label for="change_telefone"></label>
+        <input class="input_user_pass_telefone" id="change_telefone" type="number">
+        <button onclick="confirmar_telefone()" class="btn_user_pass_telefone">Confirmar</button>
+        <button onclick="cancelar_telefone()" class="btn_user_pass_telefone_remove">Cancelar</button>
+    </div>
+    `
 }
-function remover2(){
-    id2.remove();
-    cliques = 2;
+function cancelar_telefone(){
+    div_change_telefone.remove();
+
+    div_content_telefone.innerHTML += `
+    <button onclick="alterar_telefone()" id="btn_edit_telefone" class="btn_edit">
+        Editar
+    </button>
+    `
 }
-function remover3(){
-    id3.remove();
-    cliques = 3;
+function confirmar_telefone(){
+    var telefone = Number(change_telefone.value);
+    span_telefone.innerHTML = telefone;
+
+    div_change_telefone.remove();
+
+    div_content_telefone.innerHTML +=`
+    <button onclick="alterar_telefone()" id="btn_edit_telefone" class="btn_edit">
+        Editar
+    </button>
+    `
 }

@@ -191,16 +191,16 @@ body {
 
 .div_input{
     height: 100%;
-    width: 50%;
+    width: 70%;
     display: flex;
     align-items: center;
     gap: 4%;
 }
-.input_user_pass{
+.input_user_pass_telefone{
     height: 2.3vh;
     width: 80%;
 }
-.btn_user_pass{
+.btn_user_pass_telefone{
     width: 35%;
     height: 25%;
     background-color: green;
@@ -210,10 +210,28 @@ body {
     font-weight: 600;
     transition: 0.3s;
     border-radius: 5px;
+    cursor: pointer;
 }
-.btn_user:hover{
+.btn_user_pass_telefone:hover{
     border: 1px solid black;
     background-color: #004C05;
+    transition: 0.3s;
+}
+.btn_user_pass_telefone_remove{
+    width: 35%;
+    height: 25%;
+    background-color: rgb(255, 0, 0);
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: 0.3s;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn_user_pass_telefone_remove:hover{
+    border: 1px solid black;
+    background-color: #8d0000;
     transition: 0.3s;
 }
 
