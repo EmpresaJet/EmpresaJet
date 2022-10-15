@@ -229,13 +229,7 @@ top: -5vh;
 .secao-video-prateleira {
     display: flex;
     flex-direction: row;
-    align-items: center;
     margin-bottom: 200px;
-}
-
-.secao-video-prateleira p {
-    font-size: 1.4rem;
-    font-weight: bold;
 }
 
 .prateleira-pasta {
@@ -244,6 +238,30 @@ top: -5vh;
     margin-right: 3vw;
     box-shadow: 0px 5px 5px rgba(0, 0, 0 , 0.6);
 }
+
+
+.barras-video-prateleira-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 10vh;
+}
+
+.barras-video {
+    display: flex;
+    justify-content: right;
+    border-radius: 4px 0px 0px 4px;
+}
+
+.secao-video-prateleira p {
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 50px;
+    border-radius: 15px 0px 0px 15px;
+    background-color: #182F62;
+    color: #ffffff;
+}
+
 
 .secao-video-prateleira-garrafas {
     display: flex;
@@ -255,8 +273,11 @@ top: -5vh;
 
 .secao-video-prateleira-garrafas p {
     font-size: 1.4rem;
-    margin-left: 1.5vw;
     font-weight: bold;
+    padding: 50px;
+    border-radius: 0px 15px 15px 0px;
+    background-color: #182F62;
+    color: #ffffff;
 }
 
 .prateleira-garrafas {
