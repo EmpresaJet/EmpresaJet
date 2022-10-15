@@ -5,470 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="css/perfil-sidebar.css">
-    <link rel="stylesheet" href="css/perfil-dashboard-sensores-frios-congelados.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <link rel="stylesheet" href="css/perfil-notficacoes.css">
+    <link rel="stylesheet" href="css/perfil-notificacoes-categorias.css">
+    <title>Document</title>
 </head>
 
 <body>
-
-    <header>
-
-        <!--Titulo do dashboard-->
-        <section class="dashboard-titulo">
-            <h1>Estado dos sensores</h1>
-        </section>
-
-    </header>
-
     <main>
 
-        <!--Dashboard-->
-
-        <!--Titulo setor-->
-        <section class="container-setor">
-            <div class="container-setor-e-titulo">
-                Setor :
-                <span class="setor-titulo">
-                    Frios e congelados
-                </span>
-            </div>
-        </section>
-
-
-        <!--Sessão de KPIs-->
-        <section class="dashboard-kpis">
-
-            <!--KPI sobre produtos sem estoque algum-->
-            <div class="kpis kpi-estoque-setor-frios-congelados">
-                <p class="kpi-titulo">Sem estoque algum</p>
-                <p class="kpi-dado">0 <span class="kpi-dado-palavra-ajuste">produtos</span></p>
-            </div>
-
-            <!--KPI sobre sensores detectando ausência de produtos-->
-            <div class="kpis kpi-ausencia-setor-frios-congelados">
-                <p class="kpi-titulo">Ausência de produtos</p>
-                <p class="kpi-dado">4 <span class="kpi-dado-palavra-ajuste">sensores</span></p>
-            </div>
-
-            <!--KPI sobre a porcentagem de abastecimento do mercado-->
-            <div class="kpis kpi-abastecimento-setor-frios-congelados">
-                <p class="kpi-titulo">Setor abastecido</p>
-                <p class="kpi-dado">89%</p>
-            </div>
-
-            <!--Gráfico polar sobre a falta dos produtos nos setores do mercado-->
-            <div class="kpis kpi-grafico-polar">
-                <div class="grafico-kpi-container grafico-container-polar-setores">
-                    <canvas class="graficos-canvas" id="polar_setor_falta_produto"></canvas>
-                </div>
-                <div class="kpi-grafico-titulos-container">
-                    <div class="kpi-grafico-titulo">
-                        Ausência de produtos em cada setor
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!--Sessão de Gráficos dos produtos-->
-        <section class="dashboard-graficos">
-            <div class="graficos-card-produtos">
-                <div class="produtos-titulo-e-legenda">
-                    <div class="titulo-produtos">
-                        Produtos
-                    </div>
-                    <div class="estado-produto-legenda">
-                        <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
-                            alt="Icone de ausência vermelho">
-                        - Ausência de produto
-                        <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                            alt="Icone de presença verde">
-                        - Presença de produto
-                    </div>
-                </div>
-
-                <div class="lista-produtos">
-                    <div class="lista-produtos-nomes">
-                        <ul class="lista-produtos-nome-ul">
-                            <li>
-                                <div class="lista-produtos-nome-li-elementos">
-                                    <div class="lista-produtos-nome-li-titulo">
-                                        Queijo Prato Tiroleza
-                                    </div>
-                                    <div class="lista-produtos-nome-li-binario">
-                                        <ul>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
-                                                    alt="Icone de ausência vermelho">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="lista-produtos-nome-li-elementos">
-                                    <div class="lista-produtos-nome-li-titulo">
-                                        Presunto Sadia
-                                    </div>
-                                    <div class="lista-produtos-nome-li-binario">
-                                        <ul>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="lista-produtos-nome-li-elementos">
-                                    <div class="lista-produtos-nome-li-titulo">
-                                        Manteiga Itambé
-                                    </div>
-                                    <div class="lista-produtos-nome-li-binario">
-                                        <ul>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
-                                                    alt="Icone de ausência vermelho">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="lista-produtos-nome-li-elementos">
-                                    <div class="lista-produtos-nome-li-titulo">
-                                        Requeijão Vigor
-                                    </div>
-                                    <div class="lista-produtos-nome-li-binario">
-                                        <ul>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>  <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="lista-produtos-nome-li-elementos">
-                                    <div class="lista-produtos-nome-li-titulo">
-                                        Iogurte de Morango Danone
-                                    </div>
-                                    <div class="lista-produtos-nome-li-binario">
-                                        <ul>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
-                                                    alt="Icone de ausência vermelho">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="lista-produtos-nome-li-elementos">
-                                    <div class="lista-produtos-nome-li-titulo">
-                                        Sorvete Tentação
-                                    </div>
-                                    <div class="lista-produtos-nome-li-binario">
-                                        <ul>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="lista-produtos-nome-li-elementos">
-                                    <div class="lista-produtos-nome-li-titulo">
-                                        Sorvete Chicabon
-                                    </div>
-                                    <div class="lista-produtos-nome-li-binario">
-                                        <ul>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                alt="Icone de presença verde">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="lista-produtos-nome-li-elementos">
-                                    <div class="lista-produtos-nome-li-titulo">
-                                        Hot pocket Sadia
-                                    </div>
-                                    <div class="lista-produtos-nome-li-binario">
-                                        <ul>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-vermelha.svg"
-                                                    alt="Icone de ausência vermelho">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="lista-produtos-nome-li-elementos">
-                                    <div class="lista-produtos-nome-li-titulo">
-                                        Pizza congelada Seará
-                                    </div>
-                                    <div class="lista-produtos-nome-li-binario">
-                                        <ul>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="lista-produtos-nome-li-elementos">
-                                    <div class="lista-produtos-nome-li-titulo">
-                                        Kibe congelado Seará
-                                    </div>
-                                    <div class="lista-produtos-nome-li-binario">
-                                        <ul>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                            <li>
-                                                <img src="assets/perfil/dashboard/perfil-dashboard-sensores/bolinha-verde.svg"
-                                                    alt="Icone de presença verde">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <!--Setores do mercado-->
-            <div class="graficos-card">
-                <div class="sessao-setores">
-                    <h2>Setores</h2>
-                </div>
-                <ul class="setores">
-                    <li>
-                        <a href="perfil-dashboard-sensores-frios-congelados.html">
-                            <div class="container-setores">
-                                <div class="titulos-setores">
-                                    Frios e congelados
-                                </div>
-                                <div>
-                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta"
-                                        alt="Seta lateral indicando um link">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="perfil-dashboard-sensores-mercearia.html">
-                            <div class="container-setores">
-                                <div class="titulos-setores">
-                                    Mercearia
-                                </div>
-                                <div>
-                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta"
-                                        alt="Seta lateral indicando um link">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="perfil-dashboard-sensores-hortifruti.html">
-                            <div class="container-setores">
-                                <div class="titulos-setores">
-                                    Hortifruti
-                                </div>
-                                <div>
-                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta"
-                                        alt="Seta lateral indicando um link">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="perfil-dashboard-sensores-cuidados-pessoais.html">
-                            <div class="container-setores">
-                                <div class="titulos-setores">
-                                    Cuidados Pessoais
-                                </div>
-                                <div>
-                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta"
-                                        alt="Seta lateral indicando um link">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="perfil-dashboard-sensores-bebidas.html">
-                            <div class="container-setores">
-                                <div class="titulos-setores">
-                                    Bebidas
-                                </div>
-                                <div>
-                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta"
-                                        alt="Seta lateral indicando um link">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!--Categorias-->
-        <section class="dashboard-sessoes">
-            <div class="sessao-espaco-para-categorias">
-            </div>
-            <div class="sessoes sessao-categorias">
-                <h2>Categorias</h2>
-                <ul class="categorias">
-                    <li><a href="perfil-dashboard-geral.html">
-                            <div class="container-categorias">
-                                <div class="titulos-categorias">
-                                    Informações gerais
-                                </div>
-                                <div>
-                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta"
-                                        alt="Seta lateral indicando um link">
-                                </div>
-                            </div>
-                        </a></li>
-                    <li><a href="perfil-dashboard-sensores-frios-congelados.html">
-                            <div class="container-categorias">
-                                <div class="titulos-categorias">
-                                    Estado dos sensores
-                                </div>
-                                <div>
-                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta"
-                                        alt="Seta lateral indicando um link">
-                                </div>
-                            </div>
-                        </a></li>
-                    <li><a href="perfil-dashboard-produtos.html">
-                            <div class="container-categorias">
-                                <div class="titulos-categorias">
-                                    Fluxo dos produtos
-                                </div>
-                                <div>
-                                    <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta"
-                                        alt="Seta lateral indicando um link">
-                                </div>
-                            </div>
-                        </a></li>
-                </ul>
-            </div>
-        </section>
-
-        <!--Fundo Azul-->
         <section class="background-color">
 
             <!-- SideBar do Perfil-->
@@ -492,7 +37,7 @@
                                         fill="white" />
                                 </svg>
 
-                                <span href="perfil-dashboard-empresa.html" class="sidebar-titulo">Empresas</span>
+                                <span href="#" class="sidebar-titulo">Empresas</span>
                             </a>
                         </li>
                         <div class="sidebar-separacao"></div>
@@ -518,7 +63,7 @@
                                         fill="white" />
                                 </svg>
 
-                                <span class="sidebar-titulo">Notificação</span>
+                                <span class="sidebar-titulo">Notificações</span>
                             </a>
                         </li>
                         <div class="sidebar-separacao"></div>
@@ -572,16 +117,73 @@
                 </nav>
             </div>
         </section>
+
+        <div class="container-categorias">
+            <h1>Categorias</h1>
+            <div class="classificacoes">
+                <ul>
+                    <li><a href="perfil-notificacoes.html">Todos
+                            <div>
+                                <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta"
+                                    alt="Seta lateral indicando um link">
+                            </div>
+                        </a></li>
+                    <li><a href="perfil-notificacoes-categoria-otimo.html">Ótimo
+                            <div>
+                                <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta"
+                                    alt="Seta lateral indicando um link">
+                            </div>
+                        </a></li>
+                    <li><a href="perfil-notificacoes-categoria-bom.html">Bom
+                            <div>
+                                <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta"
+                                    alt="Seta lateral indicando um link">
+                            </div>
+                        </a></li>
+                    <li><a href="perfil-notificacoes-categoria-alerta.html">Alerta
+                            <div>
+                                <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta"
+                                    alt="Seta lateral indicando um link">
+                            </div>
+                        </a></li>
+                    <li><a href="perfil-notificacoes-categoria-critico.html">Crítico
+                            <div>
+                                <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta"
+                                    alt="Seta lateral indicando um link">
+                            </div>
+                        </a></li>
+                    <li><a href="perfil-notificacoes-categorias-PF.html">Produtos em Falta
+                            <div>
+                                <img src="assets/perfil/dashboard/seta-lateral.svg" class="svg-seta"
+                                    alt="Seta lateral indicando um link">
+                            </div>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Título lista -->
+        <div class="titulo-notificacoes">
+            <h1>Notificações</h1>
+        </div>
+
+        <!-- Notificações -->
+        <div class="container">
+            <h1>Notificações</h1>
+            <h1>Estoque</h1>
+            <div class="notificacoes">
+                <div class="notificao notificacao4">
+                    <h4>
+                        Controle dos Setores
+                    </h4>
+                    <p><b>Setor:</b> Hortifruti</p>
+                    <p><b>Abastecimento:</b> 97% abastecido</p>
+                    <p><b>Estado:</b> Ótimo</p>
+                    <p class="data-hora"><b>26/02/2022 -- 10:55 am</b></p>
+                </div>
+            </div>
+        </div>
     </main>
-
-    <footer>
-        <!--Espaço vazio no fim do dashboard-->
-        <section class="footer-space"></section>
-
-    </footer>
-
 </body>
-
-<script src="js/perfil-dashboard-sensores.js"></script>
 
 </html>

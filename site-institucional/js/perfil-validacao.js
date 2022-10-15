@@ -115,6 +115,7 @@ function validarComplemento() {
 }
 /* Validando os campos do cadastro do funcionario */
 //Validando Nome de usuario
+var validar_usuario = false;
 function validarUsuario() {
   var usuario = inputUsuario.value;
   /* Verifica se o usuario tem mais de 6 caractéres */
@@ -124,9 +125,11 @@ function validarUsuario() {
   } else {
     inputUsuario.classList.remove("red");
     inputUsuario.classList.add("green");
+    validar_usuario = true;
   }
 }
 //Validando Senha do Usuario
+var validar_senha = false;
 function validarSenha() {
   var senha = inputSenha.value;
   var fortificador =
@@ -147,12 +150,14 @@ function validarSenha() {
   if (fortificador.test(senha)) {
     inputSenha.classList.remove("red");
     inputSenha.classList.add("green");
+    validar_senha = true;
   } else {
     inputSenha.classList.add("red");
     inputSenha.classList.remove("green");
   }
 }
 //Validando Nome Do usuario
+var validar_nome = false;
 function validarNome() {
   var nome = inputNome.value;
   /* Devolve a quantidade de nomes em numeros Ex: Sherlock Homes -> vai retornar 2 */
@@ -164,6 +169,7 @@ function validarNome() {
   } else {
     inputNome.classList.remove("red");
     inputNome.classList.add("green");
+    validar_nome = true;
   }
   /* Faz a substituição das primeiras letras dos nomes caso o usuário coloque a primeira leta do nome minuscula */
   for (let i = 0; i < nomeCompleto.length; i++) {
@@ -174,6 +180,7 @@ function validarNome() {
   nomeCompleto.join(" ");
 }
 //Validando Email do Usuario
+var validar_email = false;
 function validarEmail() {
   var email = inputEmail.value;
   var validacao = /\S+@\S+\.\S+/;
@@ -188,9 +195,11 @@ function validarEmail() {
   } else {
     inputEmail.classList.remove("red");
     inputEmail.classList.add("green");
+    validar_email = true;
   }
 }
 //Validando Contato do Usuario
+var validar_contato = false;
 function validarContato() {
   var contato = inputContato.value;
   if (contato.length > 11) {
@@ -200,12 +209,14 @@ function validarContato() {
   } else {
     inputContato.classList.remove("red");
     inputContato.classList.add("green");
+    validar_contato = true;
   }
 }
 
 //Confirmar cadastro da empresa
 
 function registrar_empresa(){
+  alert("Empresa cadastrada com sucesso!")
 
   //nome da empresa
   var nome_empresa = inputEmpresa.value;
@@ -268,3 +279,50 @@ function botao_registro(){
   }
 }
 
+function registrar_func(){
+  alert("Cadastro realizado com sucesso!");
+
+  var username = inputUsuario.value;
+  var senha = inputSenha.value;
+  var nome = inputNome.value;
+  var email = inputEmail.value;
+  var tel = inputContato.value;
+  var funcao = select_funcao.value;
+
+  tabela_funcionarios.innerHTML += `
+  <div class="func1">
+    <div class="estilo-atributos">
+      <h5>Login:</h5>
+      <p>${username}</p>
+    </div>
+    <div class="estilo-atributos">
+      <h5>Senha:</h5>
+      <p>${senha}</p>
+    </div>
+    <div class="estilo-atributos">
+      <h5>Nome Completo:</h5>
+      <p>${nome}</p>
+    </div>
+    <div class="estilo-atributos">
+      <h5>Email:</h5>
+      <p>${email}</p>
+    </div>
+    <div class="estilo-atributos">
+      <h5>Telefone:</h5>
+      <p>${tel}</p>
+    </div>
+    <div class="estilo-atributos">
+      <h5>Função:</h5>
+      <p>${funcao}</p>
+    </div>
+</div>
+  `
+}
+
+function botao_registro_func(){
+  if(validar_usuario == true && validar_senha == true && validar_nome == true && validar_email == true && validar_contato == true){
+    registrar_func();
+  } else{
+    alert("Cadastro de funcionário inválido")
+  }
+}
