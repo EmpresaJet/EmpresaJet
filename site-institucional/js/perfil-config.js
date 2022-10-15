@@ -101,3 +101,11 @@ function confirmar_telefone(){
     </button>
     `
 }
+
+
+
+//link para página do login, quando fazer o logout
+
+function link_login(){
+    window.location.href = "login.html"
+}

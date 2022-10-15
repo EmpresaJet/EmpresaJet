@@ -79,3 +79,10 @@ function validarContato() {
     spanErrorContate.classList.remove("active");
   }
 }
+
+
+// link para a dashboard
+
+function link_perfil(){
+  window.location.href = "perfil-dashboard-empresa.html"
+} 
