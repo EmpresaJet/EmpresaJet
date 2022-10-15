@@ -1,0 +1,364 @@
+/*Cores de fundo para o dashboard*/
+
+body {
+  background-color: #a9b1ba;
+}
+
+
+.background-color {
+  background-color: rgb(26, 72, 139);
+  width: 110%;
+  height: 30vh;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 22px 11px rgba(255, 255, 255, 0.05), inset 0px 2px 24px 13px rgba(35, 93, 231, 0.08);
+}
+
+.pai {
+  display: flex;
+}
+
+/* Titúlo Lista */
+.titulo-notificacoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2%;
+  margin-left: 1.2vw;
+  margin-top: -23vh;
+}
+
+.titulo-notificacoes h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2vh;
+  color: #FFFF
+}
+
+/* Notificações */
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 28vw;
+  margin-top: 4.3vh;
+  width: 45%;
+  height: 855vh;
+  border-radius: 20px;
+  background-color: rgb(237, 237, 237);
+  box-shadow: 5px 6px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 {
+  margin-top: 4vh;
+  color: #00194C;
+}
+
+
+.notificacoes {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 85vh;
+  margin-top: 3vh;
+}
+
+.notificacao {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.notificacao1 {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  margin-left: 1vw;
+  margin-right: 2vw;
+  border: 1px solid rgb(179, 5, 5);
+  border-radius: 10px;
+  background-color: rgb(27, 27, 27);
+  color: white;
+  box-shadow: 8px 8px 0px 0px rgb(179, 5, 5);
+}
+
+.notificacao1 h4 {
+  margin-top: 1vh;
+  margin-left: 1vw;
+}
+
+.notificacao1 p {
+  margin-left: 1vw;
+  margin-top: 1.5vh;
+  margin-bottom: 1vh;
+}
+
+.notificacao2 {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 5vh;
+  margin-bottom: 1vh;
+  margin-left: 1vw;
+  margin-right: 2vw;
+  border: 1px solid rgb(188, 243, 59);
+  border-radius: 10px;
+  background-color: rgb(27, 27, 27);
+  color: white;
+  box-shadow: 8px 8px 0px 0px rgb(188, 243, 59);
+}
+
+.notificacao2 h4 {
+  margin-top: 1vh;
+  margin-left: 1vw;
+}
+
+.notificacao2 p {
+  margin-left: 1vw;
+  margin-top: 1.5vh;
+  margin-bottom: 1vh;
+}
+
+.notificacao3 {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 5vh;
+  margin-bottom: 1vh;
+  margin-left: 1vw;
+  margin-right: 2vw;
+  border: 1px solid rgb(253, 253, 3);
+  border-radius: 10px;
+  background-color: rgb(27, 27, 27);
+  color: white;
+  box-shadow: 8px 8px 0px 0px rgb(253, 253, 3);
+}
+
+.notificacao3 h4 {
+  margin-top: 1vh;
+  margin-left: 1vw;
+}
+
+.notificacao3 p {
+  margin-left: 1vw;
+  margin-top: 1.5vh;
+  margin-bottom: 1vh;
+}
+
+.notificacao4 {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 5vh;
+  margin-left: 1vw;
+  margin-right: 2vw;
+  border: 1px solid rgb(34, 154, 15);
+  border-radius: 10px;
+  background-color: rgb(27, 27, 27);
+  color: white;
+  box-shadow: 8px 8px 0px 0px rgb(24, 154, 15);
+}
+
+.notificacao4 h4 {
+  margin-top: 1vh;
+  margin-left: 1vw;
+}
+
+.notificacao4 p {
+  margin-left: 1vw;
+  margin-top: 1.5vh;
+  margin-bottom: 1vh;
+}
+
+.notificacao5 {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 5vh;
+  margin-bottom: 1vh;
+  margin-left: 1vw;
+  margin-right: 2vw;
+  border: 1px solid rgb(188, 243, 59);
+  border-radius: 10px;
+  background-color: rgb(27, 27, 27);
+  color: white;
+  box-shadow: 8px 8px 0px 0px rgb(188, 243, 59);
+}
+
+.notificacao5 h4 {
+  margin-top: 1vh;
+  margin-left: 1vw;
+}
+
+.notificacao5 p {
+  margin-left: 1vw;
+  margin-top: 1.5vh;
+  margin-bottom: 1vh;
+}
+
+.data-hora {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: 10px;
+  margin-right: 0.5vw;
+}
+
+/* Linha para separar as Notificações-Estoque das Notificações-Produtos em falta */
+hr {
+  margin-top: 78vh;
+  width: 100%;
+  border-top: 2px #00194C solid;
+  border-bottom: #FFFF;
+  border-right: #FFFF;
+  border-left: #FFFF;
+  height: 10vh;
+}
+
+/* Notificações-Produtos em falta */
+
+.falta-produto {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-top: 3vh;
+  margin-left: 1vw;
+  margin-bottom: 3vh;
+  border: 1px solid rgb(179, 5, 5);
+  border-radius: 15px;
+  background-color: rgb(27, 27, 27);
+  color: white;
+  box-shadow: 8px 8px 0px 0px rgb(179, 5, 5);
+}
+
+
+.falta-produto h4 {
+  margin-top: 1vh;
+  margin-left: 1vw;
+}
+
+.falta-produto p {
+  margin-left: 1vw;
+  margin-top: 1.5vh;
+}
+
+/* Categorias */
+.container-categorias {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  margin-left: 80vw;
+  margin-right: 15vw;
+  margin-top: 2.5vh;
+  width: 18vw;
+  height: 57vh;
+  border-radius: 20px;
+  background-color: rgb(237, 237, 237);
+  color: #00194C;
+  box-shadow: 5px 6px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.container-categorias h1 {
+  margin-top: 2vh;
+}
+
+.classificacoes {
+  display: flex;
+  position: absolute;
+  margin-right: 8vw;
+}
+
+.classificacoes ul {
+  list-style: none;
+  margin-top: 10vh;
+}
+
+.classificacoes ul li {
+  margin-top: 2vh;
+  margin-left: 8vw;
+  margin-bottom: 3vh;
+}
+
+.classificacoes li a {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  list-style: none;
+  color: #00194C;
+  width: 100%;
+  height: 100%;
+  margin-left: 0.5vw;
+  padding: 5px;
+  transition: 0.4s;
+  padding-right: 2px;
+  justify-content: space-between;
+}
+
+.classificacoes a:hover {
+  transform: translateY(-8px);
+  background: rgba(0, 0, 0, 0.10);
+  border: rgba(0, 0, 0, 0.10);
+  border-radius: 9px;
+  width: 100%;
+  transition: 0.2s;
+}
+
+.svg-seta {
+  margin-left: 8vw;
+  margin-right: 2vw;
+}
+
+.legendas {
+  margin-top: 65vh;
+  height: 38vh;
+  width: 18vw;
+}
+
+.legendas ul {
+  flex-direction: column;
+}
+
+.classificacoes-lengenda {
+  margin-left: 3.5vw;
+}
+
+
+.cores {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 15vh;
+  margin-left: -2vw;
+}
+
+.cor-otimo {
+  width: 6.5vw;
+  height: 0.5vh;
+  margin-top: 10.8vh;
+  margin-right: 4vw;
+  background-color: rgb(24, 154, 15);
+}
+
+.cor-bom {
+  width: 6.5vw;
+  height: 0.5vh;
+  margin-top: 0.5vh;
+  margin-right: 4vw;
+  background-color: rgb(188, 243, 59);
+}
+
+.cor-alerta {
+  width: 6.5vw;
+  height: 0.5vh;
+  margin-top: 0.2vh;
+  margin-bottom: 0.4;
+  margin-right: 4vw;
+  background-color: rgb(253, 253, 3);
+}
+
+.cor-critico {
+  width: 6.5vw;
+  height: 0.5vh;
+  margin-right: 4vw;
+  background-color: rgb(179, 5, 5);
+}
