@@ -130,7 +130,7 @@ function validarUsuario() {
 function validarSenha() {
   var senha = inputSenha.value;
   var fortificador =
-    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])([0-9a-zA-Z$*&@#]){8,}$/;
+    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#!])([0-9a-zA-Z$*&@#]){8,}$/;
   /*
     
   (?=.*\d)         // deve conter ao menos um dígito
