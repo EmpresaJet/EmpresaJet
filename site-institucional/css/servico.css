@@ -227,7 +227,7 @@ button {
 
 .frase_cf_1 {
 text-align: center;
-font-weight: 1000;
+font-weight: 400;
 color: #000D27;
 margin-left: 3%;
 margin-right: 3%;
@@ -237,7 +237,7 @@ margin-right: 3%;
 .frase_cf_2 {
     margin-top: 20px;
     text-align: center;
-    font-weight: 1000;
+    font-weight: 400;
     color: #000D27;
     margin-left: 3%;
     margin-right: 3%;
@@ -257,4 +257,11 @@ hr {
 
 .h1-text1 {
     margin-top: 10px;
+}
+
+.vermelho{
+    color: red;
+}
+.verde{
+    color: green;
 }

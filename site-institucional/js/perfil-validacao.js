@@ -1,4 +1,5 @@
 /* Validando os campos da empresa */
+var validar_empresa = false;
 function validarEmpresa() {
   var empresa = inputEmpresa.value;
   /* Verifica se o nome da empresa tem mais de 3 caractéres */
@@ -8,9 +9,11 @@ function validarEmpresa() {
   } else {
     inputEmpresa.classList.remove("red");
     inputEmpresa.classList.add("green");
+    validar_empresa = true;
   }
 }
 //Validando CNPJ da empresa com os 14 caracteres
+var validar_cnpj = false;
 function validarCNPJ() {
   var CNPJ = inputCNPJ.value;
   /* Verifica se o usuario tem mais de 6 caractéres */
@@ -20,10 +23,12 @@ function validarCNPJ() {
   } else {
     inputCNPJ.classList.remove("red");
     inputCNPJ.classList.add("green");
+    validar_cnpj = true;
   }
 }
 
 //Validando o Logradouro da empresa
+var validar_logradouro = false;
 function validarLogradouro() {
   var logradouro = inputLogradouro.value;
   /* Verifica se o logradouro tem mais de 3 caractéres */
@@ -33,9 +38,11 @@ function validarLogradouro() {
   } else {
     inputLogradouro.classList.remove("red");
     inputLogradouro.classList.add("green");
+    validar_logradouro = true;
   }
 }
 // Validando select
+var validar_uf = false;
 function validarUF() {
   var uf = inputUF.value;
   if (uf == "none") {
@@ -44,9 +51,11 @@ function validarUF() {
   } else {
     inputUF.classList.remove("red");
     inputUF.classList.add("green");
+    validar_uf = true;
   }
 }
 //Validando a cidade da empresa
+var validar_cidade = false;
 function validarCidade() {
   var cidade = inputCidade.value;
   /* Verifica se a cidade tem mais de 8 caractéres */
@@ -56,10 +65,12 @@ function validarCidade() {
   } else {
     inputCidade.classList.remove("red");
     inputCidade.classList.add("green");
+    validar_cidade = true;
   }
 }
 
 // Validando o CEP da empresa
+var validar_cep = false;
 function validarCEP() {
   var CEP = inputCEP.value;
   /* Verifica se a cidade tem mais de 8 caractéres */
@@ -69,10 +80,12 @@ function validarCEP() {
   } else {
     inputCEP.classList.remove("red");
     inputCEP.classList.add("green");
+    validar_cep = true;
   }
 }
 
 //Validando o Bairro da empresa
+validar_bairro = false;
 function validarBairro() {
   var bairro = inputBairro.value;
   //Verifica se o bairro da empresa tem mais que 6 caracteres
@@ -82,10 +95,12 @@ function validarBairro() {
   } else {
     inputBairro.classList.remove("red");
     inputBairro.classList.add("green");
+    validar_bairro = true;
   }
 }
 
 //Validando o Complemento da Empresa
+var validar_complemento = false;
 function validarComplemento() {
   var complemento = inputBairro.value;
   //Verifica se o complemento da empresa tem mais que 4 caracteres
@@ -95,6 +110,7 @@ function validarComplemento() {
   } else {
     inputComplemento.classList.remove("red");
     inputComplemento.classList.add("green");
+    validar_complemento = true;
   }
 }
 /* Validando os campos do cadastro do funcionario */
@@ -114,7 +130,7 @@ function validarUsuario() {
 function validarSenha() {
   var senha = inputSenha.value;
   var fortificador =
-    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])([0-9a-zA-Z$*&@#]){8,}$/;
+    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#!])([0-9a-zA-Z$*&@#]){8,}$/;
   /*
     
   (?=.*\d)         // deve conter ao menos um dígito
@@ -186,3 +202,69 @@ function validarContato() {
     inputContato.classList.add("green");
   }
 }
+
+//Confirmar cadastro da empresa
+
+function registrar_empresa(){
+
+  //nome da empresa
+  var nome_empresa = inputEmpresa.value;
+  titulo_div_empresa.innerHTML = nome_empresa;
+  subtitulo_div_empresa.remove();
+  inputEmpresa.remove();
+  nome_empresa_cadastro.innerHTML = `Nome da Empresa`;
+  nome_empresa_box.innerHTML += nome_empresa;
+
+  //cnpj da empresa
+  var cnpj_empresa = Number(inputCNPJ.value);
+  inputCNPJ.remove();
+  cnpj_empresa_box.innerHTML += cnpj_empresa;
+  cnpj_empresa_cadastro.innerHTML = "CNPJ";
+
+  //Logradouro da empresa
+  var logradouro_empresa = inputLogradouro.value;
+  inputLogradouro.remove();
+  logradouro_empresa_box.innerHTML += logradouro_empresa;
+  logradouro_empresa_cadastro.innerHTML = "Logradouro"
+
+  //Cidade da empresa
+  var cidade_empresa = inputCidade.value;
+  inputCidade.remove();
+  cidade_empresa_box.innerHTML += cidade_empresa;
+  cidade_empresa_cadastro.innerHTML = "Cidade"
+
+  //Estado da empresa
+  var estado_empresa = inputUF.value;
+  inputUF.remove();
+  estado_empresa_box.innerHTML += estado_empresa;
+  estado_empresa_cadastro.innerHTML = "UF"
+
+  //Cep da empresa
+  var cep_empresa = Number(inputCEP.value);
+  inputCEP.remove();
+  cep_empresa_box.innerHTML += cep_empresa;
+  cep_empresa_cadastro.innerHTML = "CEP"
+
+  //Bairro da empresa
+  var bairro_empresa = inputBairro.value;
+  inputBairro.remove();
+  bairro_empresa_box.innerHTML += bairro_empresa;
+
+  //Complemento da empresa
+  var complemento_empresa = inputComplemento.value;
+  inputComplemento.remove();
+  complemento_empresa_box.innerHTML += complemento_empresa;
+
+  btn_cadastrar_empresa.remove();
+  document.getElementById("container_filho_empresa").style.marginLeft = "17vw";
+  document.getElementById("titulo_2_empresa").style.marginLeft = "12vw";
+}
+function botao_registro(){
+  if(validar_empresa == true && validar_cnpj == true && validar_logradouro == true && validar_cidade == true && validar_uf == true && validar_cep == true && validar_bairro == true && validar_complemento == true){
+    registrar_empresa();
+  }
+  else{
+    alert("Cadastro errado")
+  }
+}
+
