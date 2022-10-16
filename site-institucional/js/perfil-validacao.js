@@ -133,7 +133,7 @@ var validar_senha = false;
 function validarSenha() {
   var senha = inputSenha.value;
   var fortificador =
-    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#!])([0-9a-zA-Z$*&@#]){8,}$/;
+    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!$*&@#])([0-9a-zA-Z!$*&@#]){8,}$/;
   /*
     
   (?=.*\d)         // deve conter ao menos um dígito
@@ -271,26 +271,27 @@ function registrar_empresa(){
   document.getElementById("titulo_2_empresa").style.marginLeft = "12vw";
 }
 function botao_registro(){
-  if(validar_empresa == true && validar_cnpj == true && validar_logradouro == true && validar_cidade == true && validar_uf == true && validar_cep == true && validar_bairro == true && validar_complemento == true){
+  if(validar_empresa && validar_cnpj && validar_logradouro && validar_cidade && validar_uf && validar_cep && validar_bairro && validar_complemento){
     registrar_empresa();
   }
   else{
     alert("Cadastro inválido")
   }
 }
-
+var contador_div_funcionario = 0;
 function registrar_func(){
+  contador_div_funcionario+=1;
   alert("Cadastro realizado com sucesso!");
 
-  var username = inputUsuario.value;
-  var senha = inputSenha.value;
-  var nome = inputNome.value;
-  var email = inputEmail.value;
-  var tel = inputContato.value;
-  var funcao = select_funcao.value;
+  const username = inputUsuario.value;
+  const senha = inputSenha.value;
+  const nome = inputNome.value;
+  const email = inputEmail.value;
+  const tel = inputContato.value;
+  const funcao = select_funcao.value;
 
   tabela_funcionarios.innerHTML += `
-  <div class="func1">
+  <div class="func" id="${contador_div_funcionario}">
     <div class="estilo-atributos">
       <h5>Login:</h5>
       <p>${username}</p>
@@ -315,14 +316,20 @@ function registrar_func(){
       <h5>Função:</h5>
       <p>${funcao}</p>
     </div>
+    <button class="removerCard" onclick="removerCard(${contador_div_funcionario})">Remover</button>
 </div>
   `
 }
 
 function botao_registro_func(){
-  if(validar_usuario == true && validar_senha == true && validar_nome == true && validar_email == true && validar_contato == true){
+  if(validar_usuario && validar_senha && validar_nome && validar_email && validar_contato){
     registrar_func();
   } else{
     alert("Cadastro de funcionário inválido")
   }
+}
+
+function removerCard(idFuncionario) {
+  var card = document.getElementById(idFuncionario);
+  card.remove();  
 }
