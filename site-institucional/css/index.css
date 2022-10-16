@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+
 video {
     width: 100%;
 }
@@ -130,7 +131,6 @@ video {
     display: flex;
     width: 100%;
     height: 50vh;
-    align-items: center;
 }
 
 .sobre-nos {
@@ -147,7 +147,6 @@ video {
 .titulo-e-barra {
     display: flex;
     margin-top: 4vh;
-    justify-content: flex-end;
     width: 80%;
     align-items: center;
 }
@@ -201,16 +200,21 @@ video {
 
 .titulo-e-barra h1 {
     font-size: 2.9rem;
-    margin-left: 3vw;
+    margin-left: 2.8vw;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    margin-right: 1.5vw;
 }
 
 .texto-sobre-nos {
     display: flex;
     width: 80%;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: bold;
     padding: 10vh;
     margin-right: 4vw;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
 }
 
 
@@ -230,11 +234,12 @@ video {
     top: 240vh;
     right: 25vh;
     text-align: center;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
 }
 
 .texto-secao-dois p {
     text-align: center;
-    font-weight: bold;
     font-size: 1.7rem;
     width: 19vw;
     color: #ffffff;
@@ -298,12 +303,11 @@ video {
 
 .secao-video-prateleira-garrafas p {
     font-size: 2rem;
-    font-weight: bold;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
     padding: 14%;
     background-color: #182F62;
     color: #ffffff;
-    font-family: 'Barlow', sans-serif;
-    font-weight: 300;
 }
 
 .prateleira-garrafas {
@@ -321,6 +325,9 @@ video {
     justify-content: center;
     background-color: #1c2532;
     border-bottom: 5px solid #EAB200;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 2vh;
 }
 
 /*COR DO TEXTO 'NOSSO TIME'*/

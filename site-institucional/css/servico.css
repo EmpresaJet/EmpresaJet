@@ -42,10 +42,11 @@
     display: flex;
     justify-content: center;
     margin-bottom: 1vh;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
 }
 .titulo-nossos-servicos h1{
     font-size: 2.3vw;
-    font-weight: 800;
     border-bottom: 4px solid #00194C;
     text-align: center;
     padding-bottom: 1vh;
@@ -85,12 +86,18 @@
 }
 .paragrafo{
     margin: 1.5vw 5vw 0 1.5vw;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 2.2vh;
 }
 .contato{
     display: flex;
     gap: 7vw;
     margin: 1.5vw 5vw 1.5vw 1.5vw;
     align-items: center;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 2.2vh;
 }
 .contato-icon{
     display: flex;
@@ -101,6 +108,9 @@
     display: flex;
     gap: 1vw;
     align-items: center;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 2.2vh;
 }
 .img-icon{
     height: 2vw;
