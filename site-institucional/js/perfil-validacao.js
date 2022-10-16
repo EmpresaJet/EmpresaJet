@@ -275,7 +275,7 @@ function botao_registro(){
     registrar_empresa();
   }
   else{
-    alert("Cadastro errado")
+    alert("Cadastro inválido")
   }
 }
 
