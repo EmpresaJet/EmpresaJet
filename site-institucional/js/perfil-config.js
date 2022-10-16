@@ -70,7 +70,7 @@ function validar_atualizacao_func_senha() {
   if (validar_senha) {
     confirmar_senha();
   } else {
-    alert("Senha inválida. Deve conter no mínimo 1 letra maiúscula, 1 caractere especial e 1 número.");
+    alert("Senha inválida. Deve conter no mínimo 1 letra maiúscula, 1 caracter especial e 1 número.");
   }
 }
 function validar_atualizacao_func_contato() {
