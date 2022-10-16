@@ -29,10 +29,10 @@ function validarSenha() {
 */
   /* Verifica se a senha está com as requisições acima */
   if (fortificador.test(senha)) {
+    spanErrorPassword.classList.remove("active");
+  } else {
     spanErrorPassword.classList.add("active");
     spanErrorPassword.innerHTML = "Senha inválida";
-  } else {
-    spanErrorPassword.classList.remove("active");
   }
 }
 function validarNome() {
