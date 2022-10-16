@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-top: 10vh;
+    margin-top: 15vh;
 }
 .faixa-esquerda{ /* div filho do container 1 */
     height: 120%;

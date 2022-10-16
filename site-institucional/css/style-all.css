@@ -5,12 +5,24 @@
     padding: 0;
     box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
 body {
     font-family: "Manrope", sans-serif;
+   
 }
+.scrollable-element {
+    scrollbar-face-color: #646464;
+  }
 /*MENU (HEADER)*/
 header{
     background-color: #00194C;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    top: 0;
+    border-bottom: 5px solid #EAB200;
 }
 .container{
     display: flex;
