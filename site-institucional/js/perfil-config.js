@@ -1,14 +1,15 @@
-var valUser = false;
+var validar_user = false;
 function validarUsuario() {
   var usuario = inputUsuario.value;
   /* Verifica se o usuario tem mais de 6 caractéres */
   if (usuario.length < 6) {
     inputUsuario.classList.add("red");
     inputUsuario.classList.remove("green");
+    validar_user = false;
   } else {
     inputUsuario.classList.remove("red");
     inputUsuario.classList.add("green");
-    valUser = true;
+    validar_user = true;
   }
 }
 //Validando Senha do Usuario
@@ -37,6 +38,7 @@ function validarSenha() {
   } else {
     inputSenha.classList.add("red");
     inputSenha.classList.remove("green");
+    validar_senha = false;
   }
 }
 
@@ -44,10 +46,11 @@ function validarSenha() {
 var validar_contato = false;
 function validarContato() {
   var contato = inputContato.value;
-  if (contato.length < 11) {
+  if (contato.length <= 7 || contato.length >= 12){
     // Valida números telefones celulares para contato
     inputContato.classList.add("red");
     inputContato.classList.remove("green");
+    validar_contato = false;
   } else {
     inputContato.classList.remove("red");
     inputContato.classList.add("green");
@@ -55,6 +58,28 @@ function validarContato() {
   }
 }
 
+
+function validar_atualizacao_func_user() {
+  if (validar_user) {
+    confirmar_user();
+  } else {
+    alert("Usuário inválido. Deve conter mais de 6 letras.");
+  }
+}
+function validar_atualizacao_func_senha() {
+  if (validar_senha) {
+    confirmar_senha();
+  } else {
+    alert("Senha inválida. Deve conter no mínimo 1 letra maiúscula, 1 caractere especial e 1 número.");
+  }
+}
+function validar_atualizacao_func_contato() {
+  if (validar_contato) {
+    confirmar_telefone();
+  } else {
+    alert("Telefone inválido. Deve conter de 8 a 11 dígitos");
+  }
+}
 function alterar_user() {
     btn_edit_user.remove();
 
@@ -67,33 +92,9 @@ function alterar_user() {
     </div>
     `;
   }
-
-function validar_atualizacao_func_user() {
-  if (valUser) {
-    confirmar_user();
-  } else {
-    alert("Cadastro de funcionário inválido");
-  }
-}
-function validar_atualizacao_func_senha() {
-  if (validar_senha) {
-    confirmar_senha();
-  } else {
-    alert("Cadastro de funcionário inválido");
-  }
-}
-function validar_atualizacao_func_contato() {
-  if (validar_contato) {
-    confirmar_telefone();
-  } else {
-    alert("Cadastro de funcionário inválido");
-  }
-}
-
-
   function cancelar_user() {
     div_change_user.remove();
-
+    
     div_user.innerHTML += `
     <button onclick="alterar_user()" id="btn_edit_user" class="btn_edit">
         Editar
