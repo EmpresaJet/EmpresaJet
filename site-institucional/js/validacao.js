@@ -32,12 +32,13 @@ function validarSenha() {
   /* Verifica se a senha está com as requisições acima */
   if (fortificador.test(senha)) {
     spanErrorPassword.classList.remove("active");
+    spanAviso.innerHTML = "";
     validar_senha = true;
   } else {
     validar_senha = false;
     spanErrorPassword.classList.add("active");
     spanErrorPassword.innerHTML = "Senha inválida";
-    formBox.innerHTML += `<span class="spanAviso">Sua Senha deve ter no minimo 8 caracteres:<br>Uma letra Maiúscula<br>Uma letra Minuscula<br>Um numero<br>Um caracter especial</span>`;
+    spanAviso.innerHTML += `<span class="spanAviso">Sua Senha deve ter no minimo 8 caracteres:<br>Uma letra Maiúscula<br>Uma letra Minuscula<br>Um numero<br>Um caracter especial</span>`;
   }
 }
 var validar_nome = false;
