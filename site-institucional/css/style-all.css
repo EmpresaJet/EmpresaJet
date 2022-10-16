@@ -12,9 +12,10 @@ body {
     font-family: "Manrope", sans-serif;
    
 }
-.scrollable-element {
-    scrollbar-face-color: #646464;
-  }
+    ::-webkit-scrollbar { width: 8px; height: 3px;}
+    ::-webkit-scrollbar-track-piece { background-color: #000;}
+    ::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+
 /*MENU (HEADER)*/
 header{
     background-color: #00194C;
