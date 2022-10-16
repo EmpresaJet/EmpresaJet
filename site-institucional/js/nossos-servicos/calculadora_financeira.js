@@ -6,7 +6,7 @@ function validarCalculadoraTotal() {
   ) {
     calcular_tudo();
   } else {
-    alert('Inserir os Dados corretamente na calculadora de lucros');
+    alert('Insira os dados corretamente na calculadora de lucros');
   }
 }
 function validarCalculadoraPerda() {
@@ -16,7 +16,7 @@ function validarCalculadoraPerda() {
     ) {
        calcular_perda(); 
     }else{
-        alert('Inserir os Dados corretamente na calculadora de perdas');
+        alert('Insira os dados corretamente na calculadora de perdas');
     }
 }
 
