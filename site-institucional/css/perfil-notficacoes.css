@@ -42,7 +42,7 @@ body {
   margin-top: 4.3vh;
   margin-bottom: 5vh;
   width: 45%;
-  height: 855vh;
+  height: 930vh;
   border-radius: 20px;
   background-color: rgb(237, 237, 237);
   box-shadow: 5px 6px 2px 1px rgba(0, 0, 0, 0.1);
@@ -225,13 +225,25 @@ hr {
   margin-top: 3vh;
   margin-left: 1vw;
   margin-bottom: 3vh;
-  border: 1px solid rgb(246, 69, 69);
   border-radius: 15px;
   background-color: rgb(27, 27, 27);
   color: white;
+}
+
+.vermelho {
+  border: 1px solid rgb(246, 69, 69);
   box-shadow: 8px 8px 0px 0px rgb(246, 69, 69);
 }
 
+.verde-lima {
+  border: 1px solid rgb(178, 220, 80);
+  box-shadow: 8px 8px 0px 0px rgb(178, 220, 80);
+}
+
+.amarelo {
+  border: 1px solid rgb(255, 224, 86);
+  box-shadow: 8px 8px 0px 0px rgb(255, 224, 86);
+}
 
 .falta-produto h4 {
   margin-top: 1vh;
