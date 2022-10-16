@@ -32,8 +32,8 @@ function validarSenha() {
   /* Verifica se a senha está com as requisições acima */
   if (fortificador.test(senha)) {
     spanErrorPassword.classList.remove("active");
-    spanAviso.innerHTML = "";
     validar_senha = true;
+    spanAviso.innerHTML = "";
   } else {
     validar_senha = false;
     spanErrorPassword.classList.add("active");
