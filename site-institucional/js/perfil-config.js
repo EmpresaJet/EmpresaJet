@@ -188,3 +188,7 @@ function alterar_user() {
     window.location.href = "login.html";
   }
 
+  function link_index() {
+    window.location.href = "index.html";
+  }
+
