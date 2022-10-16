@@ -150,14 +150,14 @@
                     <span class="titulo_3 titulos"> INSIRA SUA RECEITA TOTAL MENSAL </span>
                 </div>
                 <div class="container_inputs_1">
-                    <input id="input_custo_variavel" class="input_1 inputs">
-                    <input id="input_custo_fixo" class="input_2 inputs">
-                    <input id="input_receita_total" class="input_3 inputs">
+                    <input id="input_custo_variavel" class="input_1 inputs" type="number">
+                    <input id="input_custo_fixo" class="input_2 inputs" type="number">
+                    <input id="input_receita_total" class="input_3 inputs" type="number">
                 </div>
             </div>
             <br>
             <div class="buttons">
-                <button onclick="calcular_tudo()">CALCULAR</button>
+                <button onclick="validarCalculadoraTotal()">CALCULAR</button>
 
             </div>
             <div id="div_resultado_total" class="frase_cf_1"></div>
@@ -186,13 +186,13 @@
                 </div>
                 <div class="container_inputs_2">
                     <input id="input_nome_produto" class="input_4 inputs">
-                    <input id="input_preco_unidade" class="input_5 inputs">
-                    <input id="input_quantidade_abastecimento" class="input_6 inputs">
+                    <input id="input_preco_unidade" class="input_5 inputs" type="number">
+                    <input id="input_quantidade_abastecimento" class="input_6 inputs" type="number">
                 </div>
             </div>
             <br>
             <div class="buttons">
-                <button onclick="calcular_perda()">CALCULAR</button><br>
+                <button onclick="validarCalculadoraPerda()">CALCULAR</button><br>
             </div>
 
             <div id="div_resultado" class="frase_cf_2"></div>
