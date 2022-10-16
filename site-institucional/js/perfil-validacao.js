@@ -215,8 +215,8 @@ function validarContato() {
 
 //Confirmar cadastro da empresa
 
-function registrar_empresa(){
-  alert("Empresa cadastrada com sucesso!")
+function registrar_empresa() {
+  alert("Empresa cadastrada com sucesso!");
 
   //nome da empresa
   var nome_empresa = inputEmpresa.value;
@@ -236,25 +236,25 @@ function registrar_empresa(){
   var logradouro_empresa = inputLogradouro.value;
   inputLogradouro.remove();
   logradouro_empresa_box.innerHTML += logradouro_empresa;
-  logradouro_empresa_cadastro.innerHTML = "Logradouro"
+  logradouro_empresa_cadastro.innerHTML = "Logradouro";
 
   //Cidade da empresa
   var cidade_empresa = inputCidade.value;
   inputCidade.remove();
   cidade_empresa_box.innerHTML += cidade_empresa;
-  cidade_empresa_cadastro.innerHTML = "Cidade"
+  cidade_empresa_cadastro.innerHTML = "Cidade";
 
   //Estado da empresa
   var estado_empresa = inputUF.value;
   inputUF.remove();
   estado_empresa_box.innerHTML += estado_empresa;
-  estado_empresa_cadastro.innerHTML = "UF"
+  estado_empresa_cadastro.innerHTML = "UF";
 
   //Cep da empresa
   var cep_empresa = Number(inputCEP.value);
   inputCEP.remove();
   cep_empresa_box.innerHTML += cep_empresa;
-  cep_empresa_cadastro.innerHTML = "CEP"
+  cep_empresa_cadastro.innerHTML = "CEP";
 
   //Bairro da empresa
   var bairro_empresa = inputBairro.value;
@@ -270,17 +270,25 @@ function registrar_empresa(){
   document.getElementById("container_filho_empresa").style.marginLeft = "17vw";
   document.getElementById("titulo_2_empresa").style.marginLeft = "12vw";
 }
-function botao_registro(){
-  if(validar_empresa && validar_cnpj && validar_logradouro && validar_cidade && validar_uf && validar_cep && validar_bairro && validar_complemento){
+function botao_registro() {
+  if (
+    validar_empresa &&
+    validar_cnpj &&
+    validar_logradouro &&
+    validar_cidade &&
+    validar_uf &&
+    validar_cep &&
+    validar_bairro &&
+    validar_complemento
+  ) {
     registrar_empresa();
-  }
-  else{
-    alert("Cadastro inválido")
+  } else {
+    alert("Cadastro inválido");
   }
 }
 var contador_div_funcionario = 0;
-function registrar_func(){
-  contador_div_funcionario+=1;
+function registrar_func() {
+  contador_div_funcionario += 1;
   alert("Cadastro realizado com sucesso!");
 
   const username = inputUsuario.value;
@@ -318,18 +326,24 @@ function registrar_func(){
     </div>
     <button class="removerCard" onclick="removerCard(${contador_div_funcionario})">Remover</button>
 </div>
-  `
+  `;
 }
 
-function botao_registro_func(){
-  if(validar_usuario && validar_senha && validar_nome && validar_email && validar_contato){
+function botao_registro_func() {
+  if (
+    validar_usuario &&
+    validar_senha &&
+    validar_nome &&
+    validar_email &&
+    validar_contato
+  ) {
     registrar_func();
-  } else{
-    alert("Cadastro de funcionário inválido")
+  } else {
+    alert("Cadastro de funcionário inválido");
   }
 }
 
 function removerCard(idFuncionario) {
   var card = document.getElementById(idFuncionario);
-  card.remove();  
+  card.remove();
 }

@@ -107,7 +107,7 @@ section .contentBox .formBox .inputBox img {
   width: 30px;
 }
 /* Botão para Enviar Formulário  */
-section .contentBox .formBox .inputBox input[type="submit"] {
+section .contentBox .formBox .inputBox input[type="button"] {
   background: var(--yellowBorder);
   color: #000;
   outline: none;
@@ -119,7 +119,7 @@ section .contentBox .formBox .inputBox input[type="submit"] {
   margin: 25px;
 }
 
-section .contentBox .formBox .inputBox input[type="submit"]:hover {
+section .contentBox .formBox .inputBox input[type="button"]:hover {
   background: var(--bgBlue);
   color: #fff;
 }
