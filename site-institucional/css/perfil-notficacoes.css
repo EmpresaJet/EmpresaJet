@@ -40,8 +40,9 @@ body {
   flex-direction: column;
   margin-left: 28vw;
   margin-top: 4.3vh;
+  margin-bottom: 5vh;
   width: 45%;
-  height: 790vh;
+  height: 855vh;
   border-radius: 20px;
   background-color: rgb(237, 237, 237);
   box-shadow: 5px 6px 2px 1px rgba(0, 0, 0, 0.1);
@@ -75,11 +76,11 @@ body {
   margin-bottom: 1vh;
   margin-left: 1vw;
   margin-right: 2vw;
-  border: 1px solid rgb(179, 5, 5);
+  border: 1px solid rgb(246, 69, 69);
   border-radius: 10px;
   background-color: rgb(27, 27, 27);
   color: white;
-  box-shadow: 8px 8px 0px 0px rgb(179, 5, 5);
+  box-shadow: 8px 8px 0px 0px rgb(246, 69, 69);
 }
 
 .notificacao1 h4 {
@@ -101,11 +102,11 @@ body {
   margin-bottom: 1vh;
   margin-left: 1vw;
   margin-right: 2vw;
-  border: 1px solid rgb(188, 243, 59);
+  border: 1px solid rgb(178, 220, 80);
   border-radius: 10px;
   background-color: rgb(27, 27, 27);
   color: white;
-  box-shadow: 8px 8px 0px 0px rgb(188, 243, 59);
+  box-shadow: 8px 8px 0px 0px rgb(178, 220, 80);
 }
 
 .notificacao2 h4 {
@@ -127,11 +128,11 @@ body {
   margin-bottom: 1vh;
   margin-left: 1vw;
   margin-right: 2vw;
-  border: 1px solid rgb(253, 253, 3);
+  border: 1px solid rgb(255, 224, 86);
   border-radius: 10px;
   background-color: rgb(27, 27, 27);
   color: white;
-  box-shadow: 8px 8px 0px 0px rgb(253, 253, 3);
+  box-shadow: 8px 8px 0px 0px rgb(255, 224, 86);
 }
 
 .notificacao3 h4 {
@@ -152,11 +153,11 @@ body {
   margin-top: 5vh;
   margin-left: 1vw;
   margin-right: 2vw;
-  border: 1px solid rgb(34, 154, 15);
+  border: 1px solid rgb(93, 208, 67);
   border-radius: 10px;
   background-color: rgb(27, 27, 27);
   color: white;
-  box-shadow: 8px 8px 0px 0px rgb(24, 154, 15);
+  box-shadow: 8px 8px 0px 0px rgb(93, 208, 67);
 }
 
 .notificacao4 h4 {
@@ -178,11 +179,11 @@ body {
   margin-bottom: 1vh;
   margin-left: 1vw;
   margin-right: 2vw;
-  border: 1px solid rgb(188, 243, 59);
+  border: 1px solid rgb(178, 220, 80);
   border-radius: 10px;
   background-color: rgb(27, 27, 27);
   color: white;
-  box-shadow: 8px 8px 0px 0px rgb(188, 243, 59);
+  box-shadow: 8px 8px 0px 0px rgb(178, 220, 80);
 }
 
 .notificacao5 h4 {
@@ -224,11 +225,11 @@ hr {
   margin-top: 3vh;
   margin-left: 1vw;
   margin-bottom: 3vh;
-  border: 1px solid rgb(179, 5, 5);
+  border: 1px solid rgb(246, 69, 69);
   border-radius: 15px;
   background-color: rgb(27, 27, 27);
   color: white;
-  box-shadow: 8px 8px 0px 0px rgb(179, 5, 5);
+  box-shadow: 8px 8px 0px 0px rgb(246, 69, 69);
 }
 
 
@@ -247,7 +248,7 @@ hr {
   display: flex;
   position: absolute;
   justify-content: center;
-  margin-left: 80vw;
+  margin-left: 78vw;
   margin-right: 15vw;
   margin-top: 2.5vh;
   width: 18vw;
@@ -304,7 +305,7 @@ hr {
 }
 
 .svg-seta {
-  margin-left: 8vw;
+  margin-left: 6vw;
   margin-right: 2vw;
 }
 
@@ -319,7 +320,7 @@ hr {
 }
 
 .classificacoes-lengenda {
-  margin-left: 3.5vw;
+  margin-left: 5vw;
 }
 
 
@@ -329,7 +330,7 @@ hr {
   justify-content: space-around;
   align-items: center;
   height: 15vh;
-  margin-left: -2vw;
+  margin-left: -5vw;
 }
 
 .cor-otimo {
@@ -337,7 +338,7 @@ hr {
   height: 0.5vh;
   margin-top: 10.8vh;
   margin-right: 4vw;
-  background-color: rgb(24, 154, 15);
+  background-color: rgb(93, 208, 67);
 }
 
 .cor-bom {
@@ -345,7 +346,7 @@ hr {
   height: 0.5vh;
   margin-top: 0.5vh;
   margin-right: 4vw;
-  background-color: rgb(188, 243, 59);
+  background-color: rgb(178, 220, 80);
 }
 
 .cor-alerta {
@@ -354,12 +355,12 @@ hr {
   margin-top: 0.2vh;
   margin-bottom: 0.4;
   margin-right: 4vw;
-  background-color: rgb(253, 253, 3);
+  background-color: rgb(255, 224, 86);
 }
 
 .cor-critico {
   width: 6.5vw;
   height: 0.5vh;
   margin-right: 4vw;
-  background-color: rgb(179, 5, 5);
+  background-color: rgb(246, 69, 69);
 }
