@@ -12,9 +12,9 @@ body {
     font-family: "Manrope", sans-serif;
    
 }
-    ::-webkit-scrollbar { width: 8px; height: 3px;}
-    ::-webkit-scrollbar-track-piece { background-color: #000;}
-    ::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+    ::-webkit-scrollbar { width: 12px; height: 3px;}
+    ::-webkit-scrollbar-track-piece { background-color: #3a3a3a;}
+    ::-webkit-scrollbar-thumb { height: 50px; background-color: #959595; border-radius: 3px;}
 
 /*MENU (HEADER)*/
 header{
