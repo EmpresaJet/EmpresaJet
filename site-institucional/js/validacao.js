@@ -107,8 +107,7 @@ function validar_autenticacao_cadastro() {
     validar_usuario &&
     validar_senha &&
     validar_nome &&
-    validar_email &&
-    validar_contato
+    validar_email
   ) {
     window.location.href = "login.html";
   } else {

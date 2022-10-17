@@ -331,8 +331,7 @@ function botao_registro_func() {
     validar_usuario &&
     validar_senha &&
     validar_nome &&
-    validar_email &&
-    validar_contato
+    validar_email
   ) {
     registrar_func();
   } else {
