@@ -1,8 +1,8 @@
 function validarCalculadoraTotal() {
   if (
-    input_receita_total.value &&
-    input_custo_variavel.value &&
-    input_custo_fixo.value
+    Number(input_receita_total.value) &&
+    Number(input_custo_variavel.value) &&
+    Number(input_custo_fixo.value)
   ) {
     calcular_tudo();
   } else {
