@@ -100,7 +100,6 @@ function validarBairro() {
 }
 
 //Validando o Complemento da Empresa
-var validar_complemento = false;
 function validarComplemento() {
   var complemento = inputBairro.value;
   //Verifica se o complemento da empresa tem mais que 4 caracteres
@@ -110,7 +109,6 @@ function validarComplemento() {
   } else {
     inputComplemento.classList.remove("red");
     inputComplemento.classList.add("green");
-    validar_complemento = true;
   }
 }
 /* Validando os campos do cadastro do funcionario */
@@ -278,8 +276,7 @@ function botao_registro() {
     validar_cidade &&
     validar_uf &&
     validar_cep &&
-    validar_bairro &&
-    validar_complemento
+    validar_bairro
   ) {
     registrar_empresa();
   } else {

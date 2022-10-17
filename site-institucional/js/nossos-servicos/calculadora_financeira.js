@@ -33,7 +33,7 @@ function calcular_tudo() {
   var lucro_anual_inicial = lucro_liquido * 12;
 
   div_resultado_total.innerHTML = ` <br>
-Sua margem de <u>lucro líquido mensal</u> hoje é de <b>${margem_lucro}%</b>. <br>
+Sua margem de <u>lucro líquido mensal</u> hoje é de <b>${margem_lucro.toFixed(2)}%</b>. <br>
 O <u>lucro líquido mensal</u> da sua empresa atualmente é <b>${lucro_liquido.toLocaleString(
     "pt-BR",
     {
