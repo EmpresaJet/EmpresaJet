@@ -38,7 +38,7 @@ function validarSenha() {
     validar_senha = false;
     spanErrorPassword.classList.add("active");
     spanErrorPassword.innerHTML = "Senha inválida";
-    spanAviso.innerHTML += `<span class="spanAviso">Sua Senha deve ter no minimo 8 caracteres:<br>Uma letra Maiúscula<br>Uma letra Minuscula<br>Um numero<br>Um caracter especial</span>`;
+    spanAviso.innerHTML = `<span class="spanAviso">Sua Senha deve ter no minimo 8 caracteres:<br>Uma letra Maiúscula<br>Uma letra Minuscula<br>Um numero<br>Um caracter especial</span>`;
   }
 }
 var validar_nome = false;
