@@ -15,9 +15,6 @@ function entrar(user, senha) {
         SELECT * FROM Perfil WHERE username = '${user}' AND senha = '${senha}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
-    if (!instrucao) {
-    alert('Seu usuário ou seu senha está incorreto');
-    }
     return database.executar(instrucao);    
 }
 

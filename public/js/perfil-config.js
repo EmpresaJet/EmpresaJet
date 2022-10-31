@@ -182,6 +182,11 @@ function alterar_user() {
     `;
   }
 
+  function logout() {
+    sessionStorage.clear();
+    link_login();
+  }
+
   //link para página do login, quando fazer o logout
 
   function link_login() {
