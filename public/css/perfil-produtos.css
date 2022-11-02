@@ -40,10 +40,12 @@
     width: 50%;
     padding: 2%;
 }
+.tr_table{
+    border-bottom: 1px solid black;
+}
 .td_table{
     text-align: center;
-    border-bottom: 1px solid black;
-    padding: 2%;
+    padding: 2% 0;
 }
 .td_table_btn{
     border-bottom: 1px solid black;
@@ -80,7 +82,17 @@
     border: 1px dashed black;
     transition: 0.3s;
 }
-.input_prateleira_produto{
-    width: 100%;
+.input_produto{
     height: 3vh;
+    width: 80%;
+}
+.icon_editar{
+    width: 1.3vw;
+}
+.td_table_produto{
+    display: flex;
+    align-items: center;
+    gap: 2%;
+    margin-top: 3.1%;
+    margin-left: 40%;
 }

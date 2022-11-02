@@ -1,69 +1,49 @@
-var prateleira_validacao = false;
-var produto_validacao = false;
-function validar_prateleira_produto(){
-    var prateleira = input_prateleira.value;
-    if(prateleira.length > 0){
-        input_prateleira.classList.remove("red");
-        input_prateleira.classList.add("green");
-        prateleira_validacao = true;
-    } else{
-        input_prateleira.classList.add("red")
-        input_prateleira.classList.remove("green");
-        prateleira_validacao = false;
-    }
+var btn_acionado = 0;
 
-    var produto = input_produto.value;
-    if(produto.length >= 3){
-        input_produto.classList.remove("red");
-        input_produto.classList.add("green")
-        produto_validacao = true;
-    } else{
-        input_produto.classList.add("remove");
-        input_produto.classList.remove("green");
-        produto_validacao = false
+function adicionar_produto(idProduto){
+    if(btn_acionado == 0){
+        var idProduto = document.getElementById(idProduto);
+        idProduto.innerHTML = `
+            <input class="input_produto" placeholder="Nome do produto*" type="text" id="input_produto" onblur="validar_produto()">
+            <button class="btn_adicionar_produto" onclick="confirmar_produto()">Confirmar</button>`
+        td_produto = idProduto;
+
+        btn_acionado = 1;
     }
 }
 
-function adicionar_product(){
-    if(prateleira_validacao && produto_validacao){
-        insertTable();
-    } else if(prateleira_validacao == false){
-        alert("O campo da prateleira está vazio")
+var produto = false
+function validar_produto(){
+    var produto_frase = input_produto.value;
+    if(produto_frase.length < 3){
+        produto = false;
     } else {
-        alert("O campo do produto precisa conter no mínimo 3 letras")
+        produto = true;
     }
 }
-var contador_linha_tabela = 0;
-function insertTable(){
-    var produto = input_produto.value.toUpperCase();
-    var prateleira = input_prateleira.value.toUpperCase();
-    contador_linha_tabela += 1;
-    tbody_table.innerHTML += `
-    <tr id="${contador_linha_tabela}" class="tr_table">
-        <td class="td_table">${prateleira}</td>
-        <td class="td_table">${produto}</td>
-        <td class="td_table_btn"><button class="btn_remover_produto" onclick="removerLinhaTabela(${contador_linha_tabela})">remover</button></td>
-    </tr>
-    `
-}
 
-function removerLinhaTabela(idLinhaTabela){
-    var linhaTabela = document.getElementById(idLinhaTabela);
-    linhaTabela.remove();
-}
-
-function mudarSetor(){
-    var setor = select_setor.value;
-
-    if(setor == 1){
-        nomeSetor.innerHTML = "Frios e Congelados"
-    } else if(setor == 2){
-        nomeSetor.innerHTML = "Mercearia"
-    } else if(setor == 3){
-        nomeSetor.innerHTML = "Hortifruti"
-    } else if(setor == 4){
-        nomeSetor.innerHTML = "Cuidados pessoais"
-    } else {
-        nomeSetor.innerHTML = "Bebidas"
+function confirmar_produto(){
+    if(produto){
+        insertProduto();
+    } else{
+        alert("Produto deve conter mais de 2 letras")
     }
 }
+var td_produto = 0;
+function insertProduto(){
+    var frase_produto = input_produto.value;
+    td_produto.innerHTML = `
+    ${frase_produto}
+    <img class="icon_editar" src="./assets/svg/icon_editar.svg" alt="">
+    `;
+    btn_acionado = 0;
+}
+
+
+
+
+// function removerLinhaTabela(idLinhaTabela){
+//     var linhaTabela = document.getElementById(idLinhaTabela);
+//     linhaTabela.remove();
+// }
+
