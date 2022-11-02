@@ -1,5 +1,11 @@
 /*Cores de fundo para o dashboard*/
 
+
+:root{
+  --corCritico: rgb(246, 69, 69);
+  --corAlerta: rgb(255, 224, 86);
+}
+
 body {
   background-color: #a9b1ba;
   overflow-x: hidden;
@@ -11,10 +17,6 @@ body {
   width: 110%;
   height: 30vh;
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 22px 11px rgba(255, 255, 255, 0.05), inset 0px 2px 24px 13px rgba(35, 93, 231, 0.08);
-}
-
-.pai {
-  display: flex;
 }
 
 /* Titúlo Lista */
@@ -42,7 +44,7 @@ body {
   margin-top: 4.3vh;
   margin-bottom: 5vh;
   width: 45%;
-  height: 850vh;
+  height: 500vh;
   border-radius: 20px;
   background-color: rgb(237, 237, 237);
   box-shadow: 5px 6px 2px 1px rgba(0, 0, 0, 0.1);
@@ -94,32 +96,6 @@ body {
   margin-bottom: 1vh;
 }
 
-.notificacao2 {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  margin-top: 5vh;
-  margin-bottom: 1vh;
-  margin-left: 1vw;
-  margin-right: 2vw;
-  border: 1px solid rgb(178, 220, 80);
-  border-radius: 10px;
-  background-color: rgb(27, 27, 27);
-  color: white;
-  box-shadow: 8px 8px 0px 0px rgb(178, 220, 80);
-}
-
-.notificacao2 h4 {
-  margin-top: 1vh;
-  margin-left: 1vw;
-}
-
-.notificacao2 p {
-  margin-left: 1vw;
-  margin-top: 1.5vh;
-  margin-bottom: 1vh;
-}
-
 .notificacao3 {
   display: flex;
   justify-content: flex-start;
@@ -146,57 +122,6 @@ body {
   margin-bottom: 1vh;
 }
 
-.notificacao4 {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  margin-top: 5vh;
-  margin-left: 1vw;
-  margin-right: 2vw;
-  border: 1px solid rgb(93, 208, 67);
-  border-radius: 10px;
-  background-color: rgb(27, 27, 27);
-  color: white;
-  box-shadow: 8px 8px 0px 0px rgb(93, 208, 67);
-}
-
-.notificacao4 h4 {
-  margin-top: 1vh;
-  margin-left: 1vw;
-}
-
-.notificacao4 p {
-  margin-left: 1vw;
-  margin-top: 1.5vh;
-  margin-bottom: 1vh;
-}
-
-.notificacao5 {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  margin-top: 5vh;
-  margin-bottom: 1vh;
-  margin-left: 1vw;
-  margin-right: 2vw;
-  border: 1px solid rgb(178, 220, 80);
-  border-radius: 10px;
-  background-color: rgb(27, 27, 27);
-  color: white;
-  box-shadow: 8px 8px 0px 0px rgb(178, 220, 80);
-}
-
-.notificacao5 h4 {
-  margin-top: 1vh;
-  margin-left: 1vw;
-}
-
-.notificacao5 p {
-  margin-left: 1vw;
-  margin-top: 1.5vh;
-  margin-bottom: 1vh;
-}
-
 .data-hora {
   display: flex;
   flex-direction: row;
@@ -205,44 +130,28 @@ body {
   margin-right: 0.5vw;
 }
 
-/* Linha para separar as Notificações-Estoque das Notificações-Produtos em falta */
-hr {
-  margin-top: 78vh;
-  width: 100%;
-  border-top: 2px #00194C solid;
-  border-bottom: #FFFF;
-  border-right: #FFFF;
-  border-left: #FFFF;
-  height: 10vh;
-}
-
 /* Notificações-Produtos em falta */
 
 .falta-produto {
   display: flex;
   flex-direction: column;
-  width: 90%;
-  margin-top: 3vh;
+  width: 37.2vw;
   margin-left: 1vw;
+  margin-top: 3vh;
   margin-bottom: 3vh;
   border-radius: 15px;
   background-color: rgb(27, 27, 27);
   color: white;
 }
 
-.vermelho {
-  border: 1px solid rgb(246, 69, 69);
-  box-shadow: 8px 8px 0px 0px rgb(246, 69, 69);
+.critico {
+  border: 1px solid var(--corCritico);
+  box-shadow: 8px 8px 0px 0px var(--corCritico);
 }
 
-.verde-lima {
-  border: 1px solid rgb(178, 220, 80);
-  box-shadow: 8px 8px 0px 0px rgb(178, 220, 80);
-}
-
-.amarelo {
-  border: 1px solid rgb(255, 224, 86);
-  box-shadow: 8px 8px 0px 0px rgb(255, 224, 86);
+.alerta {
+  border: 1px solid var(--corAlerta);
+  box-shadow: 8px 8px 0px 0px var(--corAlerta);
 }
 
 .falta-produto h4 {
@@ -264,7 +173,7 @@ hr {
   margin-right: 15vw;
   margin-top: 2.5vh;
   width: 18vw;
-  height: 57vh;
+  height: 36vh;
   border-radius: 20px;
   background-color: rgb(237, 237, 237);
   color: #00194C;
@@ -322,8 +231,8 @@ hr {
 }
 
 .legendas {
-  margin-top: 65vh;
-  height: 38vh;
+  margin-top: 43vh;
+  height: 26vh;
   width: 18vw;
 }
 
@@ -341,38 +250,23 @@ hr {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 15vh;
+  height: 13.4vh;
   margin-left: -5vw;
-}
-
-.cor-otimo {
-  width: 6.5vw;
-  height: 0.5vh;
-  margin-top: 10.8vh;
-  margin-right: 4vw;
-  background-color: rgb(93, 208, 67);
-}
-
-.cor-bom {
-  width: 6.5vw;
-  height: 0.5vh;
-  margin-top: 0.5vh;
-  margin-right: 4vw;
-  background-color: rgb(178, 220, 80);
 }
 
 .cor-alerta {
   width: 6.5vw;
   height: 0.5vh;
-  margin-top: 0.2vh;
+  margin-top: 0.4vh;
   margin-bottom: 0.4;
   margin-right: 4vw;
-  background-color: rgb(255, 224, 86);
+  background-color: var(--corAlerta);
 }
 
 .cor-critico {
   width: 6.5vw;
   height: 0.5vh;
   margin-right: 4vw;
-  background-color: rgb(246, 69, 69);
+  background-color: var(--corCritico);
 }
+
