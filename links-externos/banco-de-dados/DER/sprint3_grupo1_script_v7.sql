@@ -24,7 +24,7 @@ CREATE TABLE
         nome VARCHAR(60) NOT NULL,
         email VARCHAR(50) NOT NULL,
         telefone VARCHAR(11),
-        funcao VARCHAR(45) DEFAULT 'Usuário', CONSTRAINT chkFuncao CHECK (funcao in('Administrador','Usuário')),
+        funcao VARCHAR(45) DEFAULT 'Administrador', CONSTRAINT chkFuncao CHECK (funcao in('Administrador','Usuário')),
         fkEmpresa INT FOREIGN KEY REFERENCES Empresa(idEmpresa)
     );
 
