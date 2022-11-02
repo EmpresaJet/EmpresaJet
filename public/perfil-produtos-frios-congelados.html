@@ -8,6 +8,7 @@
   <title>Perfil - Produtos</title>
   <link rel="stylesheet" href="css/perfil-sidebar.css" />
   <link rel="stylesheet" href="css/perfil-produtos-frios-congelados.css" />
+  <link rel="stylesheet" href="css/perfil-produtos.css">
 </head>
 
 <body>
@@ -232,7 +233,24 @@
 
     <!-- Tabela dos produtos -->
     <section class="card-tabela-produtos">
-
+      <table class="tabela">
+        <thead>
+            <tr class="tr_table">
+            <th class="th_table">Prateleira(s)</th>
+            <th class="th_table">Produto</th>
+            </tr>
+        </thead>
+        <tbody id="tbody_table">
+            <!-- LINHAS DOS PRODUTOS -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="td_table"><input class="input_prateleira_produto" placeholder="Nome da Prateleira(s)*" type="text" id="input_prateleira" onkeyup="validar_prateleira_produto()"></td>
+                <td class="td_table"><input class="input_prateleira_produto" placeholder="Nome do produto*" type="text" id="input_produto" onkeyup="validar_prateleira_produto()"></td>
+                <td class="td_table_btn"><button class="btn_adicionar_produto" onclick="adicionar_product()">Adicionar</button></td>
+            </tr>
+        </tfoot>
+      </table> 
     </section>
 
     <!--Espaço vazio no fim do dashboard-->
@@ -241,3 +259,4 @@
 </body>
 
 </html>
+<script src="./js/perfil-produtos.js"></script>
