@@ -197,3 +197,31 @@ function alterar_user() {
     window.location.href = "index.html";
   }
 
+// BOTAO SELECIONAR IMAGEM //
+
+var botao = document.getElementById('btn_foto_id');
+var selecionarFoto = document.getElementById('foto_input')
+var imagem = document.getElementById('exibir_foto')
+
+botao.addEventListener('click', () => {
+  selecionarFoto.click();
+})
+
+selecionarFoto.addEventListener('change', (event) => {
+  
+  if(selecionarFoto.files.length <= 0) {
+    return;
+  }
+
+    var ler = new FileReader();
+
+    ler.onload = () => {
+      imagem.src = ler.result;
+    }
+
+    ler.readAsDataURL(selecionarFoto.files[0]);
+});
+
+
+
+
