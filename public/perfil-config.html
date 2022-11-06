@@ -29,10 +29,10 @@
         <div class="foto">
           <img id="exibir_foto" src="">
         </div>
-
-        <div id="btn_foto_id" class="btn_foto" ><p>Editar Foto</p></div>
-
-      <input type="file" accept="image/*" id="foto_input"/>
+        <div id="btn_foto_id" class="btn_foto">
+          <p>Editar Foto</p>
+        </div>
+        <input type="file" accept="image/*" id="foto_input" />
 
       </div>
 
@@ -40,7 +40,7 @@
         <div id="div_user" class="info_usuario">
           <div id="div_content_user" class="div_content">
             <h4 class="titulo">Nome de usuário</h4>
-            <h4 class="info">Usuário: <span id="span_user"></span></h4>
+            <h4 class="info">Username: <span id="span_user"></span></h4>
           </div>
           <button onclick="alterar_user()" id="btn_edit_user" class="btn_edit">
             Editar
@@ -191,3 +191,45 @@
 
 </html>
 <script src="./js/perfil-config.js"></script>
+
+
+<script>
+
+  function dadosCliente() {
+    if (sessionStorage.ID_PERFIL) {
+      fetch(`/usuarios?id=${sessionStorage.ID_PERFIL}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then(function (resposta) {
+          if (resposta.ok) {
+            resposta.json().then((json) => {
+              console.log(json);
+
+              //username do Usuario
+              var username_usuario = json.username;
+              span_user.innerHTML = username_usuario;
+
+              //senha do usuario
+              var senha_usuario = json.senha;
+              span_senha.innerHTML = senha_usuario;
+
+              //telefone do usuario
+
+              var telefone_usuario = json.telefone;
+              span_telefone.innerHTML = telefone_usuario;
+              
+            });
+          }
+        })
+        .catch(function (resposta){
+          console.log(`#ERRO: ${resposta}`);
+        });
+      }
+    }
+
+    // Busca os dados do cliente assim que a página carrega
+    dadosCliente();
+</script>

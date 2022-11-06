@@ -46,7 +46,7 @@ function cadastrarEmpresa(req, res) {
     }
     else {
         
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        // Passe os valores como parâmetro e vá para o arquivo empresaModel.js
         empresaModel.cadastrarEmpresa(idPerfil, empresaNome, estado, cidade, bairro, logradouro,
             cep, complemento, cnpj)
             .then(

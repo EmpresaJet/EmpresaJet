@@ -101,10 +101,33 @@ function alterar_user() {
     </button>
     `;
   }
-  function confirmar_user() {
-    var user = inputUsuario.value;
-    span_user.innerHTML = user;
 
+   //ATRIBUIR FETCH AO EVENTO PARA ALTERAR DADOS NO BANCO COM METODO PUT
+  function confirmar_user() {
+    fetch(`/usuarios/confirmar_user/${sessionStorage.getItem("USER_USUARIO")}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: inputUsuario.value,
+        idPerfil: sessionStorage.ID_PERFIL
+      })
+    }).then(function (resposta) {
+      
+      if (resposta.ok) {
+        window.alert("Username atualizado com sucesso");
+        
+      } else if (resposta.status == 404) {
+        window.alert("Deu 404!");
+      } else {
+        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    })
+    
+    span_user.innerHTML = inputUsuario.value;
     div_change_user.remove();
 
     div_user.innerHTML += `
@@ -113,6 +136,7 @@ function alterar_user() {
     </button>
     `;
   }
+
 
   function alterar_senha() {
     btn_edit_pass.remove();
@@ -135,9 +159,32 @@ function alterar_user() {
     </button>
     `;
   }
+  //ATRIBUIR FETCH AO EVENTO PARA ALTERAR DADOS NO BANCO COM METODO PUT
   function confirmar_senha() {
-    var senha = inputSenha.value;
-    span_senha.innerHTML = senha;
+    fetch(`/usuarios/confirmar_senha/${sessionStorage.getItem("USER_USUARIO")}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        senha: inputSenha.value,
+        idPerfil: sessionStorage.ID_PERFIL
+      })
+    }).then(function (resposta) {
+      
+      if (resposta.ok) {
+        window.alert("Username atualizado com sucesso");
+        
+      } else if (resposta.status == 404) {
+        window.alert("Deu 404!");
+      } else {
+        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    })
+
+    span_senha.innerHTML = inputSenha.value;
 
     div_change_pass.remove();
 
@@ -169,9 +216,33 @@ function alterar_user() {
     </button>
     `;
   }
+
+   //ATRIBUIR FETCH AO EVENTO PARA ALTERAR DADOS NO BANCO COM METODO PUT
   function confirmar_telefone() {
     var telefone = Number(inputContato.value);
-    span_telefone.innerHTML = telefone;
+    fetch(`/usuarios/confirmar_telefone/${sessionStorage.getItem("USER_USUARIO")}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        telefone: Number(inputContato.value),
+        idPerfil: sessionStorage.ID_PERFIL
+      })
+    }).then(function (resposta) {
+      
+      if (resposta.ok) {
+        window.alert("Telefone atualizado com sucesso");
+        
+      } else if (resposta.status == 404) {
+        window.alert("Deu 404!");
+      } else {
+        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    })
+    span_telefone.innerHTML = Number(inputContato.value);
 
     div_change_telefone.remove();
 
@@ -221,7 +292,3 @@ selecionarFoto.addEventListener('change', (event) => {
 
     ler.readAsDataURL(selecionarFoto.files[0]);
 });
-
-
-
-

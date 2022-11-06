@@ -9,6 +9,11 @@ function listar() {
     return database.executar(instrucao);
 }
 
+function buscar(idPerfil) {
+    const instrucao = `SELECT * FROM Perfil WHERE idPerfil = ${idPerfil}`;
+    return database.executar(instrucao);
+  }
+
 function entrar(user, senha) {
     console.log("ACESSEI O Perfil MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", user, senha)
     var instrucao = `
@@ -16,6 +21,37 @@ function entrar(user, senha) {
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);    
+}
+
+
+//FUNCÃO QUE EXECUTA A ALTERAÇÃO DAS INFORMAÇÕES NO BANCO DE DADOS
+async function confirmar_user(username, idPerfil) {
+    console.log("ACESSEI O Perfil MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function alterar(): ")
+
+    var instrucao = `UPDATE Perfil SET Perfil.username = '${username}'
+    WHERE idPerfil = ${parseInt(idPerfil)}`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return await database.executar(instrucao);
+}
+
+//FUNCÃO QUE EXECUTA A ALTERAÇÃO DAS INFORMAÇÕES NO BANCO DE DADOS
+async function confirmar_senha(senha, idPerfil) {
+    console.log("ACESSEI O Perfil MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function alterar(): ")
+
+    var instrucao = `UPDATE Perfil SET Perfil.senha = '${senha}'
+    WHERE idPerfil = ${parseInt(idPerfil)}`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return await database.executar(instrucao);
+}
+
+//FUNCÃO QUE EXECUTA A ALTERAÇÃO DAS INFORMAÇÕES NO BANCO DE DADOS
+async function confirmar_telefone(telefone, idPerfil) {
+    console.log("ACESSEI O Perfil MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function alterar(): ")
+
+    var instrucao = `UPDATE Perfil SET Perfil.telefone = '${telefone}'
+    WHERE idPerfil = ${parseInt(idPerfil)}`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return await database.executar(instrucao);
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
@@ -35,4 +71,8 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
+    buscar,
+    confirmar_user,
+    confirmar_senha,
+    confirmar_telefone
 };
