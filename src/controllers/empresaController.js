@@ -24,7 +24,7 @@ function cadastrarEmpresa(req, res) {
     var empresaNome = req.body.empresaNomeServer;
     var estado = req.body.estadoServer;
     var cidade = req.body.cidadeServer;
-    var bairro = req.body.bairroVar;
+    var bairro = req.body.bairroServer;
     var logradouro = req.body.logradouroServer;
     var cep = req.body.cepServer;
     var complemento = req.body.complementoVar;
