@@ -1,4 +1,7 @@
 /* Validando os campos */
+
+// document.getElementById("btnCadastrar").disabled = true;
+
 var validar_usuario = false;
 function validarUsuario() {
   var usuario = inputUsuario.value;
@@ -109,8 +112,77 @@ function validar_autenticacao_cadastro() {
     validar_nome &&
     validar_email
   ) {
-    window.location.href = "login.html";
+    alert(`Cadastro realizado com sucesso!`)
+    cadastrar()
+    // document.getElementById("btnCadastrar").disabled = false;
+    // window.location.href = "login.html";
   } else {
-    alert("Autenticação inválida");
+    alert("Autentificação inválida");
   }
+}
+
+
+function cadastrar() {
+  // aguardar();
+  window.location.href = "login.html";
+  //Recupere o valor da nova input pelo nome do id
+  // Agora vá para o método fetch logo abaixo
+  var userVar = inputUsuario.value;
+  var senhaVar = inputSenha.value;
+  var nomeVar = inputNome.value;
+  var emailVar = inputEmail.value;
+  var contatoVar = inputContato.value;
+
+  // if (userVar == "" || senhaVar == "" || nomeVar == "" || emailVar == "") {
+  //     cardErro.style.display = "block"
+  //     mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+  //     finalizarAguardar();
+  //     return false;
+  // }
+  // else {
+  //     setInterval(sumirMensagem, 5000)
+  // }
+
+  // Enviando o valor da nova input
+  fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          userServer: userVar,
+          senhaServer: senhaVar,
+          nomeServer: nomeVar,
+          emailServer: emailVar,
+          contatoServer: contatoVar
+      })
+  }).then(function (resposta) {
+
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+          alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+          setTimeout(() => {
+              window.location = "login.html";
+          }, "2000")
+          
+          limparFormulario();
+          // finalizarAguardar();
+      } else {
+          alert ("Houve um erro ao tentar realizar o cadastro!");
+      }
+  }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+      // finalizarAguardar();
+  });
+
+  return false;
+}
+
+function sumirMensagem() {
+  cardErro.style.display = "none"
 }
