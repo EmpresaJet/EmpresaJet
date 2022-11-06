@@ -26,7 +26,7 @@
             fill="white"></path>
         </svg>
 
-        <h3>Nome Completo</h3>
+        <h3><span id="b_usuario">Nome Completo</span></h3>
         <nav>
           <ul class="sidebar-lista">
             <li>
@@ -227,3 +227,6 @@
 </body>
 
 </html>
+<script>
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+</script>
