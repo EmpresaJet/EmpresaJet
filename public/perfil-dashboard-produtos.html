@@ -150,7 +150,7 @@
                         fill="white"></path>
                 </svg>
 
-                <h3>Nome Completo</h3>
+                <h3><span id="b_usuario">Nome Completo</span></h3>
                 <nav>
                     <ul class="sidebar-lista">
                         <li>
@@ -268,3 +268,6 @@
 <script src="js/perfil-dashboard-produtos.js"></script>
 
 </html>
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+</script>
