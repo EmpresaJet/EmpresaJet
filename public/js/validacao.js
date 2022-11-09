@@ -102,6 +102,7 @@ function validar_autenticacao_login() {
     alert("Autenticação inválida");
   }
 }
+
 function validar_autenticacao_cadastro() {
   if (
     validar_usuario &&

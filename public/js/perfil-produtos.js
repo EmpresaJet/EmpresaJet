@@ -40,10 +40,6 @@ function insertProduto(){
     `;
 }
 
-
-
-
-
 // function removerLinhaTabela(idLinhaTabela){
 //     var linhaTabela = document.getElementById(idLinhaTabela);
 //     linhaTabela.remove();

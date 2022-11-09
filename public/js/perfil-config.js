@@ -219,7 +219,6 @@ function alterar_user() {
 
    //ATRIBUIR FETCH AO EVENTO PARA ALTERAR DADOS NO BANCO COM METODO PUT
   function confirmar_telefone() {
-    var telefone = Number(inputContato.value);
     fetch(`/usuarios/confirmar_telefone/${sessionStorage.getItem("USER_USUARIO")}`, {
       method: "PUT",
       headers: {
@@ -291,4 +290,5 @@ selecionarFoto.addEventListener('change', (event) => {
     }
 
     ler.readAsDataURL(selecionarFoto.files[0]);
+
 });
