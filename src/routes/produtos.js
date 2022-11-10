@@ -4,6 +4,10 @@ var router = express.Router();
 var produtosController = require("../controllers/produtosController");
 
 
-router.get("/", function (req, res) {
-    produtosController.buscar(req,res);
+router.get("/listarprodutos", function (req, res) {
+    produtosController.listarprodutos(req, res);
 });
+
+
+
+module.exports = router;
