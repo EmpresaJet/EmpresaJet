@@ -4,7 +4,7 @@ var router = express.Router();
 var produtosController = require("../controllers/produtosController");
 
 
-router.get("/listarprodutos", function (req, res) {
+router.get("/listarprodutos/:idUsuario", function (req, res) {
     produtosController.listarprodutos(req, res);
 });
 

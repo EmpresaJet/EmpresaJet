@@ -256,10 +256,10 @@
 
 
   function atualizartabela() {
-
+    var idUsuario = sessionStorage.ID_PERFIL;
   
 
-    fetch("/produtos/listarprodutos").then(function (resposta) {
+    fetch(`/produtos/listarprodutos/${idUsuario}`).then(function (resposta) {
       if (resposta.ok) {
         if (resposta.status == 204) {
           alert("Nenhum produto encontrado")
