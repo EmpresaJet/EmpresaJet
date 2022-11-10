@@ -40,11 +40,11 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-left: 28vw;
+  margin-left: 23vw;
   margin-top: 4.3vh;
   margin-bottom: 5vh;
   width: 45%;
-  height: 500vh;
+  padding-bottom: 50px;
   border-radius: 20px;
   background-color: rgb(237, 237, 237);
   box-shadow: 5px 6px 2px 1px rgba(0, 0, 0, 0.1);
@@ -56,83 +56,9 @@ body {
 }
 
 
-.notificacoes {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  height: 85vh;
-  margin-top: 3vh;
-}
-
-.notificacao {
-  display: flex;
-  flex-direction: row;
-
-}
-
-.notificacao1 {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
-  margin-left: 1vw;
-  margin-right: 2vw;
-  border: 1px solid rgb(246, 69, 69);
-  border-radius: 10px;
-  background-color: rgb(27, 27, 27);
-  color: white;
-  box-shadow: 8px 8px 0px 0px rgb(246, 69, 69);
-}
-
-.notificacao1 h4 {
-  margin-top: 1vh;
-  margin-left: 1vw;
-}
-
-.notificacao1 p {
-  margin-left: 1vw;
-  margin-top: 1.5vh;
-  margin-bottom: 1vh;
-}
-
-.notificacao3 {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  margin-top: 5vh;
-  margin-bottom: 1vh;
-  margin-left: 1vw;
-  margin-right: 2vw;
-  border: 1px solid rgb(255, 224, 86);
-  border-radius: 10px;
-  background-color: rgb(27, 27, 27);
-  color: white;
-  box-shadow: 8px 8px 0px 0px rgb(255, 224, 86);
-}
-
-.notificacao3 h4 {
-  margin-top: 1vh;
-  margin-left: 1vw;
-}
-
-.notificacao3 p {
-  margin-left: 1vw;
-  margin-top: 1.5vh;
-  margin-bottom: 1vh;
-}
-
-.data-hora {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  font-size: 10px;
-  margin-right: 0.5vw;
-}
-
 /* Notificações-Produtos em falta */
 
-.falta-produto {
+.publicacao {
   display: flex;
   flex-direction: column;
   width: 37.2vw;
@@ -154,24 +80,32 @@ body {
   box-shadow: 8px 8px 0px 0px var(--corAlerta);
 }
 
-.falta-produto h4 {
+.publicacao h4 {
   margin-top: 1vh;
   margin-left: 1vw;
 }
 
-.falta-produto p {
+.publicacao p {
   margin-left: 1vw;
   margin-top: 1.5vh;
 }
 
+.data-hora {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: 12.5px;
+  margin-right: 0.5vw;
+}
+
 /* Categorias */
+
 .container-categorias {
   display: flex;
   position: absolute;
   justify-content: center;
-  margin-left: 78vw;
-  margin-right: 15vw;
-  margin-top: 2.5vh;
+  right: 0px;
+  margin-top: -6.6vh;
   width: 18vw;
   height: 36vh;
   border-radius: 20px;

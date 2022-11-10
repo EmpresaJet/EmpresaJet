@@ -76,7 +76,7 @@ CREATE TABLE
      
 CREATE TABLE 
 	historico_alerta (
-		idHistorico INT PRIMARY KEY IDENTITY(1,1),
+		idHistorico INT PRIMARY KEY AUTO_INCREMENT,
 		statusHistorico VARCHAR(45),
 		dtHistorico DATETIME DEFAULT CURRENT_TIMESTAMP,
         titulo VARCHAR(45),
@@ -84,17 +84,23 @@ CREATE TABLE
         abastecimento int,
 		estado VARCHAR(45),
         produto VARCHAR(45),
-		fkDado INT FOREIGN KEY REFERENCES dado (idDado)
+		fkDado INT, FOREIGN KEY (fkDado) REFERENCES dado (idDado)
 );
-
+insert into historico_alerta(statusHistorico,titulo,setor,abastecimento,estado,produto) VALUES
+('n sei oque vai aqui','Falta de estoque em tal lugar','Congelados',65,'Alerta','Coca-Cola Congelada'),
+('n sei oque vai aqui','Falta de estoque em tal lugar','Assados',25,'Critico','Frango');
+drop table historico_alerta;
 DESC Sensor;
 	
 -- Exibir dados das tabelas
 SELECT * FROM Perfil;
-desc Perfil;
+desc historico_alerta;
 SELECT * FROM Empresa;
 SELECT * FROM Dado;
 SELECT * FROM Produto;
 SELECT * FROM Sensor;
 SELECT * FROM Prateleira;
 SELECT * FROM Historico_Alerta;
+
+
+SELECT idHistorico, produto, setor, abastecimento, estado, dtHistorico FROM historico_alerta;
