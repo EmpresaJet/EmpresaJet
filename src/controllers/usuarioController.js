@@ -77,6 +77,7 @@ function entrar(req, res) {
 
 }
 
+
 // FUNÇÃO QUE PEGA OS VALORES SETADOS EM PERFIL-CONFIG
 function confirmar_user(req, res) {
     var user = req.body.username;
