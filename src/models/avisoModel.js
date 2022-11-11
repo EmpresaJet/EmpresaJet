@@ -1,10 +1,13 @@
 var database = require("../database/config");
 
-function listar() {
+function listar(idEmpresa) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     
     var instrucao = `
-        SELECT idHistorico, produto, setor, abastecimento, estado, dtHistorico FROM historico_alerta;    
+        SELECT ha.idHistorico, ha.produto, ha.setor, ha.abastecimento, ha.estado, ha.dtHistorico FROM historico_alerta ha
+            JOIN dados_sensor on fkDado = idDado
+                JOIN prateleira on fkPrateleira = idPrateleira
+                    JOIN empresa on fkEmpresa = idEmpresa where idEmpresa = ${idEmpresa};    
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

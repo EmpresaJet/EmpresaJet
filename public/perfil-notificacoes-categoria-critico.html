@@ -11,7 +11,7 @@
     <title>Notificações - Crítico</title>
 </head>
 
-<body>
+<body onload="atualizarFeed()">
     <main>
 
         <section class="background-color">
@@ -126,7 +126,7 @@
         </nav>
       </div>
         </section>
-
+        <div class="posicaoCategorias">
         <div class="container-categorias">
             <h1>Categorias</h1>
             <div class="classificacoes">
@@ -152,6 +152,8 @@
                 </ul>
             </div>
         </div>
+      </div>
+        
 
         <!-- Título lista -->
         <div class="titulo-notificacoes">
@@ -162,33 +164,8 @@
         <div class="container">
             <h1>Notificações</h1>
             <h1>Crítico</h1>
-            <div class="notificacoes">
-                <div class="notificacao notificacao1">
-                    <h4>
-                        Controle de Abastecimento
-                    </h4>
-                    <p><b>Setor:</b> Bebidas e doces</p>
-                    <p><b>Abastecimento:</b> 65% abastecido</p>
-                    <p><b>Estado:</b> Crítico</p>
-                    <p class="data-hora"><b>20/01/2022 -- 20:11 pm</b></p>
-                </div>
-                <div class="notificacoes">
-                  <div class="falta-produto critico">
-                      <h4>Informações da prateleira</h4>
-                      <p><b>Produto:</b> Energético Redbull</p>
-                      <p><b>Setor:</b> Bebidas e doces </p>
-                      <p><b>Abastecimento:</b> </p>
-                      <p><b>Estado:</b> Crítico</p>
-                      <p class="data-hora"><b>15/04/2022 -- 12:51 pm</b></p>
-                  </div>
-                  <div class="falta-produto critico">
-                      <h4>Informações da prateleira</h4>
-                      <p><b>Produto:</b> Energético Red Bull Sem Açucar </p>
-                      <p><b>Setor:</b> Bebidas e doces</p>
-                      <p><b>Abastecimento:</b> </p>
-                      <p><b>Estado:</b> Crítico</p>
-                      <p class="data-hora"><b>19/04/2022 -- 11:52 am</b></p>
-                  </div>
+            <div class="notificacoes" id="feed">
+                
             </div>
         </div>
     </main>
@@ -197,4 +174,56 @@
 </html>
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+  function atualizarFeed() {
+    var idEmpresa = sessionStorage.ID_EMPRESA;
+    fetch(`/avisos/listar/${idEmpresa}`)
+      .then(function (resposta) {
+        if (resposta.ok) {
+          if (resposta.status == 204) {
+            var notificacoes = document.getElementById("feed");
+            var mensagem = document.createElement("span");
+            mensagem.classList.add('mensagem');
+            mensagem.innerHTML = "Nenhum resultado encontrado.";
+            feed.appendChild(mensagem);
+            throw "Nenhum resultado encontrado!!";
+          }
+          
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+            var notificacoes = document.getElementById("feed");
+            notificacoes.innerHTML = "";
+            for (let i = 0; i < resposta.length; i++) {
+              var publicacao = resposta[i];
+              
+              // criando e manipulando elementos do HTML via JavaScript
+              var divPublicacao = document.createElement("div");
+              feed.appendChild(divPublicacao);
+              if(publicacao.abastecimento < 50){
+                divPublicacao.innerHTML+=`          
+                        <h4>Informações da prateleira</h4>
+                        <p><b>Produto:</b>${publicacao.produto}</p>
+                        <p><b>Setor:</b> ${publicacao.setor}</p>
+                        <p><b>Abastecimento:</b>${publicacao.abastecimento}%</p>
+                        <p><b>Estado: </b> ${publicacao.estado}</p>
+                        <p class="data-hora"><b>${publicacao.dtHistorico}</b></p>                      
+                        `;
+                    
+              divPublicacao.className = "publicacao";
+              divPublicacao.classList.add("critico");
+          }else{
+            divPublicacao.style.display = 'none';
+          }
+              
+            }
+          });
+        } else {
+          throw console.log('aaaaaaaaa',JSON.stringify(resposta));
+        }
+      })
+      .catch(function (resposta) {
+        console.log(resposta);
+      });
+  }
 </script>

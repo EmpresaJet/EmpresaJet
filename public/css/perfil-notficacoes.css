@@ -40,7 +40,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-left: 23vw;
+  margin-left: 28.7vw;
   margin-top: 4.3vh;
   margin-bottom: 5vh;
   width: 45%;
@@ -68,6 +68,18 @@ body {
   border-radius: 15px;
   background-color: rgb(27, 27, 27);
   color: white;
+}
+.mensagem{
+  z-index: 9999;
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  font-size: large;
+}
+.posicaoCategorias{
+  position: absolute;
+  right: 5%;
+  top: 30%;
 }
 
 .critico {
@@ -102,7 +114,6 @@ body {
 
 .container-categorias {
   display: flex;
-  position: absolute;
   justify-content: center;
   right: 0px;
   margin-top: -6.6vh;
@@ -156,7 +167,6 @@ body {
   border: rgba(0, 0, 0, 0.10);
   border-radius: 9px;
   width: 100%;
-  transition: 0.2s;
 }
 
 .svg-seta {
@@ -165,9 +175,9 @@ body {
 }
 
 .legendas {
-  margin-top: 43vh;
   height: 26vh;
   width: 18vw;
+  margin-top: 30px;
 }
 
 .legendas ul {

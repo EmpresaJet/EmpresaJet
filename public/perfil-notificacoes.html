@@ -218,6 +218,7 @@
       </section>
 
       <!-- Categorias -->
+      <div class="posicaoCategorias">
       <div class="container-categorias">
         <h1>Categorias</h1>
         <div class="classificacoes">
@@ -280,7 +281,7 @@
           </ul>
         </div>
       </div>
-
+    </div>
 
       <!-- Título lista -->
       <div class="titulo-notificacoes">
@@ -297,15 +298,16 @@
 </html>
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
+  
   function atualizarFeed() {
-    //aguardar();
-    fetch("/avisos/listar")
+    var idEmpresa = sessionStorage.ID_EMPRESA;
+    fetch(`/avisos/listar/${idEmpresa}`)
       .then(function (resposta) {
         if (resposta.ok) {
           if (resposta.status == 204) {
             var notificacoes = document.getElementById("feed");
             var mensagem = document.createElement("span");
+            mensagem.classList.add('mensagem');
             mensagem.innerHTML = "Nenhum resultado encontrado.";
             feed.appendChild(mensagem);
             throw "Nenhum resultado encontrado!!";
@@ -336,7 +338,10 @@
                     
               divPublicacao.className = "publicacao";
 
-              if(Number(publicacao.abastecimento) > 60){
+              if(
+                Number(publicacao.abastecimento) < 75 &&
+                Number(publicacao.abastecimento) >  50 
+              ){
                 divPublicacao.classList.add("alerta");
               }else{
                 divPublicacao.classList.add("critico");
