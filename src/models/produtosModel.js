@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function listarprodutos(idUsuario) {
+function listarprodutos(idEmpresa) {
 
 
     console.log("ACESSEI O PRODUTOS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n \n function ListarProdutosFrioseCongelados()");
@@ -10,13 +10,25 @@ function listarprodutos(idUsuario) {
 		JOIN Prateleira on fkPrateleira = idPrateleira 
 			JOIN Empresa on Prateleira.fkEmpresa = idEmpresa
 				JOIN Perfil on Perfil.fkEmpresa = idEmpresa
-						WHERE Prateleira.setor = 'Frios e congelados' AND Perfil.idPerfil = ${idUsuario};
+						WHERE Prateleira.setor = 'Frios e congelados' AND Empresa.idEmpresa = ${idEmpresa};
                         `;
                         console.log("Executando a instrução SQL: \n" + instrucao);
                         return database.executar(instrucao);
 }
 
+function confirmarProduto(idProduto, nome){
+
+    console.log("ACESSEI O PRODUTOS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n \n function ListarProdutosFrioseCongelados()");
+
+    var instrucao = `
+        update produto set nomeProduto = "${nome}" where idProduto = ${idProduto};
+    `
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 module.exports = {
-    listarprodutos
+    listarprodutos,
+    confirmarProduto,
 }

@@ -4,10 +4,12 @@ var router = express.Router();
 var produtosController = require("../controllers/produtosController");
 
 
-router.get("/listarprodutos/:idUsuario", function (req, res) {
+router.get("/listarprodutos/:idEmpresa", function (req, res) {
     produtosController.listarprodutos(req, res);
 });
 
-
+router.put("/confirmarProduto/:idProduto", function (req, res) {
+    produtosController.confirmarProduto(req, res);
+});
 
 module.exports = router;

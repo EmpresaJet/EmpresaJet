@@ -118,8 +118,6 @@
         </table>
       </div>
     </section>
-
-
     <!-- Fundo azul e Sidebar -->
 
     <!-- Fundo Azul -->
@@ -256,10 +254,10 @@
 
 
   function atualizartabela() {
-    var idUsuario = sessionStorage.ID_PERFIL;
+    var idEmpresa = sessionStorage.ID_EMPRESA;
   
 
-    fetch(`/produtos/listarprodutos/${idUsuario}`).then(function (resposta) {
+    fetch(`/produtos/listarprodutos/${idEmpresa}`).then(function (resposta) {
       if (resposta.ok) {
         if (resposta.status == 204) {
           alert("Nenhum produto encontrado")
@@ -277,9 +275,10 @@
             var colunaTabela1 = document.createElement("td");
             var colunaTabela2 = document.createElement("td");
 
+            colunaTabela2.id = i+1;
 
-            colunaTabela1.innerHTML = itens.idProduto
-            colunaTabela2.innerHTML = itens.nomeProduto
+            colunaTabela1.innerHTML = i+1;
+            colunaTabela2.innerHTML = `${itens.nomeProduto} <img class="icon_editar" src="./assets/svg/icon_editar.svg" alt="" onclick="editar_produto(${itens.idProduto})">`;
 
             linhaTabela.className = "tr_table";
             colunaTabela1.className = "td_table"
@@ -298,5 +297,40 @@
       console.error(resposta);
     });
   }
+  function editar_produto(idProduto){
+    sessionStorage.ID_PRODUTO_EDITANDO = idProduto;
+    var idProduto = document.getElementById(idProduto);
+    idProduto.innerHTML = ` 
+      <input class="input_produto" placeholder="Nome do produto*" type="text" id="input_produto">
+      <button class="btn_adicionar_produto" onclick="confirmarProduto()">Confirmar</button>
+    `
+  }
+  function confirmarProduto(){
+    var nomeProduto = input_produto.value;
+    var idProduto = sessionStorage.ID_PRODUTO_EDITANDO;
 
+    fetch(`/produtos/confirmarProduto/${sessionStorage.getItem("ID_PRODUTO_EDITANDO")}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        nome: nomeProduto,
+        idProduto: idProduto,
+      })
+    }).then(function (resposta) {
+      
+      if (resposta.ok) {
+        window.alert("Produto atualizado com sucesso");
+        
+      } else if (resposta.status == 404) {
+        window.alert("Deu 404!");
+      } else {
+        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    })
+    window.location = "./perfil-produtos-frios-congelados.html"
+  }
 </script>
