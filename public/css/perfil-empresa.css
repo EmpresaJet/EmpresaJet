@@ -220,9 +220,10 @@ padding: 10px;
 }
 
 .func {
+  position: relative;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 60%;
   border: 2.4px rgb(224, 224, 224) solid;
   padding: 20px;
   margin-top: 5vh;
@@ -249,10 +250,12 @@ flex-direction: row;
   margin-left: 0.3vw;
 }
 .removerCard{
-width: 25%;
+width: 15%;
 padding: 15px;
 margin-top: 5vh;
-margin-left: 20vw;
+position: absolute;
+right: 50px;
+bottom: 25px;
 background: #27508f;
 color: #fff;
 border: 1px solid #eee;

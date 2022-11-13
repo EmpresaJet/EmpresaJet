@@ -7,12 +7,12 @@ router.get("/", function (req, res) {
     funcionarioController.buscar(req, res);
 });
 
-router.get("/listar", function (req, res) {
-    funcionarioController.listar(req, res);
+router.get("/listarFuncionario/:idEmpresa", function (req, res) {
+    funcionarioController.listarFuncionario(req, res);
 });
 
 //Recebendo os dados do html e direcionando para a função cadastrar de funcionarioController.js
-router.post("/cadastrarFuncionario", function (req, res) {
+router.post("/cadastrarFuncionario/:idEmpresa", function (req, res) {
     funcionarioController.cadastrarFuncionario(req, res);
 })
 

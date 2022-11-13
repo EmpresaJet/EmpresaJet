@@ -8,7 +8,7 @@ function testar(req, res) {
 }
 
 function buscar(req, res) {
-    const idEmpresa = req.query.id;
+    const idEmpresa = req.params.idEmpresa;
 
     funcionarioModel.buscar(idEmpresa)
         .then(
@@ -25,7 +25,8 @@ function buscar(req, res) {
 }
 
 function listarFuncionario(req, res) {
-    funcionarioModel.listarFuncionario()
+    var idEmpresa = req.params.idEmpresa;
+    funcionarioModel.listarFuncionario(idEmpresa)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -44,13 +45,13 @@ function listarFuncionario(req, res) {
 
 function cadastrarFuncionario(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var idPerfil = req.body.idPerfil;
     var user = req.body.userServer;
     var senha = req.body.senhaServer;
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var contato = req.body.contatoServer;
     var funcao = req.body.funcaoServer;
+    var idEmpresa = req.params.idEmpresa;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -66,7 +67,7 @@ function cadastrarFuncionario(req, res) {
     else {
         
         // Passe os valores como parâmetro e vá para o arquivo funcionarioModel.js
-        funcionarioModel.cadastrarFuncionario(idPerfil, user, senha, nome, email, contato, funcao)
+        funcionarioModel.cadastrarFuncionario(user, senha, nome, email, contato, funcao, idEmpresa)
             .then(
                 function (resultado) {
                     res.json(resultado);

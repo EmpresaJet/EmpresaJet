@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/perfil-empresa.css" />
   </head>
 
-  <body>
+  <body onload="buscarDadoFuncionario()">
     <main>
       <!-- Cor do fundo da pag -->
       <div class="background-color">
@@ -104,7 +104,7 @@
               </li>
               <div class="sidebar-separacao"></div>
               <li>
-                <a href="perfil-notificacoes.html">
+                <a href="perfil-tabelaFuncionarios.html">
                   <svg
                     class="sidebar-icone-lista"
                     width="46"
@@ -431,7 +431,7 @@
         </div>
         <button
           class="botao-registro"
-          onclick="botao_registro(),cadastrarFuncionario()"
+          onclick="cadastrarFuncionario()"
         >
           CADASTRAR
         </button>
@@ -447,251 +447,260 @@
 
 <script>
 
-  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-  function buscarDadosEmpresa() {
-    if (sessionStorage.ID_EMPRESA) {
-      fetch(`/empresa?id=${sessionStorage.ID_EMPRESA}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then(function (resposta) {
-          if (resposta.ok) {
-            resposta.json().then((json) => {
-              console.log(json);
-              //nome da empresa
-              var nome_empresa = json.nomeEmpresa;
-              titulo_div_empresa.innerHTML = nome_empresa;
-              subtitulo_div_empresa.remove();
-              inputEmpresa.remove();
-              nome_empresa_cadastro.innerHTML = `Nome da Empresa`;
-              nome_empresa_box.innerHTML += nome_empresa;
-
-              //cnpj da empresa
-              var cnpj_empresa = Number(json.cnpj);
-              inputCNPJ.remove();
-              cnpj_empresa_box.innerHTML += cnpj_empresa;
-              cnpj_empresa_cadastro.innerHTML = "CNPJ";
-
-              //Logradouro da empresa
-              var logradouro_empresa = json.logradouro;
-              inputLogradouro.remove();
-              logradouro_empresa_box.innerHTML += logradouro_empresa;
-              logradouro_empresa_cadastro.innerHTML = "Logradouro";
-
-              //Cidade da empresa
-              var cidade_empresa = json.cidade;
-              inputCidade.remove();
-              cidade_empresa_box.innerHTML += cidade_empresa;
-              cidade_empresa_cadastro.innerHTML = "Cidade";
-
-              //Estado da empresa
-              var estado_empresa = json.estado;
-              inputUF.remove();
-              estado_empresa_box.innerHTML += estado_empresa;
-              estado_empresa_cadastro.innerHTML = "UF";
-
-              //Cep da empresa
-              var cep_empresa = Number(json.cep);
-              inputCEP.remove();
-              cep_empresa_box.innerHTML += cep_empresa;
-              cep_empresa_cadastro.innerHTML = "CEP";
-
-              //Bairro da empresa
-              var bairro_empresa = json.bairro;
-              inputBairro.remove();
-              bairro_empresa_box.innerHTML += bairro_empresa;
-
-              //Complemento da empresa
-              var complemento_empresa = json.complemento;
-              inputComplemento.remove();
-              complemento_empresa_box.innerHTML += complemento_empresa;
-
-              btn_cadastrar_empresa.remove();
-              document.getElementById(
-                "container_filho_empresa"
-              ).style.marginLeft = "17vw";
-              document.getElementById("titulo_2_empresa").style.marginLeft =
-                "12vw";
-            });
-          }
+    function buscarDadosEmpresa() {
+      if (sessionStorage.ID_EMPRESA) {
+        fetch(`/empresa?id=${sessionStorage.ID_EMPRESA}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
         })
-        .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-        });
-    }
-  }
+          .then(function (resposta) {
+            if (resposta.ok) {
+              resposta.json().then((json) => {
+                console.log(json);
+                //nome da empresa
+                var nome_empresa = json.nomeEmpresa;
+                titulo_div_empresa.innerHTML = nome_empresa;
+                subtitulo_div_empresa.remove();
+                inputEmpresa.remove();
+                nome_empresa_cadastro.innerHTML = `Nome da Empresa`;
+                nome_empresa_box.innerHTML += nome_empresa;
 
-  function buscarDadoFuncionario() {
-    if (sessionStorage.ID_EMPRESA) {
-      fetch(`/funcionario?id=${sessionStorage.ID_EMPRESA}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then(function (resposta) {
-          if (resposta.ok) {
-            resposta.json().then((json) => {
-              console.log('aaaaaaaaaaaaaaaaa',json);
-              alert("Cadastro realizado com sucesso!");
+                //cnpj da empresa
+                var cnpj_empresa = Number(json.cnpj);
+                inputCNPJ.remove();
+                cnpj_empresa_box.innerHTML += cnpj_empresa;
+                cnpj_empresa_cadastro.innerHTML = "CNPJ";
 
-              const username = json.user;
-              const senha = json.senha;
-              const nome = json.nome;
-              const email = json.email;
-              const telefone = json.telefone;
-              const funcao = json.funcao;
+                //Logradouro da empresa
+                var logradouro_empresa = json.logradouro;
+                inputLogradouro.remove();
+                logradouro_empresa_box.innerHTML += logradouro_empresa;
+                logradouro_empresa_cadastro.innerHTML = "Logradouro";
 
-              tabela_funcionarios.innerHTML += `
-                  <div class="func" id="${contador_div_funcionario}">
-                    <div class="estilo-atributos">
-                      <h5>Login:</h5>
-                      <p>${username}</p>
-                    </div>
-                    <div class="estilo-atributos">
-                      <h5>Senha:</h5>
-                      <p>${senha}</p>
-                    </div>
-                    <div class="estilo-atributos">
-                      <h5>Nome Completo:</h5>
-                      <p>${nome}</p>
-                    </div>
-                    <div class="estilo-atributos">
-                      <h5>Email:</h5>
-                      <p>${email}</p>
-                    </div>
-                    <div class="estilo-atributos">
-                      <h5>Telefone:</h5>
-                      <p>${telefone}</p>
-                    </div>
-                    <div class="estilo-atributos">
-                      <h5>Função:</h5>
-                      <p>${funcao}</p>
-                    </div>
-                    <button class="removerCard" onclick="removerCard(${contador_div_funcionario})">Remover</button>
-                </div>
-                  `;
-            });
-          }
-        })
-        .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-        });
-    }
-  }
+                //Cidade da empresa
+                var cidade_empresa = json.cidade;
+                inputCidade.remove();
+                cidade_empresa_box.innerHTML += cidade_empresa;
+                cidade_empresa_cadastro.innerHTML = "Cidade";
 
-  function cadastrarEmpresa() {
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var empresaNomeVar = inputEmpresa.value;
-    var cnpjVar = inputCNPJ.value;
-    var logradouroVar = inputLogradouro.value;
-    var cidadeVar = inputCidade.value;
-    var estadoVar = inputUF.value;
-    var cepVar = inputCEP.value;
-    var bairroVar = inputBairro.value;
-    var complementoVar = inputComplemento.value;
+                //Estado da empresa
+                var estado_empresa = json.estado;
+                inputUF.remove();
+                estado_empresa_box.innerHTML += estado_empresa;
+                estado_empresa_cadastro.innerHTML = "UF";
 
-    // Enviando o valor da nova input
-    fetch("/empresa/cadastrarEmpresa", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        idPerfil: sessionStorage.ID_PERFIL,
-        empresaNomeServer: empresaNomeVar,
-        cnpjServer: cnpjVar,
-        logradouroServer: logradouroVar,
-        cidadeServer: cidadeVar,
-        estadoServer: estadoVar,
-        cepServer: cepVar,
-        bairroServer: bairroVar,
-        complementoVar: complementoVar,
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-// Se sucesso, ele atualiza o id da empresa dentro da sessionStorage e atualiza a pág
-        if (resposta.ok) {
-          resposta.json().then((idEmpresa) => {
-            sessionStorage.ID_EMPRESA = idEmpresa;
+                //Cep da empresa
+                var cep_empresa = Number(json.cep);
+                inputCEP.remove();
+                cep_empresa_box.innerHTML += cep_empresa;
+                cep_empresa_cadastro.innerHTML = "CEP";
+
+                //Bairro da empresa
+                var bairro_empresa = json.bairro;
+                inputBairro.remove();
+                bairro_empresa_box.innerHTML += bairro_empresa;
+
+                //Complemento da empresa
+                var complemento_empresa = json.complemento;
+                inputComplemento.remove();
+                complemento_empresa_box.innerHTML += complemento_empresa;
+
+                btn_cadastrar_empresa.remove();
+                document.getElementById(
+                  "container_filho_empresa"
+                ).style.marginLeft = "17vw";
+                document.getElementById("titulo_2_empresa").style.marginLeft =
+                  "12vw";
+              });
+            }
+          })
+          .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
           });
+      }
+    }
 
-          alert("Cadastro realizado com sucesso!");
-          window.location.reload();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        // finalizarAguardar();
-      });
-
-    return false;
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
-
-  function cadastrarFuncionario() {
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var userVar = inputUsuario.value;
-    var senhaVar = inputSenha.value;
-    var nomeVar = inputNome.value;
-    var emailVar = inputEmail.value;
-    var contatoVar = inputContato.value;
-    var funcaoVar = inputFuncao.value;
-
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        idPerfil: sessionStorage.ID_EMPRESA,
-        userServer: userVar,
-        senhaServer: senhaVar,
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        contatoServer: contatoVar,
-        funcaoServer: funcaoVar,
-      }),
-    })
+    function buscarDadoFuncionario() {
+      var idEmpresa = sessionStorage.ID_EMPRESA;
+    fetch(`/funcionario/listarFuncionario/${idEmpresa}`)
       .then(function (resposta) {
-        console.log("resposta: ", resposta, sessionStorage.ID_EMPRESA);
-
+        console.log('estou na Buscarfuncionario()',resposta);
         if (resposta.ok) {
-          alert("Cadastro realizado com sucesso!");
+          if (resposta.status == 204) {
+            var tabelaFuncionarios = document.getElementById("tabela_funcionarios");
+            var mensagem = document.createElement("span");
+            mensagem.classList.add('mensagem');
+            mensagem.innerHTML = "Nenhum resultado encontrado.";
+            tabelaFuncionarios.appendChild(mensagem);
+            throw "Nenhum resultado encontrado!!";
+          }
 
-          setTimeout(() => {
-            window.location.reload();
-          }, "1000");
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+            var tabelaFuncionarios = document.getElementById("tabela_funcionarios");
+            tabelaFuncionarios.innerHTML = "<h3>FUNCIONÁRIOS</h3>";
+            for (let i = 0; i < resposta.length; i++) {
+              var publicacao = resposta[i];
+
+              // criando e manipulando elementos do HTML via JavaScript
+
+              tabelaFuncionarios.innerHTML+=`
+                        
+              <div class="func" id="${i}">
+                      <div class="estilo-atributos">
+                        <h5>Login:</h5>
+                        <p>${publicacao.username}</p>
+                      </div>
+                      <div class="estilo-atributos">
+                        <h5>Senha:</h5>
+                        <p>${publicacao.senha}</p>
+                      </div>
+                      <div class="estilo-atributos">
+                        <h5>Nome Completo:</h5>
+                        <p>${publicacao.nome}</p>
+                      </div>
+                      <div class="estilo-atributos">
+                        <h5>Email:</h5>
+                        <p>${publicacao.email}</p>
+                      </div>
+                      <div class="estilo-atributos">
+                        <h5>Telefone:</h5>
+                        <p>${publicacao.telefone}</p>
+                      </div>
+                      <div class="estilo-atributos">
+                        <h5>Função:</h5>
+                        <p>${publicacao.funcao}</p>
+                      </div>
+                      <button class="removerCard" onclick="removerCard(${i})">Remover</button>
+                  </div>
+                    `;
+            }
+          });
         } else {
-          alert("Houve um erro ao tentar realizar o cadastro!");
+          throw console.log('Estou na buscarDadosFuncionario()',JSON.stringify(resposta));
         }
       })
       .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
+        console.log(resposta);
       });
+    }
 
-    return false;
-  }
+    function cadastrarEmpresa() {
+      //Recupere o valor da nova input pelo nome do id
+      // Agora vá para o método fetch logo abaixo
+      var empresaNomeVar = inputEmpresa.value;
+      var cnpjVar = inputCNPJ.value;
+      var logradouroVar = inputLogradouro.value;
+      var cidadeVar = inputCidade.value;
+      var estadoVar = inputUF.value;
+      var cepVar = inputCEP.value;
+      var bairroVar = inputBairro.value;
+      var complementoVar = inputComplemento.value;
 
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
+      // Enviando o valor da nova input
+      fetch("/empresa/cadastrarEmpresa", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          idPerfil: sessionStorage.ID_PERFIL,
+          empresaNomeServer: empresaNomeVar,
+          cnpjServer: cnpjVar,
+          logradouroServer: logradouroVar,
+          cidadeServer: cidadeVar,
+          estadoServer: estadoVar,
+          cepServer: cepVar,
+          bairroServer: bairroVar,
+          complementoVar: complementoVar,
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+  // Se sucesso, ele atualiza o id da empresa dentro da sessionStorage e atualiza a pág
+          if (resposta.ok) {
+            resposta.json().then((idEmpresa) => {
+              sessionStorage.ID_EMPRESA = idEmpresa;
+            });
 
-  // chama a função assim que a pagina carrega
-  buscarDadosEmpresa();
+            alert("Cadastro realizado com sucesso!");
+            window.location.reload();
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          // finalizarAguardar();
+        });
+
+      return false;
+    }
+
+    function sumirMensagem() {
+      cardErro.style.display = "none";
+    }
+
+    function cadastrarFuncionario() {
+      //Recupere o valor da nova input pelo nome do id
+      // Agora vá para o método fetch logo abaixo
+      var userVar = inputUsuario.value;
+      var senhaVar = inputSenha.value;
+      var nomeVar = inputNome.value;
+      var emailVar = inputEmail.value;
+      var contatoVar = inputContato.value;
+      var funcaoVar = inputFuncao.value;
+      var idEmpresa = sessionStorage.ID_EMPRESA;
+
+      fetch(`/funcionario/cadastrarFuncionario/${idEmpresa}`,{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/funcionario.js
+          idEmpresa: sessionStorage.ID_EMPRESA,
+          userServer: userVar,
+          senhaServer: senhaVar,
+          nomeServer: nomeVar,
+          emailServer: emailVar,
+          contatoServer: contatoVar,
+          funcaoServer: funcaoVar,
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta, sessionStorage.ID_EMPRESA);
+
+          if (resposta.ok) {
+            alert("Cadastro realizado com sucesso!");
+
+            setTimeout(() => {
+              window.location.reload();
+            }, "500");
+          } else {
+            alert("Houve um erro ao tentar realizar o cadastro!");
+            console.log("respostaaaa: ", resposta, sessionStorage.ID_EMPRESA);
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+
+      return false;
+    }
+
+    function sumirMensagem() {
+      cardErro.style.display = "none";
+    }
+
+    // chama a função assim que a pagina carrega
+    buscarDadosEmpresa();
 </script>
