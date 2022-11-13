@@ -28,7 +28,33 @@ function confirmarProduto(idProduto, nome){
     return database.executar(instrucao);
 }
 
+function listarProdutosBebidas(idEmpresa) {
+    var instrucao = `SELECT Produto.idProduto, Produto.nomeProduto FROM Produto 
+	JOIN Prateleira_Produto on fkProduto = idProduto
+		JOIN Prateleira on fkPrateleira = idPrateleira 
+			JOIN Empresa on Prateleira.fkEmpresa = idEmpresa
+				JOIN Perfil on Perfil.fkEmpresa = idEmpresa
+						WHERE Prateleira.setor = 'Bebidas' AND Empresa.idEmpresa = ${idEmpresa};
+                        `;
+                        console.log("Executando a instrução SQL: \n" + instrucao);
+                        return database.executar(instrucao);
+}
+
+function listarProdutosCuidados(idEmpresa) {
+    var instrucao = `SELECT Produto.idProduto, Produto.nomeProduto FROM Produto 
+	JOIN Prateleira_Produto on fkProduto = idProduto
+		JOIN Prateleira on fkPrateleira = idPrateleira 
+			JOIN Empresa on Prateleira.fkEmpresa = idEmpresa
+				JOIN Perfil on Perfil.fkEmpresa = idEmpresa
+						WHERE Prateleira.setor = 'Cuidados pessoais' AND Empresa.idEmpresa = ${idEmpresa};
+                        `;
+                        console.log("Executando a instrução SQL: \n" + instrucao);
+                        return database.executar(instrucao);
+}
+
 module.exports = {
     listarprodutos,
     confirmarProduto,
+    listarProdutosBebidas,
+    listarProdutosCuidados
 }

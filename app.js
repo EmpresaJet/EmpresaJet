@@ -10,7 +10,7 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
-var funcionarioRouter = require("./src/routes/funcionario");
+// var funcionarioRouter = require("./src/routes/funcionario");
 var empresaRouter = require("./src/routes/empresa");
 var produtosRouter = require("./src/routes/produtos");
 var notificacoesRouter = require("./src/routes/avisos");
@@ -26,7 +26,7 @@ app.use("/usuarios", usuarioRouter);
 app.use("/empresa", empresaRouter);
 app.use("/produtos", produtosRouter);
 app.use("/avisos",notificacoesRouter);
-app.use("/funcionario",funcionarioRouter);
+// app.use("/funcionario",funcionarioRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n
