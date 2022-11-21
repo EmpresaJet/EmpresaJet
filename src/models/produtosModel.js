@@ -5,12 +5,13 @@ function listarprodutos(idEmpresa) {
 
     console.log("ACESSEI O PRODUTOS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n \n function ListarProdutosFrioseCongelados()");
 
-    var instrucao = `SELECT Produto.idProduto, Produto.nomeProduto FROM Produto 
-	JOIN Prateleira_Produto on fkProduto = idProduto
-		JOIN Prateleira on fkPrateleira = idPrateleira 
-			JOIN Empresa on Prateleira.fkEmpresa = idEmpresa
-				JOIN Perfil on Perfil.fkEmpresa = idEmpresa
-						WHERE Prateleira.setor = 'Frios e congelados' AND Empresa.idEmpresa = ${idEmpresa};
+    var instrucao = `SELECT p.idProduto, p.nomeProduto, ds.statusPrateleira FROM Produto p
+	JOIN Prateleira_Produto pp on pp.fkProduto = p.idProduto
+		JOIN Prateleira prat on pp.fkPrateleira = prat.idPrateleira 
+			JOIN Empresa e on prat.fkEmpresa = e.idEmpresa
+				JOIN Perfil pf on pf.fkEmpresa = e.idEmpresa
+					JOIN dados_sensor ds on ds.fkPrateleira = prat.idPrateleira
+						WHERE prat.setor = 'Frios e congelados' AND e.idEmpresa = ${idEmpresa} ORDER BY ds.idDado DESC LIMIT 8;
                         `;
                         console.log("Executando a instrução SQL: \n" + instrucao);
                         return database.executar(instrucao);
