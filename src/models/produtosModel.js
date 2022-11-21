@@ -48,24 +48,26 @@ function listarprodutosHortifruti(idEmpresa) {
 }
 
 function listarProdutosBebidas(idEmpresa) {
-    var instrucao = `SELECT Produto.idProduto, Produto.nomeProduto FROM Produto 
-	JOIN Prateleira_Produto on fkProduto = idProduto
-		JOIN Prateleira on fkPrateleira = idPrateleira 
-			JOIN Empresa on Prateleira.fkEmpresa = idEmpresa
-				JOIN Perfil on Perfil.fkEmpresa = idEmpresa
-						WHERE Prateleira.setor = 'Bebidas' AND Empresa.idEmpresa = ${idEmpresa};
+    var instrucao = `SELECT p.idProduto, p.nomeProduto, ds.statusPrateleira FROM Produto p
+	JOIN Prateleira_Produto pp on pp.fkProduto = p.idProduto
+		JOIN Prateleira prat on pp.fkPrateleira = prat.idPrateleira 
+			JOIN Empresa e on prat.fkEmpresa = e.idEmpresa
+				JOIN Perfil pf on pf.fkEmpresa = e.idEmpresa
+					JOIN dados_sensor ds on ds.fkPrateleira = prat.idPrateleira
+						WHERE prat.setor = 'Bebidas' AND e.idEmpresa = ${idEmpresa} ORDER BY ds.idDado DESC LIMIT 10;
                         `;
                         console.log("Executando a instrução SQL: \n" + instrucao);
                         return database.executar(instrucao);
 }
 
 function listarProdutosCuidados(idEmpresa) {
-    var instrucao = `SELECT Produto.idProduto, Produto.nomeProduto FROM Produto 
-	JOIN Prateleira_Produto on fkProduto = idProduto
-		JOIN Prateleira on fkPrateleira = idPrateleira 
-			JOIN Empresa on Prateleira.fkEmpresa = idEmpresa
-				JOIN Perfil on Perfil.fkEmpresa = idEmpresa
-						WHERE Prateleira.setor = 'Cuidados pessoais' AND Empresa.idEmpresa = ${idEmpresa};
+    var instrucao = `SELECT p.idProduto, p.nomeProduto, ds.statusPrateleira FROM Produto p
+	JOIN Prateleira_Produto pp on pp.fkProduto = p.idProduto
+		JOIN Prateleira prat on pp.fkPrateleira = prat.idPrateleira 
+			JOIN Empresa e on prat.fkEmpresa = e.idEmpresa
+				JOIN Perfil pf on pf.fkEmpresa = e.idEmpresa
+					JOIN dados_sensor ds on ds.fkPrateleira = prat.idPrateleira
+						WHERE prat.setor = 'Cuidados pessoais' AND e.idEmpresa = ${idEmpresa} ORDER BY ds.idDado DESC LIMIT 7;
                         `;
                         console.log("Executando a instrução SQL: \n" + instrucao);
                         return database.executar(instrucao);
