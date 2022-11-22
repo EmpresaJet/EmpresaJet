@@ -4,7 +4,7 @@ body {
     background-color: #e5e8eb;
 }
 
-.background-color {
+.background-color { 
     background-color: rgb(26, 72, 139);
     width: 100%;
     height: 30vh;
@@ -417,25 +417,27 @@ body {
 
 .lista-produtos-nome-li-elementos {
     display: flex;
+    justify-content: center;
 }
 
 .lista-produtos-nome-li-titulo {
     display: flex;
     justify-content: flex-end;
-    margin-right: 9.5%;
-    margin-left: 2vw;
-    width: 32%;
+    margin-right: 7%;
+    width: 40%;
+    margin-left: -4vw;
+    font-size: 1.2rem;
+    letter-spacing: 0.2px;
 }
 
 .lista-produtos-nome-li-binario ul {
     display: flex;
     list-style: none;
-    margin-right: 4vw;
 }
 
 .lista-produtos-nome-li-binario ul li {
     display: flex;
-    margin-right: 1.6vw;
+    margin-right: 3vw;
 }
 
 
@@ -446,4 +448,29 @@ body {
     padding: 1%;
     width: 100%;
     margin-top: 83%;
+}
+
+.red {
+    background-color: #f34141;
+    /* background-color: #f34141; */
+}
+
+.green {
+    background-color: #45dc3a;
+    /* background-color: #45dc3a; */
+}
+
+.bolinha {
+    height: 20px;
+    width: 20px;
+    border-radius: 30px;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    /* background-color: blueviolet; */
+}
+
+.container-bolinhas {
+    display: flex;
+    width: 100%;
+    height: 4vh;
 }
