@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body onload="mostrarkpi()">
 
     <main>
 
@@ -29,9 +29,10 @@
 
         <!--Sessão de KPIs-->
         <div class="dashboard-kpis">
-            <div class="kpis kpi-status-informacoes_gerais">
+            <div id="div_kpi_dado" class="kpis kpi-status-informacoes_gerais">
                 <p class="kpi-titulo">Status do mercado</p>
-                <p class="kpi-dado">Alerta<span class="kpi-dado-palavra-ajuste">84% abastecido</span></p>
+                <p id="kpi_dado" class="kpi-dado"></p><span id="kpi_abastecimento"
+                     class="kpi-dado-palavra-ajuste"></span>
             </div>
             <div class="kpis kpi-setor-ausencia-informacoes_gerais">
                 <p class="kpi-titulo">Setor com maior falta de produtos</p>
@@ -274,4 +275,50 @@
 </html>
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+</script>
+
+<script>
+
+    function mostrarkpi() {
+
+        var idEmpresa = sessionStorage.ID_EMPRESA;
+
+        fetch(`/kpigeral/kpisdashboardgeral/${idEmpresa}`).then(function (resposta) {
+      if (resposta.ok) {
+        if (resposta.status == 204) {
+          alert("Nenhuma prateleira encontrada")
+        }
+        resposta.json().then(function (resposta) {
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+        
+            for (let i = 0; i < resposta.length; i++) {
+              var porcentagem  = resposta[i];
+              console.log(porcentagem.conta)
+
+        kpi_abastecimento.innerHTML = `${porcentagem.conta}% abastecido`
+            
+        if (porcentagem <= 75) {
+            kpi_dado.innerHTML = `Crítico`;
+            div_kpi_dado.classList.add('kpi-setor-ausencia-informacoes_gerais');
+        } else if (porcentagem.conta <= 85) {
+            kpi_dado.innerHTML = `Alerta`;
+            div_kpi_dado.classList.add('kpi-status-informacoes_gerais');
+        } else if (porcentagem.conta <= 90) {
+            kpi_dado.innerHTML = `Bom`;
+            div_kpi_dado.classList.add('kpi-ausencia-informacoes_gerais');
+        } else {
+            kpi_dado.innerHTML = `Ótimo`;
+            div_kpi_dado.classList.add('kpi-otimo');
+        }
+          
+      }});
+      } else {
+        throw ('Houve um erro na API!');
+      }
+    }).catch(function (resposta) {
+      console.error(resposta);
+    });
+  }
+    
+
 </script>

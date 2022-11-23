@@ -14,6 +14,7 @@ var usuarioRouter = require("./src/routes/usuarios");
 var empresaRouter = require("./src/routes/empresa");
 var produtosRouter = require("./src/routes/produtos");
 var notificacoesRouter = require("./src/routes/avisos");
+var kpigeralRouter = require("./src/routes/kpigeral");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,6 +27,7 @@ app.use("/usuarios", usuarioRouter);
 app.use("/empresa", empresaRouter);
 app.use("/produtos", produtosRouter);
 app.use("/avisos",notificacoesRouter);
+app.use("/kpigeral", kpigeralRouter);
 // app.use("/funcionario",funcionarioRouter);
 
 app.listen(PORTA, function () {
