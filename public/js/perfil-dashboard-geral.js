@@ -93,3 +93,5 @@ const grafico_linha_fluxo_setores = new Chart(
     document.getElementById('linha_fluxo_setores'),
     config_linha_fluxo_setores
 );
+
+
