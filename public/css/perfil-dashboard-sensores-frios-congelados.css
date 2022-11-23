@@ -405,7 +405,7 @@ body {
 
 /*Lista de produtos*/
 
-.lista-produtos-nome-ul {
+.lista-produtos-nome-ul { 
     list-style: none;
     margin-bottom: 6vh;
     width: 100%;
@@ -425,7 +425,7 @@ body {
     display: flex;
     justify-content: flex-end;
     margin-right: 7%;
-    width: 28%;
+    width: 40%;
     margin-left: -4vw;
     font-size: 1.2rem;
     letter-spacing: 0.2px;
