@@ -17,7 +17,7 @@ function listarPorEmpresa(idEmpresa) {
 
         instrucaoSql = `SELECT count(*) as status_falta, DATE_FORMAT(dtPrateleira,'%h:00') as hora from dados_sensor
         JOIN Prateleira on idPrateleira = fkEmpresa
-        where statusPrateleira <> 3 and fkEmpresa = ${idEmpresa} group by hour(dtPrateleira) LIMIT 12`;
+        where statusPrateleira <> 3 and fkEmpresa = ${idEmpresa} group by hour(dtPrateleira) LIMIT 3`;
 
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");

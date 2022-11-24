@@ -187,3 +187,29 @@ CREATE TABLE
     -- (1, 42),
     -- (3, 43),
     -- (1, 44);
+
+
+
+
+--     SELECT count(*) as status_falta, DATE_FORMAT(dtPrateleira,'%h:00') as hora from dados_sensor
+--         JOIN Prateleira on idPrateleira = fkEmpresa
+--         where statusPrateleira <> 3 and fkEmpresa = 1 group by hour(dtPrateleira) LIMIT 12;
+        
+        
+-- INSERT INTO dados_sensor(statusPrateleira,fkPrateleira,dtPrateleira) VALUES
+-- ('0', 43,'2022-07-23 21:10:15'),
+-- ('1', 40,'2022-07-23 23:10:15');
+
+
+-- INSERT INTO dados_sensor(statusPrateleira,fkPrateleira,dtPrateleira) VALUES
+-- ('2', 44,'2022-07-23 21:10:15');
+
+-- INSERT INTO dados_sensor(statusPrateleira,fkPrateleira,dtPrateleira) VALUES
+-- ('3', 40,'2022-07-23 21:10:15');
+
+
+-- INSERT INTO dados_sensor(statusPrateleira,fkPrateleira,dtPrateleira) VALUES
+-- ('2', 40,'2022-07-23 00:30:15');
+
+-- INSERT INTO dados_sensor(statusPrateleira,fkPrateleira,dtPrateleira) VALUES
+-- ('1', 40,'2022-07-23 03:30:15');
