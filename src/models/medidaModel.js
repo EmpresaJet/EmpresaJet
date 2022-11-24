@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idEmpresa, limite_linhas) {
+function listarPorEmpresa(idEmpresa) {
 
     instrucaoSql = ''
 
@@ -11,16 +11,18 @@ function buscarUltimasMedidas(idEmpresa, limite_linhas) {
                         momento,
                         FORMAT(momento, 'HH:mm:ss') as momento_grafico
                     from medida
-                    where fk_aquario = ${idEmpresa}
+                    where fk_aquario = ${idAquario}
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = ` select * from dados_sensor
-        order by idDado desc limit ${limite_linhas};`;
+
+        instrucaoSql = `SELECT count(*) as status_falta, DATE_FORMAT(dtPrateleira,'%h:00') as hora from dados_sensor
+        JOIN Prateleira on idPrateleira = fkEmpresa
+        where statusPrateleira <> 3 and fkEmpresa = ${idEmpresa} group by hour(dtPrateleira) LIMIT 12`;
+
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
     }
-
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
@@ -57,6 +59,6 @@ function buscarMedidasEmTempoReal(idAquario) {
 
 
 module.exports = {
-    buscarUltimasMedidas,
+    listarPorEmpresa,
     buscarMedidasEmTempoReal
 }
