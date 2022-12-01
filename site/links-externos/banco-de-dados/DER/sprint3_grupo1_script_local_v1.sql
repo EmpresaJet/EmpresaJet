@@ -245,6 +245,181 @@ INSERT INTO Prateleira_Produto(fkPrateleira, fkProduto) values
 (42,42),
 (43,43),
 (44,44);
-          
+
+use empresajet;
+
+-- estado atual das gondolas 
+
+select * from dados_sensor ; 
+
+select count(idDado) from dados_sensor where statusPrateleira = 3  order by dtPrateleira desc limit 5;
+
+SELECT (SELECT DISTINCT ROUND ((SUM(statusPrateleira) / (44 * 3) * 100)) 
+FROM (SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1
+ORDER BY ds.idDado DESC LIMIT 44) as wip_abastecido ) as abastecido,
+(SELECT DISTINCT ROUND ((100 - (SUM(statusPrateleira) / (44 * 3) * 100))) FROM 
+(SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1
+ORDER BY ds.idDado DESC LIMIT 44) AS wip_nao_abastecido)  as nao_abastecido;
                         
+
+select * from usuario;
+select * from prateleira;
   
+  
+-- Pegar quantos tao faltando de cada setor, nos ultimos 44 dados 
+SELECT COUNT(idPrateleira) FROM prateleira WHERE setor = 'Bebidas';
+
+SELECT statusPrateleira FROM (SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1 AND prat.setor = 'Mercearia'
+ORDER BY ds.idDado DESC LIMIT 10) as empresa_dados;
+
+SELECT DISTINCT setor FROM prateleira;
+
+-- FRIOS E CONGELADOS: 8 prat 
+
+SELECT (SELECT (24 - SUM(statusPrateleira)) FROM (SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1 AND prat.setor = 'Frios e congelados'
+ORDER BY ds.idDado DESC LIMIT 8) as empresa_dados) falta_frios;
+
+-- MERCEARIA: 10 prat
+
+SELECT (SELECT (30 - SUM(statusPrateleira)) FROM (SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1 AND prat.setor = 'Mercearia'
+ORDER BY ds.idDado DESC LIMIT 10) as empresa_dados) falta_mercearia;
+
+-- HORTIFRUTI: 9 prat
+
+SELECT (SELECT (27 - SUM(statusPrateleira)) FROM (SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1 AND prat.setor = 'Hortifruti'
+ORDER BY ds.idDado DESC LIMIT 9) as empresa_dados) falta_hortifruti;
+
+-- CUIDADOS PESSOAIS: 7 prat 
+
+SELECT (SELECT (21 - SUM(statusPrateleira)) FROM (SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1 AND prat.setor = 'Cuidados Pessoais'
+ORDER BY ds.idDado DESC LIMIT 7) as empresa_dados) falta_cuidados;
+
+-- BEBIDAS: 10 prat 
+
+SELECT (SELECT (30 - SUM(statusPrateleira)) FROM (SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1 AND prat.setor = 'Bebidas'
+ORDER BY ds.idDado DESC LIMIT 10) as empresa_dados) falta_bebidas;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ------------------------------------------------------------------------------
+
+SELECT (24 - SUM(statusPrateleira)) FROM (SELECT ds.statusPrateleira FROM ((SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1 AND prat.setor = 'Frios e congelados'
+ORDER BY ds.idDado DESC LIMIT 8) as empresa_dados)) AS dados_setor;
+
+SELECT (24 - SUM(statusPrateleira)) FROM (SELECT ds.statusPrateleira FROM ((SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1
+ORDER BY ds.idDado DESC LIMIT 44) as empresa_dados) WHERE prat.setor = 'Frios e congelados') AS dados_setor;
+
+
+SELECT (SELECT DISTINCT (SELECT (24 - SUM(statusPrateleira)) 
+FROM (SELECT statusPrateleira FROM (SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1
+ORDER BY ds.idDado DESC LIMIT 44) as dados_empresa) AS dados_setor ) FROM prateleira prat WHERE prat.setor = 'Frios e congelados') AS faltas_setor ;
+
+
+SELECT (SELECT DISTINCT (24 - SUM(statusPrateleira)) 
+FROM (SELECT statusPrateleira FROM (SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1
+ORDER BY ds.idDado DESC LIMIT 44) as dados_empresa) AS dados_setor ) AS faltas_setor ;
+
+SELECT (SELECT DISTINCT (24 - SUM(statusPrateleira)) 
+FROM (SELECT statusPrateleira FROM (SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1
+ORDER BY ds.idDado DESC LIMIT 44) as dados_empresa
+) AS dados_setor ) AS faltas_setor ;
+
+SELECT COUNT(ds.statusPrateleira) FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1
+ORDER BY ds.idDado DESC LIMIT 44;
+
+SELECT (SELECT DISTINCT (SELECT (24 - SUM(statusPrateleira)) 
+FROM (SELECT statusPrateleira FROM (SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1
+ORDER BY ds.idDado DESC LIMIT 44) as dados_empresa) AS dados_setor ) FROM prateleira prat WHERE prat.setor = 'Frios e congelados') 
+AS faltas_setor ;
+
+
+SELECT (24 - SUM(statusPrateleira)) FROM (SELECT statusPrateleira FROM (SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1
+ORDER BY ds.idDado DESC LIMIT 44) as dados_empresa) as dados WHERE setor = 'Frios e congelados';
+
+
+
+
+-- ----------------------------
+
+SELECT (SELECT DISTINCT (SELECT (24 - SUM(statusPrateleira)) 
+FROM (SELECT (SELECT statusPrateleira FROM (SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1
+ORDER BY ds.idDado DESC LIMIT 44) as dados_empresa) AS dados_setor  FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+ WHERE prat.setor = 'Frios e congelados')as wip) 
+AS wip2) AS faltas_setor;
+
+
+
+SELECT (SELECT DISTINCT (SELECT (24 - SUM(statusPrateleira)) 
+FROM (SELECT ((SELECT statusPrateleira FROM (SELECT ds.statusPrateleira FROM dados_sensor ds 
+JOIN prateleira prat ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1
+ORDER BY ds.idDado DESC LIMIT 44) as dados_empresa) AS dados_setor ) FROM prateleira prat WHERE prat.setor = 'Frios e congelados') as wip) 
+AS wip2) AS faltas_setor;
+
+
+SELECT COUNT(idPrateleira) FROM (SELECT prat.idPrateleira FROM prateleira prat
+JOIN dados_sensor ds  ON ds.fkPrateleira = prat.idPrateleira
+JOIN empresa e ON prat.fkEmpresa = e.idEmpresa WHERE e.idEmpresa = 1 AND prat.idPrateleira >= 1 AND prat.idPrateleira <= 8
+ORDER BY ds.idDado DESC LIMIT 44) as wip;
+
